@@ -11,7 +11,7 @@ export default function Productos() {
     <div> 
    <Prueba/>
   <Landing/>
-  <Cards/>
+
   </div>
   )
 }

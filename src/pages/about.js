@@ -15,7 +15,7 @@ export default function About() {
   <Landing/>
   
 
-  <Cards/>
+
   </div>
   )
 }
