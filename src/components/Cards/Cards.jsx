@@ -1,12 +1,8 @@
-import React from 'react';
+/* import React from 'react';
 
 function Cards() {
   const cardData = [
     { title: 'Standard Color', description: 'Lorem ipsum dolor sit amet, #brands.', imageUrl: 'https://source.unsplash.com/random/400x400' },
-    { title: 'Standard Color', description: 'Lorem ipsum dolor sit amet, #brands.', imageUrl: 'https://source.unsplash.com/random/400x400' },
-    { title: 'Standard Color', description: 'Lorem ipsum dolor sit amet, #brands.', imageUrl: 'https://source.unsplash.com/random/400x400' },
-    { title: 'Standard Color', description: 'Lorem ipsum dolor sit amet, #brands.', imageUrl: 'https://source.unsplash.com/random/400x400' },
-    // ... Agrega más datos de tarjetas según sea necesario
   ];
 
   return (
@@ -40,3 +36,4 @@ function Cards() {
 }
 
 export default Cards;
+*/
