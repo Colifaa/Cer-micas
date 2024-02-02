@@ -15,7 +15,6 @@ export default function Productos() {
   
   <Landing/>
   
-
   <Cards/>
   </div>
   )
