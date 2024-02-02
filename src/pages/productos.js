@@ -10,11 +10,8 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Productos() {
   return (
     <div> 
-   
    <Prueba/>
-  
   <Landing/>
-  
   <Cards/>
   </div>
   )
