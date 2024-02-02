@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 
 function Cards() {
   const cardData = [
@@ -36,3 +36,4 @@ function Cards() {
 }
 
 export default Cards;
+*/
