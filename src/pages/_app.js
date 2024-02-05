@@ -1,5 +1,16 @@
-import '@/styles/globals.css'
+// Importa ChakraProvider y CSS Reset
+import { ChakraProvider, CSSReset } from "@chakra-ui/react";
+import '@/styles/globals.css';
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+function App({ Component, pageProps }) {
+  return (
+    <ChakraProvider>
+      {/* Incluye CSSReset para normalizar estilos */}
+      <CSSReset />
+      {/* Renderiza el componente principal */}
+      <Component {...pageProps} />
+    </ChakraProvider>
+  );
 }
+
+export default App;
