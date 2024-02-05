@@ -1,3 +1,4 @@
+import SignUp from '@/components/SignUp/SignUp'
 import SingIn from '@/components/SingIn/SingIn'
 import React from 'react'
 

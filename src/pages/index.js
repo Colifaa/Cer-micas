@@ -5,8 +5,7 @@ import Prueba from '@/components/Prueba/Prueba'
 import Carousel from '../components/Carousel/Carousel'
 import Navbar from '@/components/NavBar/Navbar'
 import Footer from '@/components/Footer/Footer'
-import SignUp from '@/components/SignUp/SignUp'
-import SingIn from '@/components/SingIn/SingIn'
+
 
 
 
