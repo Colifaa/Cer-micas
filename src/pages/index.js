@@ -5,6 +5,9 @@ import Prueba from '@/components/Prueba/Prueba'
 import Carousel from '../components/Carousel/Carousel'
 import Navbar from '@/components/NavBar/Navbar'
 import Footer from '@/components/Footer/Footer'
+import Cards from '@/components/Cards/Cards'
+import Marcas from '@/components/Marcas/Marcas'
+
 
 
 
@@ -16,12 +19,13 @@ export default function Home() {
     <div> 
   
 <Navbar/>
-  <Landing/>
-  <Carousel/>
+
+<Landing/>
+<Carousel/>
+<Cards/>
+<Marcas/>
+
 <Footer/>
-
- 
-
   </div>
   )
 }
