@@ -138,7 +138,9 @@ export default function Navbar() {
           </Stack>
         </Box>
       ) : null}
+      
     </Box>
+    
   );
 }
 
@@ -176,6 +178,83 @@ const MenuLink = ({ name, path, icon: Icon, onClose }) => {
           <Text>{name}</Text>
         </HStack>
       </MenuItem>
+      <Box pos="relative" w="100vw" h="100vh" overflow="hidden">
+      <Box
+        pos="absolute"
+        top="0"
+        left="0"
+        minH="full"
+        w="full"
+        bg="black"
+        opacity="0.3"
+        zIndex="10"
+        _before={{
+          content: '""',
+          position: "absolute",
+          top: "0",
+          left: "0",
+          minH: "full",
+          w: "full",
+          bg: "black",
+          opacity: "0.3",
+          zIndex: "10",
+        }}
+      />
+      <Image
+        src="https://i.pinimg.com/originals/80/55/4f/80554f712f15b26081910aa3e3765b81.jpg"
+        pos="absolute"
+        top="0"
+        left="0"
+        minH="full"
+        className="ob"
+        alt=""
+      />
+      <Flex
+        pos="relative"
+        zIndex="20"
+        maxW="screen-lg"
+        mx="auto"
+        gridTemplateColumns="repeat(12, 1fr)"
+        h="full"
+        alignItems="center"
+      >
+        <Box gridColumn="span 6">
+          <Text
+            textTransform="uppercase"
+            color="white"
+            fontSize="xs"
+            fontWeight="bold"
+            mb="2"
+            display="block"
+          >
+            WE ARE EXPERTS
+          </Text>
+          <Text color="white" fontWeight="extrabold" fontSize="5xl" mb="8">
+            Finpoint provides Financial Consulting in different ways
+          </Text>
+          <Text color="stone.100" fontSize="base">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </Text>
+          <Button
+            mt="8"
+            color="white"
+            textTransform="uppercase"
+            py="4"
+            fontSize="base"
+            fontWeight="light"
+            px="10"
+            border="1px"
+            borderColor="white"
+            _hover={{
+              bg: "white",
+              bgOpacity: "0.1",
+            }}
+          >
+            Get started
+          </Button>
+        </Box>
+      </Flex>
+    </Box>
     </Link>
   );
 };
