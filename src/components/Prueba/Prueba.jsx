@@ -1,4 +1,4 @@
-import React from 'react'
+ import React from 'react'
 import styles from "../Prueba/Prueba.module.css"
 function Prueba() {
   return (
@@ -18,3 +18,4 @@ function Prueba() {
 }
 
 export default Prueba
+

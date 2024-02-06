@@ -3,7 +3,7 @@
 import React from 'react';
 import styles from './Marcas.module.css'; // Importa tus estilos CSS aquí
 
-const MarcasComponent = () => {
+const Marcas = () => {
   return (
     <div className="p-4">
       {/* Agrega el estilo de fuente y color al título */}
@@ -39,4 +39,4 @@ const MarcasComponent = () => {
   );
 };
 
-export default MarcasComponent;
+export default Marcas;

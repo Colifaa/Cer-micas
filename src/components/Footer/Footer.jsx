@@ -1,4 +1,3 @@
-import styles from './Footer.module.css'
 import React from 'react'
 
 function Footer() {
@@ -6,9 +5,7 @@ function Footer() {
     <footer className="bg-blue-100/80 font-sans dark:bg-gray-900">
     <div className="container px-6 py-12 mx-auto">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-4">
-            
             <div className="sm:col-span-2">
-            <img className= {styles.logoFooter} src="/images/logo.png"></img>
                 <h1 className="max-w-lg text-xl font-semibold tracking-tight text-gray-800 xl:text-2xl dark:text-white">Subscribe our newsletter to get an update.</h1>
 
                 <div className="flex flex-col mx-auto mt-6 space-y-3 md:space-y-0 md:flex-row">
@@ -59,11 +56,10 @@ function Footer() {
                 <img src="https://www.svgrepo.com/show/22048/dribbble.svg" className="" width="30" height="30" alt="db" />
             </div>
         </div>
-        <p className="font-sans p-8 text-start md:text-center md:text-lg md:p-4">© 2023 CERAMICAS SAN RAFAEL. Todos los derechos reservados by DESWEBY</p>
+        <p className="font-sans p-8 text-start md:text-center md:text-lg md:p-4">© 2023 You Company Inc. All rights reserved.</p>
     </div>
 </footer>
   )
 }
 
 export default Footer
-
