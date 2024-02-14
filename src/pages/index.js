@@ -7,6 +7,7 @@ import Navbar from '@/components/NavBar/Navbar'
 import Footer from '@/components/Footer/Footer'
 import Cards from '@/components/Cards/Cards'
 import Marcas from '@/components/Marcas/Marcas'
+import CarroMarcas from '@/components/CarroMarcas'
 
 
 
@@ -23,7 +24,9 @@ export default function Home() {
 <Landing/>
 <Carousel/>
 <Cards/>
+<CarroMarcas/>
 <Marcas/>
+
 
 <Footer/>
   </div>
