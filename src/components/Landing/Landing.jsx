@@ -8,7 +8,7 @@ function Landing() {
         <div className="relative z-20 max-w-screen-lg mx-auto grid grid-cols-12 h-full items-center">
           <div className="col-span-6">
             <span className="uppercase text-white text-xs font-bold mb-2 block">WE ARE EXPERTS</span>
-            <h1 className="text-white font-extrabold text-5xl mb-8">Finpoint provides Financial Consulting in different ways</h1>
+            <h1 className="text-white font-extrabold text-5xl mb-8">SOMOS EXPERTOS EN CERAMICAS</h1>
             <p className="text-stone-100 text-base">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
