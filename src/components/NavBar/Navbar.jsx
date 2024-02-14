@@ -56,10 +56,10 @@ export default function Navbar() {
   };
 
   return (
-    <Box px={4} boxShadow="lg" width="100%">
+    <Box px={4} boxShadow="lg" width="100%" bgColor="#f7d0b6">
       <Flex h={16} alignItems="center" justifyContent="space-between" maxW={800} mx="auto">
         <IconButton
-          size="md"
+          size="lg"
           icon={isOpen ? <AiOutlineClose /> : <GiHamburgerMenu />}
           aria-label="Open Menu"
           display={['inherit', 'inherit', 'none']}
@@ -69,11 +69,12 @@ export default function Navbar() {
           <Avatar
             href="#"
             as={Link}
-            size="sm"
-            showBorder={true}
-            borderColor="blue.400"
+            padding="25px 20px 10px 15px"
+            width="250px"
+            height="250px"
+            
             rounded="full"
-            src="https://avatars2.githubusercontent.com/u/37842853?v=4"
+            src="/images/logo.png"
           />
           <HStack as="nav" spacing={1} display={{ base: 'none', md: 'flex' }} alignItems="center">
             {navLinks.map((link, index) => (
