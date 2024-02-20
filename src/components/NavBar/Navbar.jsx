@@ -24,8 +24,8 @@ import { BsBook } from 'react-icons/bs';
 import { FiSun } from 'react-icons/fi';
 
 const navLinks = [
-  { name: 'About', path: '#' },
-  { name: 'Blog', path: '#' },
+  { name: 'Productos', path: '/allProducts' },
+  { name: 'Nosotros', path: '/nosotros' },
   { name: 'Features', path: '#' },
 ];
 
@@ -67,7 +67,7 @@ export default function Navbar() {
         />
         <HStack spacing={8} alignItems="center">
           <Avatar
-            href="#"
+            href="/"
             as={Link}
             padding="25px 20px 10px 15px"
             width="250px"
