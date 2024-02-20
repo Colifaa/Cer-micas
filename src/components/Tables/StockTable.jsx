@@ -1,6 +1,6 @@
 import { Box, Table, Thead, Tbody, Tr, Th, Td, Image, Text } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
-import { supabase } from "../../../lib/supabaseClient"; // Importa la instancia de Supabase
+import  supabase  from "../../../lib/supabaseClient"; // Importa la instancia de Supabase
 
 export default function StockTable() {
   const [products, setProducts] = useState([]);
