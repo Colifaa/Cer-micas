@@ -33,7 +33,7 @@ import StockTable from '../Tables/StockTable';
 import { useRouter } from 'next/router';
 import { FiChevronDown, FiBell } from 'react-icons/fi';
 import WidgetTotal from '../Widgets/WidgetTotal';
-
+import Link from 'next/link';
 
 
 
@@ -182,7 +182,9 @@ const SidebarContent = ({ ...props }) => (
       <NavItem icon={AiOutlineHome}>Dashboard</NavItem>
       </Flex>
       <Flex mt="5"> 
-      <NavItem icon={AiOutlineTeam}>Team</NavItem>
+      <Link href="/create">
+      <NavItem icon={AiOutlineTeam}>Create</NavItem>
+      </Link>
       </Flex>
       <Flex mt="5"> 
       <NavItem icon={BsFolder2}>Projects</NavItem>
