@@ -1,13 +1,12 @@
 import SignUp from '@/components/SignUp/SignUp'
-import SingIn from '@/components/SingIn/SingIn'
 import React from 'react'
 
-function dashboard() {
+function signup() {
   return (
     <div>
-      <SingIn />
+      <SignUp/>
     </div>
   )
 }
 
-export default dashboard
+export default signup

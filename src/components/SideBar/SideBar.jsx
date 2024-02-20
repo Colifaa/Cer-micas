@@ -1,4 +1,5 @@
 import React from 'react';
+import supabase from '../../../lib/supabaseClient';
 import {
   Avatar,
   HStack,
@@ -29,14 +30,31 @@ import { RiFlashlightFill } from 'react-icons/ri';
 import { AiOutlineTeam, AiOutlineHome } from 'react-icons/ai';
 import { BsFolder2, BsCalendarCheck } from 'react-icons/bs';
 import StockTable from '../Tables/StockTable';
-
+import { useRouter } from 'next/router';
 import { FiChevronDown, FiBell } from 'react-icons/fi';
 import WidgetTotal from '../Widgets/WidgetTotal';
 
 
 
+
+
 export default function SideBar() {
+  const router = useRouter();
   const { isOpen, onClose, onOpen } = useDisclosure();
+
+  
+const handleSignOut = async () => {
+  try {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      throw error;
+    }
+    // Redirige al usuario a la página de inicio de sesión u otra página si lo deseas
+    window.location.reload()
+  } catch (error) {
+    console.error("Error signing out:", error.message);
+  }
+};
 
   return (
     <Box as="section" bg={useColorModeValue('gray.50', 'gray.700')} minH="100vh">
@@ -109,7 +127,7 @@ export default function SideBar() {
             <MenuItem>Settings</MenuItem>
             <MenuItem>Billing</MenuItem>
             <MenuDivider />
-            <MenuItem>Sign out</MenuItem>
+            <MenuItem onClick={handleSignOut}>Sign out</MenuItem>
           </MenuList>
         </Menu>
       </Flex>
