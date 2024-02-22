@@ -35,6 +35,7 @@ import WidgetTotal from '../Widgets/WidgetTotal';
 import Link from 'next/link';
 import CreateProductForm from './CreateProductForm';
 import CardsProducts from './CardsProducts';
+import CardDetailProduct from './ModalDetailProduct';
 
 function CreateProduct() {
     const router = useRouter();
@@ -138,6 +139,7 @@ function CreateProduct() {
 
                 <CreateProductForm/>
                 <CardsProducts/>
+               
 
             </Box>
 
