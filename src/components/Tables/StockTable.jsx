@@ -1,10 +1,9 @@
 import { Box, Table, Thead, Tbody, Tr, Th, Td, Image, Text } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
-import  supabase  from "../../../lib/supabaseClient"; // Importa la instancia de Supabase
+import supabase from "../../../lib/supabaseClient"; // Importa la instancia de Supabase
 
 export default function StockTable() {
   const [products, setProducts] = useState([]);
-  console.log("products", products);
 
   useEffect(() => {
     async function fetchProducts() {
@@ -27,10 +26,17 @@ export default function StockTable() {
       <Table w="full" colorScheme="blue">
         <Thead>
           <Tr>
-            <Th fontSize={{ base: "md", md: "xl" }}>Imagen</Th>
-            <Th fontSize={{ base: "md", md: "xl" }}>Producto</Th>
-            <Th fontSize={{ base: "md", md: "xl" }}>Descripción</Th>
-            <Th fontSize={{ base: "md", md: "xl" }}>Stock</Th>
+            <Th>Imagen</Th>
+            <Th>Producto</Th>
+            <Th>Descripción</Th>
+            <Th>Piezas</Th>
+            <Th>Cantidad Cajas</Th>
+            <Th>Material</Th>
+            <Th>Uso</Th>
+            <Th>Medidas</Th>
+            <Th>Tono</Th>
+            <Th>Ambientacion</Th>
+            <Th>Calidad</Th>
           </Tr>
         </Thead>
         <Tbody>
@@ -40,23 +46,38 @@ export default function StockTable() {
                 <Image 
                   src={product.img} 
                   alt={product.name} 
-                  boxSize={{ base: "70px", md: "100px" }} 
-                  fallbackSrc="https://via.placeholder.com/150" // Aquí puedes agregar una imagen de respaldo en caso de que la URL sea inválida
+               w={350}
+               h={100}
+                  fallbackSrc="https://via.placeholder.com/150" 
                 />
               </Td>
               <Td>{product.name}</Td>
               <Td>
-                <Text 
-                  fontSize={{ base: "xs", md: "sm" }} 
-                  maxWidth={{ base: "auto", md: "300px" }} // Establece el ancho máximo del texto
-                >
-                  {product.detail}
-                </Text>
+                <Text>{product.detail}</Text>
               </Td>
-              <Td>  
-                <Text textAlign={{ base: 'left', md: 'right' }} boxSize={{ base: "70px", md: "50px" }}>
-                  {product.stock}
-                </Text>
+              <Td>
+                <Text>{product.piezas}</Text>
+              </Td>
+              <Td>
+                <Text>{product.cantCajas}</Text>
+              </Td>
+              <Td>
+                <Text>{product.material}</Text>
+              </Td>
+              <Td>
+                <Text>{product.uso}</Text>
+              </Td>
+              <Td>
+                <Text>{product.medidas}</Text>
+              </Td>
+              <Td>
+                <Text>{product.tono}</Text>
+              </Td>
+              <Td>
+                <Text>{product.ambientacion}</Text>
+              </Td>
+              <Td>
+                <Text>{product.calidad}</Text>
               </Td>
             </Tr>
           ))}
