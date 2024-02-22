@@ -21,7 +21,7 @@ import { AiOutlineClose, AiTwotoneThunderbolt } from 'react-icons/ai';
 import { BiChevronDown } from 'react-icons/bi';
 import { MdTimeline } from 'react-icons/md';
 import { BsBook } from 'react-icons/bs';
-import { FiSun } from 'react-icons/fi';
+import { FiSun } from 'react-icons/fi'
 
 const navLinks = [
   { name: 'Productos', path: '/allProducts' },

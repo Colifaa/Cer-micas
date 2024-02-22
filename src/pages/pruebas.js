@@ -11,4 +11,4 @@ function pruebas() {
   )
 }
 
-export default pruebas
+export default pruebas;

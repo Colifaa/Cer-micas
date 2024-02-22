@@ -90,5 +90,5 @@ export function HoveredLink({ children, ...rest }) {
     >
       {children}
     </Link>
-  );
-};
+  )
+}
