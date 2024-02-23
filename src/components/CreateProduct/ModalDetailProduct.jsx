@@ -8,7 +8,33 @@ function ModalDetailProduct({ product }) {
 
   return (
     <>
-      <Button onClick={onOpen}>Detail</Button>
+      <Button onClick={onOpen}  variant="unstyled"
+            border="none"
+            width="15em"
+            height="5em"
+            borderRadius="3em"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            gap="12px"
+            bg="#1C1A1C"
+            color="#AAAAAA"
+            fontWeight="600"
+            fontSize="medium"
+            cursor="pointer"
+            transition="background 450ms ease-in-out"
+            _hover={{
+              bgGradient: "linear(to-r, #A47CF3, #683FEA)",
+              boxShadow: "inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4), inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 4px rgba(255, 255, 255, 0.2), 0px 0px 180px 0px #9917FF",
+              transform: "translateY(-2px)",
+              "& .text": {
+                color: "white",
+              },
+              "& .sparkle": {
+                fill: "white",
+                transform: "scale(1.2)",
+              },
+            }}>Detail</Button>
       <Modal size="full" isOpen={isOpen} onClose={onClose} isCentered motionPreset='slideInBottom'>
         <ModalOverlay />
         <ModalContent>
