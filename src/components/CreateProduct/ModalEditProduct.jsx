@@ -19,10 +19,12 @@ import {
 } from '@chakra-ui/react';
 
 import supabase from '../../../lib/supabaseClient';
+import AlertEdit from '../AlertsAdmin/AlertEdit';
 
 function ModalEditProduct({ product }) {
   const [editingProduct, setEditingProduct] = useState({ ...product });
   const [isOpen, setIsOpen] = useState(false);
+  const [showAlert, setShowAlert] = useState(false); // Nuevo estado para controlar la visibilidad del AlertEdit
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -51,6 +53,10 @@ function ModalEditProduct({ product }) {
         throw error;
       }
       console.log('Producto actualizado correctamente:', data);
+      setShowAlert(true); // Mostrar el AlertEdit después de editar el producto correctamente
+      setTimeout(() => {
+        window.location.reload(); // Recargar la página después de 2 segundos
+    }, 2000);
     } catch (error) {
       console.error('Error al actualizar el producto:', error.message);
     }
@@ -58,7 +64,11 @@ function ModalEditProduct({ product }) {
 
   return (
     <>
-         <Button onClick={() => setIsOpen(true)}>Editar</Button>
+     
+     <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded" onClick={() => setIsOpen(true)}>
+  Editar
+</button>
+
       <Modal size="4xl" isOpen={isOpen} onClose={() => setIsOpen(false)} isCentered motionPreset='slideInBottom'>
         <ModalOverlay    bg='blackAlpha.300'
       backdropFilter='blur(10px) hue-rotate(90deg)' />
@@ -244,6 +254,13 @@ my={12}>
           </Flex>
         </ModalContent>
       </Modal>
+
+      <AlertEdit
+        isOpen={showAlert}
+        onClose={() => setShowAlert(false)}
+        title="Producto editado correctamente"
+        message="El producto ha sido editado satisfactoriamente."
+      />
       
     </>
   );

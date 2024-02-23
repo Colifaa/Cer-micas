@@ -36,6 +36,7 @@ import Link from 'next/link';
 import CreateProductForm from './CreateProductForm';
 import CardsProducts from './CardsProducts';
 import CardDetailProduct from './ModalDetailProduct';
+import ModalCreateProduct from './ModalCreateProduct';
 
 function CreateProduct() {
     const router = useRouter();
@@ -48,8 +49,8 @@ function CreateProduct() {
             if (error) {
                 throw error;
             }
-            // Redirige al usuario a la página de inicio de sesión u otra página si lo deseas
-            window.location.reload()
+            // Redirige al usuario al dashboard después de cerrar sesión
+            history.push('/dashboard');
         } catch (error) {
             console.error("Error signing out:", error.message);
         }
@@ -137,7 +138,7 @@ function CreateProduct() {
                     
                 </Flex>
 
-                <CreateProductForm/>
+                <ModalCreateProduct/>
                 <CardsProducts/>
                
 
@@ -182,11 +183,14 @@ const SidebarContent = ({ ...props }) => (
         </Flex>
         <Flex direction="column" as="nav" fontSize="2xl" color="gray.600" aria-label="Main Navigation">
             <Flex mt="5">
+                <Link href="/dashboard"> 
                 <NavItem icon={AiOutlineHome}>Dashboard</NavItem>
+                </Link>
             </Flex>
+            
             <Flex mt="5">
                 <Link href="/create">
-                    <NavItem icon={AiOutlineTeam}>Create</NavItem>
+                    <NavItem icon={AiOutlineTeam}>Productos</NavItem>
                 </Link>
             </Flex>
             <Flex mt="5">
