@@ -179,11 +179,13 @@ const SidebarContent = ({ ...props }) => (
     </Flex>
     <Flex direction="column" as="nav" fontSize="2xl" color="gray.600" aria-label="Main Navigation">
     <Flex mt="5"> 
+    <Link href="/dashboard">
       <NavItem icon={AiOutlineHome}>Dashboard</NavItem>
+      </Link>
       </Flex>
       <Flex mt="5"> 
       <Link href="/create">
-      <NavItem icon={AiOutlineTeam}>Create</NavItem>
+      <NavItem icon={AiOutlineTeam}>Productos</NavItem>
       </Link>
       </Flex>
       <Flex mt="5"> 

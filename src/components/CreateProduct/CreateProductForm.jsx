@@ -15,12 +15,16 @@ import {
     AvatarBadge,
     IconButton,
     Center,
-    Text
+    Text,
+    Box
 } from '@chakra-ui/react'
 import { SmallCloseIcon } from '@chakra-ui/icons'
+import Alerta from '../AlertsAdmin/AlertCreate';
 
 
 function CreateProductForm() {
+
+    const [mostrarAlerta, setMostrarAlerta] = useState(false); // Estado para controlar la visibilidad de la alerta
     const [productData, setProductData] = useState({
         name: '',
         img: '',
@@ -40,8 +44,7 @@ function CreateProductForm() {
         const { name, value } = e.target;
         setProductData({ ...productData, [name]: value });
     };
-
-    const handleSubmit = async (e) => {
+   const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const { data, error } = await supabase.from('products').insert([productData]);
@@ -49,11 +52,16 @@ function CreateProductForm() {
                 throw error;
             }
             console.log('Producto insertado correctamente:', data);
+            setMostrarAlerta(true); // Cuando se envíe correctamente el formulario, muestra la alerta
+            setTimeout(() => {
+                window.location.reload(); // Recargar la página después de 2 segundos
+            }, 3000);
             // Aquí podrías redirigir al usuario a otra página o realizar alguna otra acción
         } catch (error) {
             console.error('Error al insertar el producto:', error.message);
         }
     };
+
 
     const [show, setShow] = useState(false)
     const handleClick = () => setShow(!show)
@@ -81,6 +89,7 @@ function CreateProductForm() {
             bg={useColorModeValue('gray.50', 'gray.800')}
 
         >
+            
             <Stack
 
                 spacing={4}
@@ -91,12 +100,18 @@ function CreateProductForm() {
                 boxShadow={'lg'}
                 p={6}
                 my={12}>
+                  
                 <Heading textAlign="center" lineHeight={1.1} fontSize={{ base: '2xl', sm: '3xl' }}>
                     Agregar Nuevos Productos
                 </Heading>
+
+            
+
                 <FormControl id="userName">
+                    
                     <Stack>
                         <Center>
+                            
                             <label htmlFor="image-upload" style={{ cursor: 'pointer' }}>
                                 <Avatar mt="20px" size="2xl" src={productData.img}>
                                     <AvatarBadge
@@ -120,11 +135,42 @@ function CreateProductForm() {
                             </label>
                         </Center>
                         <Text textAlign="center" lineHeight={3.1} fontSize={{ base: 'xl', sm: '3xl' }}>Selecciona una imagen para tu producto</Text>
+                     
                     </Stack>
+                    <FormControl id="name" isRequired>
+                    <FormLabel>Name</FormLabel>
+                    <Input
+                     color="white"
+                     fontSize="0.9rem"
+                     backgroundColor="transparent"
+                     width="100%"
+                     boxSizing="border-box"
+                     paddingInline="0.5em"
+                     paddingBlock="0.7em"
+                     border="none"
+                     borderBottom="var(--border-height) solid var(--border-before-color)"
+                     boxShadow="0 2px 4px rgba(0, 0, 0, 0.1)"
+                        placeholder="Product Name"
+                        type="text"
+                        name="name"
+                        value={productData.name}
+                        onChange={handleChange}
+                    />
+                </FormControl>
                 </FormControl>
                 <FormControl id="detail" isRequired>
                     <FormLabel>Detail</FormLabel>
                     <Input
+                     color="white"
+                     fontSize="0.9rem"
+                     backgroundColor="transparent"
+                     width="100%"
+                     boxSizing="border-box"
+                     paddingInline="0.5em"
+                     paddingBlock="0.7em"
+                     border="none"
+                     borderBottom="var(--border-height) solid var(--border-before-color)"
+                     boxShadow="0 2px 4px rgba(0, 0, 0, 0.1)"
                         placeholder="Product Detail"
                         type="text"
                         name="detail"
@@ -135,6 +181,16 @@ function CreateProductForm() {
                 <FormControl id="precio" isRequired>
                     <FormLabel>Precio</FormLabel>
                     <Input
+                  color="white"
+                  fontSize="0.9rem"
+                  backgroundColor="transparent"
+                  width="100%"
+                  boxSizing="border-box"
+                  paddingInline="0.5em"
+                  paddingBlock="0.7em"
+                  border="none"
+                  borderBottom="var(--border-height) solid var(--border-before-color)"
+                  boxShadow="0 2px 4px rgba(0, 0, 0, 0.1)"
                         placeholder="Precio"
                         type="number"
                         name="precio"
@@ -145,6 +201,16 @@ function CreateProductForm() {
                 <FormControl id="medidas" isRequired>
                     <FormLabel>Medidas</FormLabel>
                     <Input
+                     color="white"
+                     fontSize="0.9rem"
+                     backgroundColor="transparent"
+                     width="100%"
+                     boxSizing="border-box"
+                     paddingInline="0.5em"
+                     paddingBlock="0.7em"
+                     border="none"
+                     borderBottom="var(--border-height) solid var(--border-before-color)"
+                     boxShadow="0 2px 4px rgba(0, 0, 0, 0.1)"
                         placeholder="Medidas"
                         type="text"
                         name="medidas"
@@ -155,6 +221,16 @@ function CreateProductForm() {
                 <FormControl id="piezas" isRequired>
                     <FormLabel>Piezas</FormLabel>
                     <Input
+                     color="white"
+                     fontSize="0.9rem"
+                     backgroundColor="transparent"
+                     width="100%"
+                     boxSizing="border-box"
+                     paddingInline="0.5em"
+                     paddingBlock="0.7em"
+                     border="none"
+                     borderBottom="var(--border-height) solid var(--border-before-color)"
+                     boxShadow="0 2px 4px rgba(0, 0, 0, 0.1)"
                         placeholder="Piezas"
                         type="number"
                         name="piezas"
@@ -165,6 +241,16 @@ function CreateProductForm() {
                 <FormControl id="cantCajas" isRequired>
                     <FormLabel>Cantidad de Cajas</FormLabel>
                     <Input
+                     color="white"
+                     fontSize="0.9rem"
+                     backgroundColor="transparent"
+                     width="100%"
+                     boxSizing="border-box"
+                     paddingInline="0.5em"
+                     paddingBlock="0.7em"
+                     border="none"
+                     borderBottom="var(--border-height) solid var(--border-before-color)"
+                     boxShadow="0 2px 4px rgba(0, 0, 0, 0.1)"
                         placeholder="Cantidad de Cajas"
                         type="number"
                         name="cantCajas"
@@ -175,6 +261,16 @@ function CreateProductForm() {
                 <FormControl id="tono" isRequired>
                     <FormLabel>Tono</FormLabel>
                     <Input
+                     color="white"
+                     fontSize="0.9rem"
+                     backgroundColor="transparent"
+                     width="100%"
+                     boxSizing="border-box"
+                     paddingInline="0.5em"
+                     paddingBlock="0.7em"
+                     border="none"
+                     borderBottom="var(--border-height) solid var(--border-before-color)"
+                     boxShadow="0 2px 4px rgba(0, 0, 0, 0.1)"
                         placeholder="Tono"
                         type="text"
                         name="tono"
@@ -185,6 +281,16 @@ function CreateProductForm() {
                 <FormControl id="material" isRequired>
                     <FormLabel>Material</FormLabel>
                     <Input
+                     color="white"
+                     fontSize="0.9rem"
+                     backgroundColor="transparent"
+                     width="100%"
+                     boxSizing="border-box"
+                     paddingInline="0.5em"
+                     paddingBlock="0.7em"
+                     border="none"
+                     borderBottom="var(--border-height) solid var(--border-before-color)"
+                     boxShadow="0 2px 4px rgba(0, 0, 0, 0.1)"
                         placeholder="Material"
                         type="text"
                         name="material"
@@ -192,9 +298,20 @@ function CreateProductForm() {
                         onChange={handleChange}
                     />
                 </FormControl>
+                
                 <FormControl id="ambientacion" isRequired>
                     <FormLabel>Ambientación</FormLabel>
                     <Input
+                     color="white"
+                     fontSize="0.9rem"
+                     backgroundColor="transparent"
+                     width="100%"
+                     boxSizing="border-box"
+                     paddingInline="0.5em"
+                     paddingBlock="0.7em"
+                     border="none"
+                     borderBottom="var(--border-height) solid var(--border-before-color)"
+                     boxShadow="0 2px 4px rgba(0, 0, 0, 0.1)"
                         placeholder="Ambientación"
                         type="text"
                         name="ambientacion"
@@ -205,6 +322,16 @@ function CreateProductForm() {
                 <FormControl id="uso" isRequired>
                     <FormLabel>Uso</FormLabel>
                     <Input
+                     color="white"
+                     fontSize="0.9rem"
+                     backgroundColor="transparent"
+                     width="100%"
+                     boxSizing="border-box"
+                     paddingInline="0.5em"
+                     paddingBlock="0.7em"
+                     border="none"
+                     borderBottom="var(--border-height) solid var(--border-before-color)"
+                     boxShadow="0 2px 4px rgba(0, 0, 0, 0.1)"
                         placeholder="Uso"
                         type="text"
                         name="uso"
@@ -215,6 +342,16 @@ function CreateProductForm() {
                 <FormControl id="calidad" isRequired>
                     <FormLabel>Calidad</FormLabel>
                     <Input
+                     color="white"
+                     fontSize="0.9rem"
+                     backgroundColor="transparent"
+                     width="100%"
+                     boxSizing="border-box"
+                     paddingInline="0.5em"
+                     paddingBlock="0.7em"
+                     border="none"
+                     borderBottom="var(--border-height) solid var(--border-before-color)"
+                     boxShadow="0 2px 4px rgba(0, 0, 0, 0.1)"
                         placeholder="Calidad"
                         type="text"
                         name="calidad"
@@ -222,11 +359,38 @@ function CreateProductForm() {
                         onChange={handleChange}
                     />
                 </FormControl>
+                
                 <Stack spacing={6} direction={['column', 'row']}>
                     <Button
-                        bg={'red.400'}
-                        color={'white'}
-                        w="full"
+                        mt="8"
+                         variant="unstyled"
+                         border="none"
+                         width="15em"
+                         height="5em"
+                         borderRadius="3em"
+                         display="flex"
+                         justifyContent="center"
+                         alignItems="center"
+                         gap="12px"
+                         bg="#1C1A1C"
+                         color="#AAAAAA"
+                         fontWeight="600"
+                         fontSize="medium"
+                         cursor="pointer"
+                         w="full"
+                         transition="background 450ms ease-in-out"
+                         _hover={{
+                           bgGradient: "linear(to-r, #D9693B, #E0012F)",
+                           boxShadow: "inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4), inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 4px rgba(255, 255, 255, 0.2), 0px 0px 180px 0px red",
+                           transform: "translateY(-2px)",
+                           "& .text": {
+                             color: "white",
+                           },
+                           "& .sparkle": {
+                             fill: "white",
+                             transform: "scale(1.2)",
+                           },
+                         }}
                         onClick={() => {
                             setProductData({
                                 name: '',
@@ -243,23 +407,56 @@ function CreateProductForm() {
                                 calidad: '',
                             });
                         }}
-                        _hover={{
-                            bg: 'red.500',
-                        }}>
+                       >
                         Cancel
                     </Button>
                     <Button
-                        bg={'blue.400'}
-                        color={'white'}
+                    mt="8"
+                      variant="unstyled"
+                      border="none"
+                      width="15em"
+                      height="5em"
+                      borderRadius="3em"
+                      display="flex"
+                      justifyContent="center"
+                      alignItems="center"
+                      gap="12px"
+                      bg="#1C1A1C"
+                      color="#AAAAAA"
+                      fontWeight="600"
+                      fontSize="medium"
+                      cursor="pointer"
+                      transition="background 450ms ease-in-out"
+                      _hover={{
+                        bgGradient: "linear(to-r, #C1E05A, #EBE5CA)",
+                        boxShadow: "inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4), inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 4px rgba(255, 255, 255, 0.2), 0px 0px 180px 0px red",
+                        transform: "translateY(-2px)",
+                        "& .text": {
+                          color: "white",
+                        },
+                        "& .sparkle": {
+                          fill: "white",
+                          transform: "scale(1.2)",
+                        },
+                      }}
                         w="full"
                         onClick={handleSubmit}
-                        _hover={{
-                            bg: 'blue.500',
-                        }}>
+                       >
                         Submit
+                       
                     </Button>
+                   
                 </Stack>
+                <Box
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+   
+    >
+      {mostrarAlerta && <Alerta isOpen={mostrarAlerta} onClose={() => setMostrarAlerta(false)} />}
+    </Box>
             </Stack>
+            
         </Flex>
     )
 }

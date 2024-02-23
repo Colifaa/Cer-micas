@@ -5,6 +5,7 @@ import { Button, CardFooter, Box, Grid, GridItem, Image, Text, Heading, Card, Ca
 import Link from 'next/link';
 import CardDetailProduct from './ModalDetailProduct';
 import ModalDetailProduct from './ModalDetailProduct';
+import AlertDelete from '../AlertsAdmin/AlertDelete';
 
 export default function CardsProducts() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -13,8 +14,9 @@ export default function CardsProducts() {
   // Estado para almacenar los productos
   const [productos, setProductos] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isDeleteAlertOpen, setIsDeleteAlertOpen] = useState(false);
 
-  console.log("selectedProduct",selectedProduct);
+
 
   // Función para cargar los productos desde la base de datos
   const getProductos = async () => {
@@ -42,6 +44,39 @@ export default function CardsProducts() {
   const handleOpenModal = (product) => {
     setSelectedProduct(product);
     onOpen(); // Abre el modal
+  };
+
+ 
+
+  const handleDeleteConfirm = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('products')
+        .delete()
+        .eq('id', selectedProduct.id);
+
+      if (error) {
+        console.error('Error al eliminar el producto:', error.message);
+        return;
+      }
+
+      console.log('Producto eliminado exitosamente:', selectedProduct);
+      setIsDeleteAlertOpen(false); // Cierra la alerta después de eliminar el producto
+      setSelectedProduct(null); // Limpia el producto seleccionado
+      window.location.reload(); // Recargar la página
+    } catch (error) {
+      console.error('Error al eliminar el producto:', error.message);
+    }
+  };
+
+  const handleDeleteCancel = () => {
+    setIsDeleteAlertOpen(false);
+    setSelectedProduct(null); // Limpia el producto seleccionado
+  };
+
+  const handleDeleteProduct = (product) => {
+    setSelectedProduct(product);
+    setIsDeleteAlertOpen(true);
   };
 
 
@@ -72,14 +107,47 @@ export default function CardsProducts() {
               </Text>
             
               <Box  display="flex" justifyContent="center" justifyItems="center" mt="2"> 
-            <Button colorScheme="green" bgColor="#FF5733" onClick={() => handleOpenModal(producto)}>
+            
   <ModalDetailProduct product={producto} />
-</Button>
+
               </Box>
               <Box  display="flex" justifyContent="center" justifyItems="center" marginTop="2"> 
-              <Button colorScheme="red" bgColor="#FF5733" onClick={() => handleDeleteProduct(producto)}>
+              <Button  variant="unstyled"
+            border="none"
+            width="15em"
+            height="5em"
+            borderRadius="3em"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            gap="12px"
+            bg="#1C1A1C"
+            color="#AAAAAA"
+            fontWeight="600"
+            fontSize="medium"
+            cursor="pointer"
+            transition="background 450ms ease-in-out"
+            _hover={{
+              bgGradient: "linear(to-r, #D9693B, #E0012F)",
+              boxShadow: "inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4), inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 4px rgba(255, 255, 255, 0.2), 0px 0px 180px 0px red",
+              transform: "translateY(-2px)",
+              "& .text": {
+                color: "white",
+              },
+              "& .sparkle": {
+                fill: "white",
+                transform: "scale(1.2)",
+              },
+            }} colorScheme="red" bgColor="red" onClick={() => handleDeleteProduct(producto)}>
                 Eliminar
               </Button>
+              <AlertDelete
+        isOpen={isDeleteAlertOpen}
+        onClose={handleDeleteCancel}
+        onConfirm={handleDeleteConfirm}
+        title="Confirmar Eliminación"
+        message="¿Estás seguro de que quieres eliminar este producto?"
+      />
               </Box>
               </Box>
               </CardBody>
