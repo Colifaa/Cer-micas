@@ -56,7 +56,7 @@ export function Menu({ setActive, children }) {
       className="relative  border-transparent dark:bg-black dark:border-white/[0.2] bg-white shadow-input flex justify-center space-x-4 px-8 py-6 "
     >
       {children}
-    </nav>
+    </nav> 
   );
 }
 
@@ -90,5 +90,5 @@ export function HoveredLink({ children, ...rest }) {
     >
       {children}
     </Link>
-  );
+  )
 }

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "../ui/navbar-menu";
+import { HoveredLink, Menu, MenuItem, ProductItem  } from "../Ui/navbar-menu";
 
-import cn from "../../utils/cn";
+
+import { cn } from "@/utils/cn";
 
 function NavbarDemo() {
   return (
@@ -18,7 +19,7 @@ function Navbar({ className }) {
   const [active, setActive] = useState(null);
   return (
     <div
-      className={cn("fixed top-10 inset-x-0 max-w mx-auto z-50", className)}
+      className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}
     >
       <Menu setActive={setActive}>
         <MenuItem setActive={setActive} active={active} item="Services">
@@ -34,25 +35,25 @@ function Navbar({ className }) {
             <ProductItem
               title="Algochurn"
               href="https://algochurn.com"
-              src="/images/logo.png"
+              src="/images/bano.jpg"
               description="Prepare for tech interviews like never before."
             />
             <ProductItem
               title="Tailwind Master Kit"
               href="https://tailwindmasterkit.com"
-              src="/images/logo.png"
+              src="/images/bano.jpg"
               description="Production ready Tailwind css components for your next project"
             />
             <ProductItem
               title="Moonbeam"
               href="https://gomoonbeam.com"
-              src="/images/logo.png"
+              src="/images/bano.jpg"
               description="Never write from scratch again. Go from idea to blog in minutes."
             />
             <ProductItem
               title="Rogue"
               href="https://userogue.com"
-              src="/images/logo.png"
+              src="/images/bano.jpg"
               description="Respond to government RFPs, RFIs and RFQs 10x faster using AI"
             />
           </div>
