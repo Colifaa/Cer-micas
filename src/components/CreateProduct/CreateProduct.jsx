@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import supabase from '../../../lib/supabaseClient';
 import {
     Avatar,
@@ -37,6 +37,7 @@ import CreateProductForm from './CreateProductForm';
 import CardsProducts from './CardsProducts';
 import CardDetailProduct from './ModalDetailProduct';
 import ModalCreateProduct from './ModalCreateProduct';
+import AdminProfileModal from '../AdminProfile/AdminProfileModal';
 
 function CreateProduct() {
     const router = useRouter();
@@ -55,6 +56,33 @@ function CreateProduct() {
             console.error("Error signing out:", error.message);
         }
     };
+
+    
+  const [userData, setUserData] = useState(null); // Inicializa el estado userData a null
+
+  console.log(userData,"userData");
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        // Utiliza la función from de Supabase para seleccionar el nombre del perfil
+        const { data, error } = await supabase
+          .from('Profile')
+          .select('*');
+  
+        if (error) {
+          throw error;
+        }
+  
+        // Establece el estado userData con los datos del perfil
+        setUserData(data[0]); // Considera asignar solo el primer objeto si esperas solo uno, de lo contrario, ajusta esta lógica según sea necesario
+      } catch (error) {
+        console.error("Error al obtener información del perfil:", error.message);
+      }
+    };
+  
+    fetchUserData(); // Llama a la función para obtener los datos del perfil al montar el componente
+  }, []); // El segundo argumento [] asegura que useEffect se ejecute solo una vez al montar el componente
+  
 
     return (
         <Box as="section" bg={useColorModeValue('gray.50', 'gray.700')} minH="100vh">
@@ -89,30 +117,29 @@ function CreateProduct() {
                         icon={<FiMenu />}
                         size="xl"
                     />
-                    <Flex align="center">
-                        {/* Aquí puedes integrar el código proporcionado para el menú desplegable de usuario */}
-                        <HStack spacing={{ base: '0', md: '6' }}>
-                            <IconButton size="lg" variant="ghost" aria-label="open menu" icon={<FiBell />} />
-                            <Flex alignItems={'center'}>
-                                <Menu>
-                                    <MenuButton py={2} transition="all 0.3s" _focus={{ boxShadow: 'none' }}>
-                                        <HStack>
-                                            <Avatar
-                                                size={'md'}
-                                                src={
-                                                    'https://images.unsplash.com/photo-1619946794135-5bc917a27793?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9'
-                                                }
-                                            />
-                                            <VStack
-                                                display={{ base: 'none', md: 'flex' }}
-                                                alignItems="flex-start"
-                                                spacing="1px"
-                                                ml="2"
-                                            >
-                                                <Text fontSize="xl">Justina Clark</Text>
-                                                <Text fontSize="xl" color="gray.600">
-                                                    Admin
-                                                </Text>
+                  <Flex align="center">
+    <HStack spacing={{ base: '0', md: '6' }}>
+      <IconButton size="lg" variant="ghost" aria-label="open menu" icon={<FiBell />} />
+      <Flex alignItems={'center'}>
+        <Menu>
+          <MenuButton py={2} transition="all 0.3s" _focus={{ boxShadow: 'none' }}>
+            <HStack>
+              <Avatar
+                size={'md'}
+                src={userData && userData.img} //
+              />
+              <VStack
+                display={{ base: 'none', md: 'flex' }}
+                alignItems="flex-start"
+                spacing="1px"
+                ml="2"
+              >
+                   {userData && userData.name && (
+        <Text fontSize="xl">{userData.name}</Text>
+      )}
+                <Text fontSize="xl" color="gray.600">
+                  Admin
+                </Text>
                                             </VStack>
                                             <Box display={{ base: 'none', md: 'flex' }}>
                                                 <FiChevronDown />
@@ -123,7 +150,7 @@ function CreateProduct() {
                                         bg={useColorModeValue('white', 'gray.900')}
                                         borderColor={useColorModeValue('gray.200', 'gray.700')}
                                     >
-                                        <MenuItem>Profile</MenuItem>
+                                        <MenuItem><AdminProfileModal/></MenuItem>
                                         <MenuItem>Settings</MenuItem>
                                         <MenuItem>Billing</MenuItem>
                                         <MenuDivider />
