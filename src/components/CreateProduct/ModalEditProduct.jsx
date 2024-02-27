@@ -84,16 +84,16 @@ function ModalEditProduct({ product }) {
 
         > 
 
-
-          <Stack
-
-spacing={4}
-w="full"
-maxW={'6xl'}
-rounded={'xl'}
-boxShadow={'lg'}
-p={6}
-my={12}>
+<Stack
+  spacing={4}
+  w="full"
+  maxW={'6xl'}
+  rounded={'xl'}
+  boxShadow={'lg'}
+  p={6}
+  my={12}
+  alignItems="center" // Agregar esta línea para centrar verticalmente los elementos
+>
  
           <form onSubmit={handleSubmit}>
           <ModalHeader textAlign="center" >{product && product.name}</ModalHeader>
@@ -116,14 +116,21 @@ my={12}>
     />
   )}
  
-  <Input
+ <Flex   
+       align={'center'}
+       justify={'center'}
+        > 
+
+  <input
   mt="2"
     placeholder='large size'
     size='lg'
     type="file"
     accept="image/*"
     onChange={handleImageChange}
+    className="file-input file-input-bordered file-input-success w-full max-w-xs" 
   />
+  </Flex>
 </div>
 
             <FormControl>
@@ -140,7 +147,8 @@ my={12}>
 
               <FormControl>
                 <FormLabel>Nombre:</FormLabel>
-                <Input
+                <input
+                  className="input input-bordered input-accent w-full max-w-xs"
                   type="text"
                   name="name"
                   value={editingProduct.name}
@@ -149,7 +157,8 @@ my={12}>
               </FormControl>
               <FormControl>
                 <FormLabel>Detalle:</FormLabel>
-                <Input
+                <textarea 
+           className="textarea textarea-bordered textarea-lg w-full max-w-md"
                   type="text"
                   name="detail"
                   value={editingProduct.detail}
@@ -158,7 +167,8 @@ my={12}>
               </FormControl>
               <FormControl>
                 <FormLabel>Ambientación:</FormLabel>
-                <Input
+                <input
+                className="input input-bordered input-accent w-full max-w-xs"
                   type="text"
                   name="ambientacion"
                   value={editingProduct.ambientacion}
@@ -167,7 +177,8 @@ my={12}>
               </FormControl>
               <FormControl>
                 <FormLabel>Calidad:</FormLabel>
-                <Input
+                <input
+                  className="input input-bordered input-accent w-full max-w-xs"
                   type="text"
                   name="calidad"
                   value={editingProduct.calidad}
@@ -176,7 +187,8 @@ my={12}>
               </FormControl>
               <FormControl>
                 <FormLabel>Total de Cajas:</FormLabel>
-                <Input
+                <input
+                  className="input input-bordered input-accent w-full max-w-xs"
                   type="number"
                   name="cantCajas"
                   value={editingProduct.cantCajas}
@@ -185,7 +197,8 @@ my={12}>
               </FormControl>
               <FormControl>
                 <FormLabel>Piezas:</FormLabel>
-                <Input
+                <input
+                  className="input input-bordered input-accent w-full max-w-xs"
                   type="number"
                   name="piezas"
                   value={editingProduct.piezas}
@@ -194,7 +207,8 @@ my={12}>
               </FormControl>
               <FormControl>
                 <FormLabel>Material:</FormLabel>
-                <Input
+                <input
+                  className="input input-bordered input-accent w-full max-w-xs"
                   type="text"
                   name="material"
                   value={editingProduct.material}
@@ -203,8 +217,9 @@ my={12}>
               </FormControl>
               <FormControl>
                 <FormLabel>Medidas:</FormLabel>
-                <Input
+                <input
                   type="text"
+                  className="input input-bordered input-accent w-full max-w-xs"
                   name="medidas"
                   value={editingProduct.medidas}
                   onChange={handleInputChange}
@@ -215,6 +230,7 @@ my={12}>
   <InputGroup>
     <InputLeftAddon children="$" />
     <Input
+  w="100"
       type="number"
       name="precio"
       value={editingProduct.precio}
@@ -224,18 +240,21 @@ my={12}>
 </FormControl>
               <FormControl>
                 <FormLabel>Tono:</FormLabel>
-                <Input
+                <input
                   type="text"
                   name="tono"
+                  className="input input-bordered input-accent w-full max-w-xs"
                   value={editingProduct.tono}
                   onChange={handleInputChange}
                 />
               </FormControl>
               <FormControl>
                 <FormLabel>Uso:</FormLabel>
-                <Input
+                <input
                   type="text"
+                  className="input input-bordered input-accent w-full max-w-xs"
                   name="uso"
+                  placeholder='uso'
                   value={editingProduct.uso}
                   onChange={handleInputChange}
                 />
