@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import Landing from '@/components/Landing/Landing';
-import Prueba from '@/components/Prueba/Prueba';
+
 import Carousel from '../components/Carousel/Carousel';
 import Navbar from '@/components/NavBar/Navbar';
 import Footer from '@/components/Footer/Footer';
 import Cards from '@/components/Cards/Cards';
 import Marcas from '@/components/Marcas/Marcas';
-import CarroMarcas from '@/components/CarroMarcas';
+
 import Loader from '@/components/Loader/Loader';
 import ScrollingMenu from '@/components/ScrollingMenu/ScrollingMenu';
-
+import Carousel2 from '@/components/Carousel2/Carousel2'
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
@@ -33,11 +33,11 @@ export default function Home() {
       ) : (
         <>
           <Navbar />
+          <Carousel2></Carousel2>
           <Landing />
           <Carousel />
           <Cards />
           <ScrollingMenu/>
-          <Marcas />
           <Footer />
         </>
       )}
