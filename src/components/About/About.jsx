@@ -8,7 +8,7 @@ const About = () => {
       <div className="flex flex-col items-center">
         <div className="mb-4">
           <Image
-            src="/profile-picture.jpg"
+            src="/images/local.png"
             alt="Profile Picture"
             width={200}
             height={200}
@@ -16,8 +16,8 @@ const About = () => {
           />
         </div>
         <div className="mb-4">
-          <h1 className="text-2xl font-bold">Nombre Apellido</h1>
-          <p className="text-gray-600">Cargo/Profesión</p>
+          <h1 className="text-2xl font-bold">Bruno Oscar Ambrosini</h1>
+          <p className="text-gray-600">Dueño</p>
         </div>
       </div>
       

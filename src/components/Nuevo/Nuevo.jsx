@@ -11,7 +11,7 @@ const Nuevo = () => {
         <h2 className="text-4xl">The Second Title</h2>
         <p>Scroll Down</p>
       </div>
-      <div className="sticky top-0 h-screen flex flex-col items-center justify-center bg-purple-600 text-white" style={{backgroundImage: "url('ruta/de/la/imagen3.jpg')"}}>
+      <div className="sticky top-0 h-screen flex flex-col items-center justify-center bg-purple-600 text-white" style={{backgroundImage: "url('https://www.floornature.es/media/photos/39/17457/00_ariostea_ultra_marmi_white_ocean_blue_tempest_1_full.jpg')"}}>
         <h2 className="text-4xl">The Third Title</h2>
         <p>Scroll Down</p>
       </div>
