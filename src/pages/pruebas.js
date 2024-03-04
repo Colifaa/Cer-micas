@@ -1,10 +1,11 @@
-import LayoutGridDemo from '../components/Layout/Layout';
+import Nuevo from '@/components/Nuevo/Nuevo';
+
 
 import React from 'react'
 
 function pruebas() {
   return (
-      <LayoutGridDemo/>
+      <Nuevo/>
   )
 }
 

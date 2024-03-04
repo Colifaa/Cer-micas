@@ -31,27 +31,28 @@ import {
  
 const navListMenuItems = [
   {
-    title: "Products",
-    description: "Find the perfect solution for your needs.",
+    title: "Todos los Productos",
+    description: "",
     icon: SquaresPlusIcon,
+    href: "/allProducts"
   },
   {
-    title: "About Us",
+    title: "Ceramicas",
     description: "Meet and learn about our dedication",
     icon: UserGroupIcon,
   },
   {
-    title: "Blog",
+    title: "Porcelanato",
     description: "Find the perfect solution for your needs.",
     icon: Bars4Icon,
   },
   {
-    title: "Services",
+    title: "Para Pisos",
     description: "Learn how we can help you achieve your goals.",
     icon: SunIcon,
   },
   {
-    title: "Support",
+    title: "Para Revestimiento",
     description: "Reach out to us for assistance or inquiries",
     icon: GlobeAmericasIcon,
   },
@@ -81,8 +82,8 @@ function NavListMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const renderItems = navListMenuItems.map(
-    ({ icon, title, description }, key) => (
-      <a href="#" key={key}>
+    ({ icon, title, description, href }, key) => (
+      <a href={href} key={key}>
         <MenuItem className="flex items-center gap-3 rounded-lg">
           <div className="flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2 ">
             {" "}
@@ -127,7 +128,7 @@ function NavListMenu() {
               selected={isMenuOpen || isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen((cur) => !cur)}
             >
-              Resources
+              Productos
               <ChevronDownIcon
                 strokeWidth={2.5}
                 className={`hidden h-3 w-3 transition-transform lg:block ${
@@ -161,25 +162,37 @@ function NavList() {
     <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1">
       <Typography
         as="a"
-        href="#"
+        href="nosotros"
         variant="small"
         color="blue-gray"
         className="font-medium"
       >
-        <ListItem className="flex items-center gap-2 py-2 pr-4">Home</ListItem>
+        <ListItem className="flex items-center gap-2 py-2 pr-4">Nosotros</ListItem>
       </Typography>
       <NavListMenu />
       <Typography
         as="a"
-        href="#"
+        href="ambientes"
+        variant="small"
+        color="blue-gray"
+        className="font-medium"
+      >
+        <ListItem className="flex items-center gap-2 py-2 pr-4">Ambientes</ListItem>
+      </Typography>
+      <Typography
+        as="a"
+        href="contacto"
         variant="small"
         color="blue-gray"
         className="font-medium"
       >
         <ListItem className="flex items-center gap-2 py-2 pr-4">
-          Contact Us
+          Contacto
         </ListItem>
+        
+        
       </Typography>
+      
     </List>
   );
 }
@@ -199,21 +212,19 @@ export default function NavbarWithMegaMenu() {
       <div className="flex items-center justify-between text-blue-gray-900">
         <Typography
           as="a"
-          href="#"
+          href="/"
           variant="h6"
           className="mr-4 cursor-pointer py-1.5 lg:ml-2"
         >
-          Material Tailwind
+          <img src="/images/logo.png" alt="Logo" width="200px" /> 
         </Typography>
         <div className="hidden lg:block">
           <NavList />
         </div>
         <div className="hidden gap-2 lg:flex">
-          <Button variant="text" size="sm" color="blue-gray">
-            Log In
-          </Button>
+
           <Button variant="gradient" size="sm">
-            Sign In
+          Log In
           </Button>
         </div>
         <IconButton
@@ -232,11 +243,9 @@ export default function NavbarWithMegaMenu() {
       <Collapse open={openNav}>
         <NavList />
         <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden">
-          <Button variant="outlined" size="sm" color="blue-gray" fullWidth>
-            Log In
-          </Button>
+
           <Button variant="gradient" size="sm" fullWidth>
-            Sign In
+            Log in
           </Button>
         </div>
       </Collapse>

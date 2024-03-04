@@ -5,7 +5,7 @@ const Loader = () => {
   return (
     <div className={styles.loader}>
         <div className={`${styles.loaderCircle} ${styles.spin}`}>
-          <img src='/images/logo.png' alt="Logo" className={styles.logo} />
+          
         </div>
     </div>
   );

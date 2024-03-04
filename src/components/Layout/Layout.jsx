@@ -87,6 +87,7 @@ const cards = [
 function LayoutGridDemo() {
   return (
     <div className="h-screen py-20 w-full">
+  <h1 className="font-black text-sky-950 text-center text-4xl mb-4 text-orange-600 ">TENDENCIAS</h1>
       <LayoutGrid cards={cards} />
     </div>
   );

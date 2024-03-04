@@ -5,11 +5,11 @@ import About from '@/components/About/About'
 import Nuevo from '@/components/Nuevo/Nuevo'
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Nosotros() {
+export default function Contacto() {
   return (
     <div> 
       <Navbar/>
-      <Nuevo/>
+
       <About/>
   </div>
   )
