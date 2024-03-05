@@ -7,9 +7,8 @@ import Footer from '@/components/Footer/Footer';
 import Cards from '@/components/Cards/Cards';
 import LayoutGridDemo from '../components/Layout/Layout';
 import Loader from '@/components/Loader/Loader';
-import ScrollingMenu from '@/components/ScrollingMenu/ScrollingMenu';
 import Carousel2 from '@/components/Carousel2/Carousel2'
-import { Bbg } from '@/components/Bbg/Bbg';
+
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
@@ -35,9 +34,9 @@ export default function Home() {
           <Landing />
           <Carousel />
           <Cards />
-          <Bbg>
+          
           <LayoutGridDemo/>
-          </Bbg>
+          
 
 
           <Footer />
