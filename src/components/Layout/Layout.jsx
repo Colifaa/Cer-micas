@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import  LayoutGrid  from "../ui/layout-grid";
+import  LayoutGrid  from "../Ui/layout-grid";
 const SkeletonOne = () => {
   return (
     <div>
