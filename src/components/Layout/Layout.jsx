@@ -92,4 +92,4 @@ function LayoutGridDemo() {
     </div>
   );
 };
- export default LayoutGridDemo
+ export default LayoutGridDemo;
