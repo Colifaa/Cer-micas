@@ -17,8 +17,11 @@ import {
 } from "@chakra-ui/react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import supabase from '../../../lib/supabaseClient';
+import { useRouter } from 'next/router';
 
 function SignUp() {
+  
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     firstName: '',
@@ -129,9 +132,16 @@ function SignUp() {
               </Button>
             </Stack>
             <Stack pt={6}>
-              <Text align={"center"}>
-                Already a user? <Link color={"blue.400"}>Login</Link>
-              </Text>
+            <Text align={"center"}>
+  Already a user? 
+  <Button 
+    colorScheme="blue" 
+    variant="link" 
+    onClick={() => router.push("/dashboard")}
+  >
+    Login
+  </Button>
+</Text>
             </Stack>
           </Stack>
         </Box>
