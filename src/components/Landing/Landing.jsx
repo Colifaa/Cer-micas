@@ -3,19 +3,7 @@ import React from 'react';
 function Landing() {
   return (
     <>
-             <div className="w-screen h-screen overflow-hidden relative before:block before:absolute before:bg-black before:h-full before:w-full before:top-0 before:left-0 before:z-10 before:opacity-30">
-        <img src="https://i.pinimg.com/originals/80/55/4f/80554f712f15b26081910aa3e3765b81.jpg" className="absolute top-0 left-0 min-w-full min-h-full ob" alt="" />
-        <div className="relative z-20 max-w-screen-lg mx-auto grid grid-cols-12 h-full items-center">
-          <div className="col-span-6">
-            <span className="uppercase text-white text-xs font-bold mb-2 block">WE ARE EXPERTS</span>
-            <h1 className="text-white font-extrabold text-5xl mb-8">SOMOS EXPERTOS EN CERAMICAS</h1>
-            <p className="text-stone-100 text-base">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-            <button className="mt-8 text-white uppercase py-4 text-base font-light px-10 border border-white hover:bg-white hover:bg-opacity-10">Get started</button>
-          </div>
-        </div>
-      </div>
+
 
       <div className="bg-[#f7d0b6] py-20">
         <div className="max-w-screen-lg mx-auto flex justify-between items-center">
@@ -36,7 +24,7 @@ function Landing() {
             </div>
           </div>
 
-          <div className="py-20 bg-slate-100 relative before:absolute before:h-full before:w-screen before:bg-sky-950 before:top-0 before:left-0">
+          <div className="py-20 bg-slate-100 relative before:absolute before:h-full before:w-screen before:bg-[#23214b] before:top-0 before:left-0">
             <div className="relative z-20 pl-12">
               <h2 className="text-[#f7d0b6] font-black text-5xl leading-snug mb-10">VOLTA <br />TIZA</h2>
               <p className="text-white text-sm">
@@ -52,7 +40,7 @@ function Landing() {
         <div className="grid grid-cols-2 max-w-screen-lg mx-auto">
           <div className="py-20 bg-slate-100 relative before:absolute before:h-full before:w-screen before:bg-[#f7d0b6] before:top-0 before:right-0">
             <div className="relative z-20 pl-12">
-              <h2 className="text-sky-950 font-black text-5xl leading-snug mb-10">WALL<br />PETROLEO</h2>
+              <h2 className="text-[#23214b] font-black text-5xl leading-snug mb-10">WALL<br />PETROLEO</h2>
               <p className="text-sky-950 text-sm">
               Con un diseño realista, Wall Petróleo fue pensada para aplicarse en ambientes modernos y despojados. Su terminación simil cemento se caracteriza por su acabado brillante y su color petróleo. Esta cerámica está disponible en 33×45,3 y es ideal para un estilo contemporáneo, ideal para ser instalado en el interior de tu hogar.
               </p>
