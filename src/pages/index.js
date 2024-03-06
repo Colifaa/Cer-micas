@@ -4,7 +4,7 @@ import Carousel from '../components/Carousel/Carousel';
 
 import Footer from '@/components/Footer/Footer';
 import Cards from '@/components/Cards/Cards';
-
+import Loader from '@/components/Loader/Loader';
 
 import Carousel2 from '@/components/Carousel2/Carousel2'
 
