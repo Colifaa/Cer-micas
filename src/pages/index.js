@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Landing from '@/components/Landing/Landing';
 import Carousel from '../components/Carousel/Carousel';
-import Navbar from '@/components/NavBar/Navbar';
+
 import Footer from '@/components/Footer/Footer';
 import Cards from '@/components/Cards/Cards';
 import LayoutGridDemo from '../components/Layout/Layout';
@@ -24,7 +24,7 @@ export default function Home() {
   return (
 
         <>
-          <Navbar />
+     
           <Carousel2/>
           <Landing />
           <Carousel />
