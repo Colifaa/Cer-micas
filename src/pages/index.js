@@ -6,7 +6,6 @@ import Footer from '@/components/Footer/Footer';
 import Cards from '@/components/Cards/Cards';
 import LayoutGridDemo from '../components/Layout/Layout';
 
-import Carousel2 from '@/components/Carousel2/Carousel2'
 
 
 export default function Home() {
@@ -25,7 +24,7 @@ export default function Home() {
 
         <>
           <Navbar />
-          <Carousel2/>
+   
           <Landing />
           <Carousel />
           <Cards />
