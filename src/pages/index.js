@@ -10,16 +10,6 @@ import Carousel2 from '@/components/Carousel2/Carousel2'
 
 
 export default function Home() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulación de carga (elimina esto y establece setLoading(false) cuando hayas terminado de cargar tus datos)
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 3000); // Simula una carga de 3 segundos, ajusta según necesites
-
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
 
