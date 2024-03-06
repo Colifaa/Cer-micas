@@ -1,4 +1,4 @@
- /* import React, { useState } from 'react';
+import React, { useState } from 'react';
 import styles from './ScrollingMenu.module.css'; // Importa tus estilos CSS aquí
 
 const ScrollingMenu = () => {
@@ -63,4 +63,3 @@ const ScrollingMenu = () => {
 };
 
 export default ScrollingMenu;
-*/
