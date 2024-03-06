@@ -3,7 +3,9 @@ import Landing from '@/components/Landing/Landing';
 import Navbar from '@/components/NavBar/Navbar';
 import Footer from '@/components/Footer/Footer';
 import Cards from '@/components/Cards/Cards';
-import LayoutGridDemo from '../components/Layout/Layout';
+import Layout from '@/components/Layout/Layout';
+
+
 
 
 
@@ -28,7 +30,7 @@ export default function Home() {
       
           <Cards />
           
-          <LayoutGridDemo/>
+          <Layout/>
           
 
 
