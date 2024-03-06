@@ -1,4 +1,4 @@
-/* import React, { useState, useRef, useEffect } from "react";
+ import React, { useState, useRef, useEffect } from "react";
 import  LayoutGrid  from "../Ui/layout-grid";
 const SkeletonOne = () => {
   return (
@@ -94,4 +94,4 @@ function Layout() {
 };
  export default Layout;
 
- */
+ 
