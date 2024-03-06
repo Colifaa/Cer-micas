@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Landing from '@/components/Landing/Landing';
-import Navbar from '@/components/NavBar/Navbar';
+
 import Footer from '@/components/Footer/Footer';
 import Cards from '@/components/Cards/Cards';
 import Layout from '@/components/Layout/Layout';
+import Navbar from '@/components/NavBar/NavbarWithMegaMenu';
 
 
 

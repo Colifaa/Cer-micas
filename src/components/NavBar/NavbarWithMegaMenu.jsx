@@ -197,7 +197,7 @@
    );
  }
  
- export default function Navbar() {
+ export default function NavbarWithMegaMenu() {
    const [openNav, setOpenNav] = React.useState(false);
  
    React.useEffect(() => {
