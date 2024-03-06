@@ -1,14 +1,14 @@
 
 import React from 'react'
 import About from '@/components/About/About'
-import Nuevo from '@/components/Nuevo/Nuevo'
 
 
-export default function Nosotros() {
+
+export default function Contacto() {
   return (
     <div> 
 
-      <Nuevo/>
+
       <About/>
   </div>
   )

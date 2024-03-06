@@ -5,7 +5,7 @@ import CreateProduct from '@/components/CreateProduct/CreateProduct';
 function create() {
     const [user, setUser] = useState(null);
 
-    console.log("userssss",user);
+   
   
     useEffect(() => {
       // Función asincrónica para obtener los datos del usuario

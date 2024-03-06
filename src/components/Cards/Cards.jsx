@@ -15,7 +15,7 @@ function Cards() {
         <h2 className="text-3xl font-light text-black sm:text-4xl lg:text-5xl">
           aqui! <span className="block w-full font-light text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-500 lg:inline">PRODUCTOS DESTACADOS</span> 
         </h2>
-        <p className="mb-20 text-lg text-gray-900">Comes directly from the desk of engineers, creators and managers at Skcript.</p>
+        <p className="mb-20 text-lg text-gray-900"></p>
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-4">
           {cardData.map((card, index) => (
