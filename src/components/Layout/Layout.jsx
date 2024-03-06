@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+/* import React, { useState, useRef, useEffect } from "react";
 import  LayoutGrid  from "../Ui/layout-grid";
 const SkeletonOne = () => {
   return (
@@ -84,7 +84,7 @@ const cards = [
 ];
 
  
-function LayoutGridDemo() {
+function Layout() {
   return (
     <div className="h-screen py-20 w-full">
   <h1 className="font-black text-sky-950 text-center text-4xl mb-4 text-orange-600 ">TENDENCIAS</h1>
@@ -92,4 +92,6 @@ function LayoutGridDemo() {
     </div>
   );
 };
- export default LayoutGridDemo;
+ export default Layout;
+
+ */
