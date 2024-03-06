@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Landing from '@/components/Landing/Landing';
 import Carousel from '../components/Carousel/Carousel';
-
+import Navbar from '@/components/NavBar/Navbar';
 import Footer from '@/components/Footer/Footer';
 import Cards from '@/components/Cards/Cards';
-import Loader from '@/components/Loader/Loader';
-import Carousel2 from '@/components/Carousel2/Carousel2';
+import LayoutGridDemo from '../components/Layout/Layout';
 
-
+import Carousel2 from '@/components/Carousel2/Carousel2'
 
 
 export default function Home() {
-
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -23,28 +21,20 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
 
-
   return (
-    <div>
-    {loading ? (
-      <Loader />
-    ) : (
-      <>
-         <Carousel2/>
+
+        <>
+          <Navbar />
+          <Carousel2/>
           <Landing />
           <Carousel />
           <Cards />
           
-      
+          <LayoutGridDemo/>
           
 
 
           <Footer />
-      </>
-          
-          )}
-   </div>
-      
-      
+        </>
       )}
 
