@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Landing from '@/components/Landing/Landing';
-import Carousel from '../components/Carousel/Carousel';
 import Navbar from '@/components/NavBar/Navbar';
 import Footer from '@/components/Footer/Footer';
 import Cards from '@/components/Cards/Cards';
@@ -26,7 +25,7 @@ export default function Home() {
           <Navbar />
    
           <Landing />
-          <Carousel />
+      
           <Cards />
           
           <LayoutGridDemo/>
