@@ -11,11 +11,25 @@ import Carousel2 from '@/components/Carousel2/Carousel2'
 
 export default function Home() {
 
-  return (
+  const [loading, setLoading] = useState(true);
 
-        <>
-     
-          <Carousel2/>
+  useEffect(() => {
+    // Simulación de carga (elimina esto y establece setLoading(false) cuando hayas terminado de cargar tus datos)
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000); // Simula una carga de 3 segundos, ajusta según necesites
+
+    return () => clearTimeout(timer);
+  }, []);
+
+
+  return (
+    <div>
+    {loading ? (
+      <Loader />
+    ) : (
+      <>
+         <Carousel2/>
           <Landing />
           <Carousel />
           <Cards />
@@ -25,6 +39,11 @@ export default function Home() {
 
 
           <Footer />
-        </>
+      </>
+          
+          )}
+   </div>
+      
+      
       )}
 
