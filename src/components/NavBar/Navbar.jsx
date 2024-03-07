@@ -192,7 +192,7 @@ export default function NavbarWithMegaMenu() {
       "resize",
       () => window.innerWidth >= 960 && setOpenNav(false)
     );
-  }, []);
+  }, [])
 
   return (
     <Navbar className="mx-auto max-w-screen-xl px-4 py-2">
