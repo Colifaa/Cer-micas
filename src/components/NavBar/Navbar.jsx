@@ -199,13 +199,15 @@ function NavList() {
  
 export default function NavbarWithMegaMenu() {
   const [openNav, setOpenNav] = React.useState(false);
+
  
   React.useEffect(() => {
     window.addEventListener(
       "resize",
       () => window.innerWidth >= 960 && setOpenNav(false),
     );
-  }, []);
+  }, [openNav]);
+  
  
   return (
     <Navbar className="mx-auto max-w-screen-xl px-4 py-2">
