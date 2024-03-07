@@ -21,4 +21,4 @@ export default function Carousel2() {
       />
     </Carousel>
   );
-} 
+} ;
