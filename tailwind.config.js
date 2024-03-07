@@ -6,6 +6,7 @@ module.exports = withMT( {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     "./src/**/*.{ts,tsx}",
+    "./node_modules/flowbite/**/*.js"
   ],
   darkMode: "class",
   theme: {
@@ -60,6 +61,8 @@ module.exports = withMT( {
       },
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"),
+  require('flowbite/plugin')],
+  
 }
 )

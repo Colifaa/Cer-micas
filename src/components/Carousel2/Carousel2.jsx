@@ -1,4 +1,4 @@
-/* import { Carousel } from "@material-tailwind/react";
+import { Carousel } from "@material-tailwind/react";
  
 import React from 'react';
 export default function Carousel2() {
@@ -21,4 +21,4 @@ export default function Carousel2() {
       />
     </Carousel>
   );
-} */
+} 
