@@ -4,7 +4,7 @@ import Landing from '@/components/Landing/Landing';
 import Footer from '@/components/Footer/Footer';
 import Cards from '@/components/Cards/Cards';
 import Layout from '@/components/Layout/Layout';
-
+import Navbar from '@/components/NavBar/Navbar'
 
 
 
@@ -26,7 +26,7 @@ export default function Home() {
 
         <>
        
-   
+          <Navbar/>
           <Landing />
       
           <Cards />
