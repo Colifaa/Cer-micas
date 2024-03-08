@@ -1,10 +1,10 @@
-import NavbarSimple from '@/components/NavBar/Navbar'
+import SingInUser from "../components/SignInUser/SignInUser"
 import React from 'react'
 
 function pruebas() {
   return (
     <div>
-      <NavbarSimple/>
+      <SingInUser />
     </div>
   )
 }

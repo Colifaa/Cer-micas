@@ -86,7 +86,17 @@ const Cart = () => {
     router.push('/carrito');
   };
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<div className="relative flex min-h-screen flex-col">
+    <h2 className="font-black text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-white uppercase">
+        Todos los Productos
+    </h2>
+
+
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"> 
+ 
+     
+         
           <Button
                         mt="8"
                          variant="unstyled"
@@ -162,7 +172,7 @@ const Cart = () => {
         </div>
       ))}
   
-
+  </div>
     </div>
   );
 };
