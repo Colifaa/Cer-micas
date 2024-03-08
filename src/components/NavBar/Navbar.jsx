@@ -6,7 +6,7 @@ function Navbar() {
 
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
-    };
+    }
 
     return (
         <nav className="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900 relative z-10">
