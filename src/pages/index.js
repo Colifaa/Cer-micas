@@ -4,9 +4,8 @@ import Landing from '@/components/Landing/Landing';
 import Footer from '@/components/Footer/Footer';
 import Cards from '@/components/Cards/Cards';
 import Layout from '@/components/Layout/Layout';
-import NavbarWithMegaMenu from '@/components/NavBar/Navbar'
-
 import Carousel from '@/components/Carousel/Carousel';
+import Navbar from '@/components/NavBar/Navbar';
 
 
 
@@ -29,7 +28,7 @@ export default function Home() {
 
         <>
        
-          <NavbarWithMegaMenu/>
+          <Navbar/>
 
           <Landing />
       
