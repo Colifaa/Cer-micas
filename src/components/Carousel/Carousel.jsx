@@ -1,5 +1,5 @@
 
-/* import React, { useEffect, useRef } from 'react';
+ import React, { useEffect, useRef } from 'react';
 
 const Carousel = () => {
   const sliderRef = useRef(null);
@@ -46,4 +46,3 @@ const Carousel = () => {
 };
 
 export default Carousel;
-*/
