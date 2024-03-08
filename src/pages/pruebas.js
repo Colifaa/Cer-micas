@@ -1,9 +1,10 @@
+import NavbarSimple from '@/components/NavBar/Navbar'
 import React from 'react'
 
 function pruebas() {
   return (
     <div>
-      Hola
+      <NavbarSimple/>
     </div>
   )
 }
