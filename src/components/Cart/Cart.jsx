@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import supabase from "../../../lib/supabaseClient";
 import ModalCart from './AddCart';
-
+import CartAlert from '../Cart/CartAlert';
+import CartAlertAdd from '../Cart/CartAlertAdd';
+import CartAlertCorrect from '../Cart/CartAlertCorrect';
 import { Button } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 
@@ -9,8 +11,13 @@ const Cart = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
 
+  const [showAlert, setShowAlert] = useState(null); // Estado para mostrar el alert
 
-  const [user, setUser] = useState(null); // Estado para almacenar la información del usuario
+  const [showAlert2, setShowAlert2] = useState(null); // Estado para mostrar el alert
+
+  const [showAlert3, setShowAlert3] = useState(null); // Estado para mostrar el alert
+
+  const [user, setUser] = useState(false); // Estado para almacenar la información del usuario
   
 
   // Función para cargar productos disponibles
@@ -60,15 +67,17 @@ const Cart = () => {
 
   // Función para agregar producto al carrito
   const addToCart = async (productId) => {
-    if (!user) {
-      console.error('User not logged in');
-      return;
+    if (!user.data?.user?.id) {
+      console.log("user",user);
+      // Mostrar el alert si el usuario no ha iniciado sesión
+      setShowAlert2(true);
     }
-    const { error } = await supabase.from('cart').insert({ product_id: productId, user_id: user.data.user.id });
+    const { error } = await supabase.from('cart').insert({ product_id: productId, user_id: user?.data?.user?.id });
     if (error) {
       console.error('Error adding to cart:', error.message);
       return;
     }
+    setShowAlert3(true);
     await loadCart();
   };
 
@@ -83,8 +92,34 @@ const Cart = () => {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push('/carrito');
+    // Verificar si el usuario no ha iniciado sesión
+    if (!user.data?.user?.id) {
+      console.log("user",user);
+      // Mostrar el alert si el usuario no ha iniciado sesión
+      setShowAlert(true);
+ 
+    } else {
+      // Redirigir al carrito si el usuario ha iniciado sesión
+      router.push('/carrito');
+    }
   };
+
+  const handleCloseAlert = () => {
+    // Manejador para cerrar el alert
+    setShowAlert(false);
+  };
+
+  const handleCloseAlert2 = () => {
+    // Manejador para cerrar el alert
+    setShowAlert2(false);
+  };
+
+
+  const handleCloseAlert3 = () => {
+    // Manejador para cerrar el alert
+    setShowAlert3(false);
+  };
+
   return (
 <div className="relative flex min-h-screen flex-col">
     <h2 className="font-black text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-white uppercase">
@@ -173,6 +208,28 @@ const Cart = () => {
       ))}
   
   </div>
+
+  <CartAlert
+        isOpen={showAlert}
+        onClose={handleCloseAlert}
+        title="Alerta"
+        message="Debes iniciar sesión para ver tu carrito de compras."
+      />
+
+
+<CartAlertAdd
+        isOpen={showAlert2}
+        onClose={handleCloseAlert2}
+        title="Alerta"
+        message="Debes iniciar sesión para agregar productos al carrito."
+      />
+
+<CartAlertCorrect
+        isOpen={showAlert3}
+        onClose={handleCloseAlert3}
+        title="Alerta"
+        message="Producto agregado al carrito."
+      />
     </div>
   );
 };
