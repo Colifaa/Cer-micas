@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Image, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure, Box, SimpleGrid, Card } from '@chakra-ui/react';
 import supabase from "../../../lib/supabaseClient";
+import CartAlertRemove from '../Cart/CartAlertRemove';
 
 function AddCart() {
  
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [cart, setCart] = useState([]);
+  const [showAlert, setShowAlert] = useState(null); // Estado para mostrar el alert
+
 
   const loadCart = async (userId) => {
     const { data, error } = await supabase
@@ -28,18 +31,27 @@ function AddCart() {
       console.error('Error removing from cart:', error.message);
       return;
     }
-    await loadCart(); // Cargar el carrito después de eliminar un elemento
-  };
+   setShowAlert(true)
+   setTimeout(() => {
+    window.location.reload(); // Recargar la página para actualizar el carrito
+  }, 2000); // 1000 milisegundos = 1 segundo
+};
 
   useEffect(() => {
     const getUserInfo = async () => {
       const user = await supabase.auth.getUser(); // Obtener el usuario autenticado
       if (user) {
-        await loadCart(user.data.user.id); // Cargar el carrito asociado al usuario autenticado
+        await loadCart(user?.data?.user?.id); // Cargar el carrito asociado al usuario autenticado
       }
     };
     getUserInfo(); // Llamar a la función para obtener el usuario y cargar el carrito
   }, []);
+
+
+  const handleCloseAlert = () => {
+    // Manejador para cerrar el alert
+    setShowAlert(false);
+  };
 
 
     return (
@@ -124,6 +136,14 @@ function AddCart() {
           </div>
         </div>
       ))}
+      
+  <CartAlertRemove
+        isOpen={showAlert}
+        onClose={handleCloseAlert}
+        title="Alerta"
+        message="Producto eliminado Correctamente."
+      />
+
     </SimpleGrid>
   
   
