@@ -1,12 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from "react-feather";
 
-const CarouselPri = ({ images, autoSlide = false, autoSlideInterval = 3000 }) => {
+const CarouselPri = ({ images, autoSlide = false, autoSlideInterval = 4000 }) => {
     const [curr, setCurr] = useState(0);
+    const [width, setWidth] = useState(0);
+    const carouselRef = useRef(null);
+
+    useEffect(() => {
+        setWidth(carouselRef.current.clientWidth);
+        const handleWindowSizeChange = () => {
+            setWidth(carouselRef.current.clientWidth);
+        };
+        window.addEventListener('resize', handleWindowSizeChange);
+        return () => {
+            window.removeEventListener('resize', handleWindowSizeChange);
+        };
+    }, []);
 
     const prev = () => setCurr((curr) => (curr === 0 ? images.length - 1 : curr - 1));
 
-    const next = () => setCurr((curr) => (curr === images.length - 1 ? 0 : curr + 1));
+    const next = () => setCurr((curr) => (curr + 1) % images.length);
 
     useEffect(() => {
         if (!autoSlide) return;
@@ -14,12 +27,24 @@ const CarouselPri = ({ images, autoSlide = false, autoSlideInterval = 3000 }) =>
         return () => clearInterval(slideInterval);
     }, []);
 
+    const slideStyle = {
+        transform: `translateX(-${curr * (width / images.length)}px)`,
+        transition: 'transform ease-out 0.5s',
+        display: 'flex',
+        width: `${images.length * 100}%`,
+    };
+
+    const slideItemStyle = {
+        flex: `0 0 ${100 / images.length}%`,
+        maxWidth: '100%',
+    };
+
     return (
         <div className='overflow-hidden relative' style={{ width: '100%' }}>
-            <div className='flex transition-transform ease-out duration-500' style={{ transform: `translateX(-${curr * 100}%)` }}>
+            <div className='flex' style={slideStyle} ref={carouselRef}>
                 {images.map((image, index) => (
-                    <div key={index} className='w-full flex-shrink-0'>
-                        <img src={image} alt={`Slide ${index}`} style={{ width: '1905px', height: '820px' }} />
+                    <div key={index} className='w-full flex-shrink-0' style={slideItemStyle}>
+                        <img src={image} alt={`Slide ${index}`} style={{ width: '100%', height: 'auto', maxWidth: '100%' }} />
                     </div>
                 ))}
             </div>
