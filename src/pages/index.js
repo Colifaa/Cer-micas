@@ -6,6 +6,7 @@ import Cards from '@/components/Cards/Cards';
 import Layout from '@/components/Layout/Layout';
 import Carousel from '@/components/Carousel/Carousel';
 import Navbar from '@/components/NavBar/Navbar';
+import CarouselPri from '@/components/CarouselPri/CarouselPri';
 
 
 
@@ -23,6 +24,12 @@ export default function Home() {
 
     return () => clearTimeout(timer);
   }, []);
+  const images = [
+    "/images/carro1.png",
+    "/images/carro2.png",
+    "/images/carro1.png",
+   
+  ]
 
   return (
 
@@ -30,6 +37,7 @@ export default function Home() {
        
           <Navbar/>
 
+          <CarouselPri images={images} autoSlide={true} autoSlideInterval={3000} />
           <Landing />
       
           <Cards />
