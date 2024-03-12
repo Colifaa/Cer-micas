@@ -37,7 +37,7 @@ const Carousel = () => {
         <h2 className="text-4xl max-w-md">Tailwind CSS works by scanning all of your HTML</h2>
         <p className="max-w-md">It's fast, flexible, and reliable — with zero-runtime.</p>
       </div>
-      <div className="text-white space-y-4 flex-none w-full flex flex-col items-center justify-center" style={{backgroundImage: "url('/images/carro3.png')", backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
+      <div className="text-white space-y-4 flex-none w-full flex flex-col items-center justify-center" style={{backgroundImage: "url('/images/carro1.png')", backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
         <h2 className="text-4xl max-w-md">React, Vue, and HTML</h2>
         <p className="max-w-md">Accessible, interactive examples for React and Vue powered by Headless UI, plus vanilla HTML if you’d rather write any necessary JS yourself.</p>
       </div>

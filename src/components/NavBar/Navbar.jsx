@@ -72,7 +72,7 @@ function Navbar() {
     return (
         <nav className="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900 relative z-10">
             <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
-                <a href="https://flowbite.com" className="flex items-center space-x-3 rtl:space-x-reverse">
+                <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
                     <img src="/images/logo.png" className="h-16" alt="Flowbite Logo" />
                 </a>
                 <button
@@ -89,17 +89,7 @@ function Navbar() {
                 </button>
                 <div id="mega-menu-full" className="items-center justify-between font-medium hidden w-full md:flex md:w-auto md:order-1">
                     <ul className="flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                        <li>
-                            <a href="/" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-
-                            0 dark:text-white md:dark:hover:text-blue-
-                            500 dark:hover:bg-gray-
-                            700 dark:hover:text-blue-
-                            500 md:dark:hover:bg-transparent dark:border-
-                            gray-
-                            700"
-                                aria-current="
-                            page">Inicio</a>
-                        </li>
+
                         <li>
                             <button
                                 id="
@@ -197,7 +187,7 @@ function Navbar() {
                             )}
                         </li>
                         <li>
-                            <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-
+                            <a href="/ambientes" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-
                             0 dark:text-white md:dark:hover:text-blue-
                             500 dark:hover:bg-gray-
                             700 dark:hover:text-blue-
@@ -206,7 +196,7 @@ function Navbar() {
                             700">Ambientes</a>
                         </li>
                         <li>
-                            <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-
+                            <a href="/nosotros" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-
                             0 dark:text-white md:dark:hover:text-blue-
                             500 dark:hover:bg-gray-
                             700 dark:hover:text-blue-
@@ -215,7 +205,7 @@ function Navbar() {
                             700">Empresa</a>
                         </li>
                         <li>
-                            <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-
+                            <a href="/contacto" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-
                             0 dark:text-white md:dark:hover:text-blue-
                             500 dark:hover:bg-gray-
                             700 dark:hover:text-blue-
