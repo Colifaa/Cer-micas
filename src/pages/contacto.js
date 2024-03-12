@@ -10,7 +10,7 @@ export default function Contacto() {
   return (
     <>
       <Navbar/>
-      <ContactSection/>
+      <ContactSection />
       </>
   
   )

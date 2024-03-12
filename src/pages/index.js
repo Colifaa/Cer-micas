@@ -37,7 +37,7 @@ export default function Home() {
         <>
        
           <Navbar/>
-          <CarouselPri images={images} autoSlide={true} autoSlideInterval={3000} />
+          <CarouselPri images={images} autoSlide={true} autoSlideInterval={4000} />
           <Landing />
           <Carousel/>
           <Cards />
