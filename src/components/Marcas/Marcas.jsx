@@ -26,4 +26,4 @@ function Marcas() {
   );
 }
 
-export default Marcas;
+export default Marcas
