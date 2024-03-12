@@ -21,9 +21,9 @@ function Footer() {
                 <p className="font-semibold text-gray-800 dark:text-white">Informacion</p>
 
                 <div className="flex flex-col items-start mt-5 space-y-2">
-                    <p className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:cursor-pointer hover:text-blue-500">Inicio</p>
-                    <p className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:cursor-pointer hover:text-blue-500">Productos</p>
-                    <p className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:cursor-pointer hover:text-blue-500">Ambientaciones</p>
+                    <a href="/" className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:cursor-pointer hover:text-blue-500">Inicio</a>
+                    <a href="/allProducts" className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:cursor-pointer hover:text-blue-500">Productos</a>
+                    <a href="/ambientes" className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:cursor-pointer hover:text-blue-500">Ambientaciones</a>
                 </div>
             </div>
 
@@ -31,9 +31,9 @@ function Footer() {
                 <p className="font-semibold text-gray-800 dark:text-white">Empresa</p>
 
                 <div className="flex flex-col items-start mt-5 space-y-2">
-                    <p className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:cursor-pointer hover:text-blue-500">Sobre nosotros</p>
-                    <p className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:cursor-pointer hover:text-blue-500">Contacto</p>
-                    <p className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:cursor-pointer hover:text-blue-500">Medios de pagos</p>
+                    <a href='/nosotros' className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:cursor-pointer hover:text-blue-500">Sobre nosotros</a>
+                    <a href="/contacto" className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:cursor-pointer hover:text-blue-500">Contacto</a>
+                    <a className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:cursor-pointer hover:text-blue-500">Medios de pagos</a>
                 </div>
             </div>
         </div>
@@ -47,7 +47,9 @@ function Footer() {
             
             <div className="flex gap-4 hover:cursor-pointer">
                 <img src="https://www.svgrepo.com/show/303114/facebook-3-logo.svg" width="30" height="30" alt="fb" />
-                <img src="https://www.svgrepo.com/show/303145/instagram-2-1-logo.svg" width="30" height="30" alt="inst" />
+                <a href='https://www.instagram.com/ceramicas_sanrafael/' target="_blank" rel="noopener noreferrer">
+                    <img src="https://www.svgrepo.com/show/303145/instagram-2-1-logo.svg" width="30" height="30" alt="inst" />
+                </a>
                 <img src="https://www.svgrepo.com/show/28145/linkedin.svg" width="30" height="30" alt="in" />
                 <img src="https://www.svgrepo.com/show/475692/whatsapp-color.svg" className="" width="30" height="30" alt="db" />
             </div>

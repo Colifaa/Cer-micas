@@ -1,15 +1,17 @@
 
+import ContactSection from '@/components/Contacto/Contacto'
+import Navbar from '@/components/NavBar/Navbar'
 import React from 'react'
-import About from '@/components/About/About'
+
 
 
 
 export default function Contacto() {
   return (
-    <div> 
-
-
-      <About/>
-  </div>
+    <>
+      <Navbar/>
+      <ContactSection/>
+      </>
+  
   )
 }
