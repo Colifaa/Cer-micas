@@ -26,9 +26,9 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
   const images = [
-    "/images/carro1.png",
-    "/images/carro2.png",
-    "/images/carro1.png",
+    "/images/1.png",
+    "/images/2.png",
+    
    
   ]
 
@@ -37,7 +37,7 @@ export default function Home() {
         <>
        
           <Navbar/>
-          <CarouselPri images={images} autoSlide={true} autoSlideInterval={4000} />
+          <CarouselPri images={images} autoSlide={true} autoSlideInterval={5000} />
           <Landing />
           <Carousel/>
           <Cards />

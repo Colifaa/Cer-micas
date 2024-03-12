@@ -57,7 +57,7 @@ function SignInUser() {
     return (
         <div>
             <button className="bg-black border-black rounded-lg p-2 mx-2" ref={btnRef} colorScheme='teal' onClick={onOpen}>
-                Sign In
+            Iniciar sesión
             </button>
             <Drawer
                 size="xl"
@@ -81,11 +81,11 @@ function SignInUser() {
                             >
                                 <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
                                     <Stack align={"center"}>
-                                        <Heading fontSize={"4xl"}>Login to your account</Heading>
+                                        <Heading fontSize={"4xl"}>Ingrese a su cuenta</Heading>
                                         <Text fontSize={"lg"} color={"gray.600"}>
-                                            Create New Account{" "}
+                                        Crear una nueva cuenta{" "}
                                             <Link href="/signup" color={"blue.400"}>
-                                                Register Here
+                                                Registrar aquí
                                             </Link>
                                         </Text>
                                     </Stack>
@@ -98,7 +98,7 @@ function SignInUser() {
                                         >
                                             <Stack spacing={4}>
                                                 <FormControl id="email">
-                                                    <FormLabel>Email address</FormLabel>
+                                                    <FormLabel>Dirección de correo electrónico</FormLabel>
                                                     <Input
                                                         value={email}
                                                         onChange={(e) => setEmail(e.target.value)}
@@ -107,7 +107,7 @@ function SignInUser() {
                                                     />
                                                 </FormControl>
                                                 <FormControl id="password">
-                                                    <FormLabel>Password</FormLabel>
+                                                    <FormLabel>Contraseña</FormLabel>
                                                     <Input
                                                         value={password}
                                                         onChange={(e) => setPassword(e.target.value)}
@@ -122,8 +122,8 @@ function SignInUser() {
                                                         align={"start"}
                                                         justify={"space-between"}
                                                     >
-                                                        <Checkbox>Remember me</Checkbox>
-                                                        <Link color={"blue.400"}>Forgot password?</Link>
+                                                        <Checkbox>Acuérdate de mí</Checkbox>
+                                                        <Link color={"blue.400"}>¿Has olvidado tu contraseña?</Link>
                                                     </Stack>
                                                     <Button
                                                         type="submit"
@@ -134,7 +134,8 @@ function SignInUser() {
                                                         }}
                                                         bgImage={"linear-gradient(to right, #f09e06 , #fc490b )"}
                                                     >
-                                                        Sign in
+                                                        Iniciar sesión
+
                                                     </Button>
                                                 </Stack>
                                             </Stack>

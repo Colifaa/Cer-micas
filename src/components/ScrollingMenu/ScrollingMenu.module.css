@@ -17,7 +17,8 @@
 }
 
 .optionsContainer {
-  position: absolute;
+  position: relative; /* Cambia a posición relativa */
+  z-index: 1; /* Asegúrate de que esté por encima del fondo */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
