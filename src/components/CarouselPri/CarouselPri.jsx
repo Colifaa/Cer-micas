@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from "react-feather";
 
-const CarouselPri = ({ images, autoSlide = false, autoSlideInterval = 4000 }) => {
+const CarouselPri = ({ images, autoSlide = false, autoSlideInterval = 5000 }) => {
     const [curr, setCurr] = useState(0);
     const [width, setWidth] = useState(0);
     const carouselRef = useRef(null);
