@@ -1,80 +1,29 @@
-import React, { Component } from "react";
-import Slider from "react-slick";
+import React from 'react';
 
-const data = [
-    {
-        imgSrc: "/images/ferrum.jpg"
-    },
-    {
-        imgSrc: "/images/oblak.jpg"
-    },
-    {
-        imgSrc: "/images/sl.jpg"
-    },
-    {
-        imgSrc: "/images/weber.png"
-    },
+function Marcas() {
+  // Array con las rutas de las imágenes
+  const images = [
+    '/images/ferrum.png',
+    '/images/oblak.png',
+    '/images/sl.png',
+    '/images/weber.png',
+    // Agrega aquí las rutas de las imágenes adicionales que desees
+  ];
 
-];
+  // Duplica las imágenes al principio y al final del conjunto de imágenes
+  const duplicatedImages = [...images, ...images, ...images];
 
-export default class MultipleItems extends Component {
-    render() {
-        const settings = {
-            dots: false,
-            infinite: true,
-            slidesToShow: 5,
-            slidesToScroll: 1,
-            arrows: false,
-            autoplay: true,
-            speed: 2000,
-            autoplaySpeed: 2000,
-            cssEase: "linear",
-            responsive: [
-                {
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 4,
-                        slidesToScroll: 1,
-                        infinite: true,
-                        dots: false
-                    }
-                },
-                {
-                    breakpoint: 700,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                        infinite: true,
-                        dots: false
-                    }
-                },
-                {
-                    breakpoint: 500,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        infinite: true,
-                        dots: false
-                    }
-                }
-            ]
-        };
-
-        return (
-            <div className='text-center bg-lightpink' >
-                <div className="mx-auto max-w-2xl py-16 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-                    <div>
-                        <h1>PROVEEDORES</h1>
-                        <Slider {...settings}>
-                            {data.map((item, i) =>
-                                <div key={i}>
-                                    <img src={item.imgSrc} alt={item.imgSrc} />
-                                </div>
-                            )}
-                        </Slider>
-                    </div>
-                </div>
-            </div>
-        );
-    }
+  return (
+    <div className="w-full overflow-x-auto">
+      <ul className="flex items-center justify-center md:justify-start mx-4 md:mx-0 animate-infinite-scroll">
+        {duplicatedImages.map((image, index) => (
+          <li key={index} className="mx-2 md:mx-8">
+            <img src={image} alt={`Image ${index}`} className="max-w-none" />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
+
+export default Marcas;

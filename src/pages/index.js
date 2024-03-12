@@ -7,6 +7,7 @@ import Layout from '@/components/Layout/Layout';
 import Carousel from '@/components/Carousel/Carousel';
 import Navbar from '@/components/NavBar/Navbar';
 import CarouselPri from '@/components/CarouselPri/CarouselPri';
+import Marcas from '@/components/Marcas/Marcas';
 
 
 
@@ -45,7 +46,7 @@ export default function Home() {
           <Layout/>
           
 
-
+          <Marcas/>
           <Footer />
         </>
       )}
