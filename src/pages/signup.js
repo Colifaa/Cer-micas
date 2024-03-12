@@ -7,6 +7,6 @@ function signup() {
       <SignUp/>
     </div>
   )
-}
+};
 
 export default signup
