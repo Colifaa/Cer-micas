@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './ScrollingMenu.module.css'; // Importa tus estilos CSS aquí
 
+
 const ScrollingMenu = () => {
   const [hoveredOption, setHoveredOption] = useState(null);
 
@@ -13,10 +14,9 @@ const ScrollingMenu = () => {
   };
 
   return (
-    <div className={styles.menuContainer}>
-      <div className={styles.backgroundImage}></div>
+    <div className={styles.menuContainer} style={{backgroundImage: `url('/images/amb.png')`}}>
       <div className={styles.optionsContainer}>
-        <h1>Que ambiente queres renovar?</h1>
+        <h1></h1>
         <div className={styles.row}>
           <div className={`${styles.option} ${hoveredOption === 'dormitorio' ? styles.zoomedOption : ''}`} onMouseOver={() => handleMouseOver('dormitorio')} onMouseOut={handleMouseOut}>
             <a href="/dormitorio" className={styles.option}>
