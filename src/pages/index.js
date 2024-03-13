@@ -32,14 +32,22 @@ export default function Home() {
    
   ]
 
+  const images1 = [
+    "/images/3.png",
+    "/images/4.png",
+    
+   
+  ]
+
+
   return (
 
         <>
-       
+        
           <Navbar/>
           <CarouselPri images={images} autoSlide={true} autoSlideInterval={5000} />
           <Landing />
-          <Carousel/>
+          <Carousel images1={images1} autoSlide={true} autoSlideInterval={5000}/>
           <Cards />
           <Layout/>
           <Marcas/>
