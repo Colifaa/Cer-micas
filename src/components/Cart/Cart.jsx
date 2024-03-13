@@ -309,12 +309,7 @@ const Cart = () => {
       </div>
 
       {/* Tus alertas */}
-      <CartAlert
-        isOpen={showAlert}
-        onClose={handleCloseAlert}
-        title="Alerta"
-        message="Debes iniciar sesión para ver tu carrito de compras."
-      />
+    
 
       <CartAlertAdd
         isOpen={showAlert2}

@@ -15,13 +15,14 @@ import {
     Flex
 
 } from "@chakra-ui/react";
-
+import CartAlert from "../Cart/CartAlert";
+import { useRouter } from 'next/router';
 
 function Navbar() {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+    const [showAlert, setShowAlert] = useState(null); // Estado para mostrar el alert
     const [user, setUser] = useState("")
-
+    const router = useRouter();
     const [isOpen, setIsOpen] = useState(false);
 
     const handleOpen = () => {
@@ -67,7 +68,24 @@ function Navbar() {
     }, []);
 
 
+    const handleClick = () => {
+        // Verificar si el usuario no ha iniciado sesión
+        if (!user.user?.id) {
+          console.log("user", user);
+          // Mostrar el alert si el usuario no ha iniciado sesión
+          setShowAlert(true);
+    
+        } else {
+          // Redirigir al carrito si el usuario ha iniciado sesión
+          router.push('/carrito');
+        }
+      };
 
+      const handleCloseAlert = () => {
+        // Manejador para cerrar el alert
+        setShowAlert(false);
+      };
+    
 
     return (
         <nav className="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900 relative z-10">
@@ -213,10 +231,49 @@ function Navbar() {
                             gray-
                             700">Contacto</a>
                         </li>
+                        <li>
+                        <Button
+  variant="unstyled"
+  border="none"
+  borderRadius="50%" // Para hacer el botón redondo
+  display="flex"
+  justifyContent="center"
+  alignItems="center"
+  width="1.5em" // Ajusta el tamaño del botón aquí
+  height="1.5em" // Ajusta el tamaño del botón aquí
+  bg="#1C1A1C"
+  color="#AAAAAA"
+  fontWeight="600"
+  fontSize="2em" // Ajustar el tamaño del icono aquí
+  cursor="pointer"
+  transition="background 450ms ease-in-out"
+  _hover={{
+    bgGradient: "linear(to-r, #D9693B, #E0012F)",
+    boxShadow: "inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4), inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 4px rgba(255, 255, 255, 0.2), 0px 0px 180px 0px red",
+    transform: "translateY(-2px)",
+    "& .text": {
+      color: "white",
+    },
+    "& .sparkle": {
+      fill: "white",
+      transform: "scale(1.2)",
+    },
+  }}
+  onClick={handleClick}
+>
+  🛒
+</Button>
+                <CartAlert
+        isOpen={showAlert}
+        onClose={handleCloseAlert}
+        title="Alerta"
+        message="Debes iniciar sesión para ver tu carrito de compras."
+      />
+                </li>
 
                         {user ? (
 
-                            <Flex alignContent="flex-end" bgColor="red">
+                            <Flex alignContent="flex-end" >
                                 <Stack direction="row" spacing={4} alignItems="center">
                             
 
@@ -236,7 +293,9 @@ function Navbar() {
 
                         ) : (
                             <>
+     
                                 <SignInUser />
+                         
 
                             </>
                         )}
