@@ -56,7 +56,7 @@ function SignInUser() {
 
     return (
         <div>
-            <button className="bg-black border-black rounded-lg p-2 mx-2" ref={btnRef} colorScheme='teal' onClick={onOpen}>
+            <button className="bg-black border-black rounded-lg p-2 mx-2" ref={btnRef}  onClick={onOpen}>
             Iniciar sesión
             </button>
             <Drawer
