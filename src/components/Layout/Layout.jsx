@@ -1,22 +1,26 @@
  import React, { useState, useRef, useEffect } from "react";
 import  LayoutGrid  from "../Ui/layout-grid";
+import { Heading } from "@chakra-ui/react";
+
 const SkeletonOne = () => {
   return (
+    <Heading fontFamily="Black Han Sans" size="xl">
     <div>
-      <p className="font-bold text-4xl text-white">MEDITERRANI DECO</p>
-      <p className="font-normal text-base text-white"></p>
+      <p className="font-bold text-4xl text-orange-1">MEDITERRANI DECO</p>
+      <p className="font-normal text-base text-white-1"></p>
       <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
       Añádele a tus ambientes un toque único y particular con nuestros calcareos Mediterrani Deco, perteneciente a la Serie Mediterrani. Su diseño original y acabado brillante lo hacen ideal para brindar autenticidad a tus ambientes.
       </p>
     </div>
+    </Heading>
   );
 };
 
 const SkeletonTwo = () => {
   return (
     <div>
-      <p className="font-bold text-4xl text-white">VERBENA</p>
-      <p className="font-normal text-base text-white"></p>
+      <p className="font-bold text-4xl text-orange-1">VERBENA</p>
+      <p className="font-normal text-base text-white-1"></p>
       <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
       Vervena Mix forma parte de nuestra Colección Madreselva.
 La naturaleza se brinda con sus colores y aromas, nos abraza con la certeza de ser parte de ella.
@@ -27,8 +31,8 @@ La naturaleza se brinda con sus colores y aromas, nos abraza con la certeza de s
 const SkeletonThree = () => {
   return (
     <div>
-      <p className="font-bold text-4xl text-white">WALL CENIZA</p>
-      <p className="font-normal text-base text-white"></p>
+      <p className="font-bold text-4xl text-orange-1">WALL CENIZA</p>
+      <p className="font-normal text-base text-white-1"></p>
       <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
       Con un diseño realista, Wall Ceniza fue pensada para aplicarse en ambientes modernos y despojados. Su terminación simil cemento se caracteriza por su acabado brillante y su color gris claro.
       </p>
