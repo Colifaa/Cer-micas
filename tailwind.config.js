@@ -11,6 +11,12 @@ module.exports = withMT( {
 
   theme: {
     extend: {
+      colors: {
+        'orange-1': '#f7d0b6',
+        'orange-2': '#ff8301',
+        'blue-1': '#3a758c',
+    
+      },
       animation: {
         'infinite-scroll': 'infinite-scroll 25s linear infinite',
       },

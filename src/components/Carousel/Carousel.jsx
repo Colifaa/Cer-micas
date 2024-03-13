@@ -1,48 +1,60 @@
+import React, { useState, useEffect, useRef } from 'react';
+import { ChevronLeft, ChevronRight } from "react-feather";
 
- import React, { useEffect, useRef } from 'react';
+const Carousel = ({ images1, autoSlide = false, autoSlideInterval = 5000 }) => {
+    const [curr, setCurr] = useState(0);
+    const [width, setWidth] = useState(0);
+    const carouselRef = useRef(null);
 
-const Carousel = () => {
-  const sliderRef = useRef(null);
+    useEffect(() => {
+        setWidth(carouselRef.current.clientWidth);
+        const handleWindowSizeChange = () => {
+            setWidth(carouselRef.current.clientWidth);
+        };
+        window.addEventListener('resize', handleWindowSizeChange);
+        return () => {
+            window.removeEventListener('resize', handleWindowSizeChange);
+        };
+    }, []);
 
-  useEffect(() => {
-    const slider = sliderRef.current;
+    const prev = () => setCurr((curr) => (curr === 0 ? images1.length - 1 : curr - 1));
 
-    const moveSlide = () => {
-      const max = slider.scrollWidth - slider.clientWidth;
-      const left = slider.clientWidth;
+    const next = () => setCurr((curr) => (curr + 1) % images1.length);
 
-      if (slider.scrollLeft + left >= max) {
-        slider.scrollTo({ left: 0, behavior: 'smooth' });
-      } else {
-        slider.scrollBy({ left, behavior: 'smooth' });
-      }
+    useEffect(() => {
+        if (!autoSlide) return;
+        const slideInterval = setInterval(next, autoSlideInterval);
+        return () => clearInterval(slideInterval);
+    }, []);
 
-      setTimeout(moveSlide, 3000);
+    const slideStyle = {
+        transform: `translateX(-${curr * (width / images1.length)}px)`,
+        transition: 'transform ease-out 0.5s',
+        display: 'flex',
+        width: `${images1.length * 100}%`,
     };
 
-    setTimeout(moveSlide, 3000);
-
-    return () => {
-      // Limpiar cualquier suscripción o recurso cuando el componente se desmonte
+    const slideItemStyle = {
+        flex: `0 0 ${100 / images1.length}%`,
+        maxWidth: '100%',
     };
-  }, []); // El segundo argumento del useEffect está vacío para que se ejecute solo una vez al montar el componente
 
-  return (
-    <div className="h-screen w-full overflow-hidden flex flex-nowrap text-center" id="slider" ref={sliderRef}>
-      <div className="text-white space-y-4 flex-none w-full flex flex-col items-center justify-center" style={{backgroundImage: "url('/images/3.png')", backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
-        <h2 className="text-4xl max-w-md"></h2>
-        <p className="max-w-md"></p>
-      </div>
-      <div className="text-white space-y-4 flex-none w-full flex flex-col items-center justify-center" style={{backgroundImage: "url('/images/4.png')", backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
-        <h2 className="text-4xl max-w-md"></h2>
-        <p className="max-w-md"></p>
-      </div>
-      <div className="text-white space-y-4 flex-none w-full flex flex-col items-center justify-center" style={{backgroundImage: "url('/images/carro1.png')", backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
-        <h2 className="text-4xl max-w-md"></h2>
-        <p className="max-w-md"></p>
-      </div>
-    </div>
-  );
+    return (
+        <div className='overflow-hidden relative' style={{ width: '100%' }}>
+            <div className='flex' style={slideStyle} ref={carouselRef}>
+                {images1.map((image, index) => (
+                    <div key={index} className='w-full flex-shrink-0' style={slideItemStyle}>
+                        <img src={image} alt={`Slide ${index}`} style={{ width: '100%', height: 'auto', maxWidth: '100%' }} />
+                    </div>
+                ))}
+            </div>
+            <div className="absolute inset-0 flex items-center justify-between p-4">
+
+
+            </div>
+
+        </div>
+    );
 };
 
 export default Carousel;

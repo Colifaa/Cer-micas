@@ -25,3 +25,12 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+@font-face {
+  font-family: 'Black Han Sans';
+  src: url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+}
+
+.tu-fuente {
+  font-family: 'Black Han Sans', sans-serif;
+}
