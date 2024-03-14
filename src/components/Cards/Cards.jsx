@@ -11,22 +11,22 @@ function Cards() {
   ];
 
   return (
-    <Heading fontFamily="Black Han Sans" size="xl">
+    <Heading className='.league-spartan-font' size="xl">
     <section className="py-10 bg-w sm:py-16 lg:py-24 z-40 relative">
       <div className="container mx-auto">
-        <h2 className="text-3xl font-light text-gray-1 sm:text-4xl lg:text-5xl ">
-          aqui! <span className="block w-full font-light text-transparent bg-clip-text bg-gradient-to-r from-orange-1 to-gray-2 lg:inline">PRODUCTOS DESTACADOS</span> 
+        <h2 className="text-3xl font-light text-blue-1 sm:text-4xl lg:text-5xl ">
+          aqui! <span className="block w-full font-light text-transparent bg-clip-text bg-gradient-to-r from-orange-1 to-black lg:inline">PRODUCTOS DESTACADOS</span> 
         </h2>
         <p className="mb-20 text-lg text-gray-900"></p>
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-4">
           {cardData.map((card, index) => (
             <a key={index} href="#" className="shadow-2xl relative">
-              <div className="h-full relative shadow-2xl shadow-orange-2 overflow-hidden group">
-                <div className="absolute -bottom-10 group-hover:top-0 left-0 w-full h-full group-hover:bg-orange-2 transition-all ease-in-out duration-500">
+              <div className="h-full relative shadow-2xl shadow-orange-1 overflow-hidden group">
+                <div className="absolute -bottom-10 group-hover:top-0 left-0 w-full h-full group-hover:bg-orange-1 transition-all ease-in-out duration-500">
                   <div className="w-full h-full p-5 relative">
                     <div className="absolute bottom-0 group-hover:bottom-24 text-gray-1 text-left transition-all ease-in-out duration-500">
-                      <h2 className="text-2xl font-bold text-mi-color mb-0 pb-1">{card.title}</h2>
+                      <h2 className="text-2xl font-bold text-orange-2 mb-0 pb-1">{card.title}</h2>
                       <p className="text-lg font-light text-black">{card.description}</p>
                     </div>
                   </div>

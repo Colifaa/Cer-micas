@@ -159,7 +159,7 @@ function Navbar() {
                                      800 dark:border-gray-
                                      600"
                                 >
-                                    <div className="grid max-w-screen-xl px-4 py-5 mx-auto text-gray-900 dark:text-white sm:grid-cols-2 md:px-6">
+                                    <div className="bg-white grid max-w-screen-xl px-4 py-5 mx-auto text-gray-900 dark:text-white sm:grid-cols-2 md:px-6">
                                         <ul>
                                             <li>
                                                 <a href="/allProducts" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
@@ -233,6 +233,7 @@ function Navbar() {
                         </li>
                         <li>
                         <Button
+    
   variant="unstyled"
   border="none"
   borderRadius="50%" // Para hacer el botón redondo
@@ -241,7 +242,7 @@ function Navbar() {
   alignItems="center"
   width="1.5em" // Ajusta el tamaño del botón aquí
   height="1.5em" // Ajusta el tamaño del botón aquí
-  bg="#1C1A1C"
+  bg="#f5a067"
   color="#AAAAAA"
   fontWeight="600"
   fontSize="2em" // Ajustar el tamaño del icono aquí
