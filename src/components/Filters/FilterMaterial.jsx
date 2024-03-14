@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Checkbox, CheckboxGroup } from '@chakra-ui/react';
+import { Box, Container, Checkbox, CheckboxGroup,SimpleGrid } from '@chakra-ui/react';
 import supabase from "../../../lib/supabaseClient";
 
 function FilterMaterial( {selectedMaterial , onChangeMaterial }) {
@@ -37,16 +37,18 @@ function FilterMaterial( {selectedMaterial , onChangeMaterial }) {
 
  
   return (
-
-         <Box mb={4}>
+    <Box position="relative">
+    <SimpleGrid gap={{ base: 2, md: 5 }} p={{ base: 2, md:5 }} columns={3}>
       <CheckboxGroup value={selectedMaterial} onChange={handleCheckboxChange}>
         {medidaOptions.map((option) => (
-          <Checkbox key={option} value={option}>
+          <Checkbox colorScheme="red" key={option} value={option}>
             {option}
           </Checkbox>
         ))}
       </CheckboxGroup>
-    </Box>
+    </SimpleGrid>
+  </Box>
+
 
   )
 }

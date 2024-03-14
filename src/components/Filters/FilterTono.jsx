@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Checkbox, CheckboxGroup } from '@chakra-ui/react';
+import { Box,Container, Checkbox, SimpleGrid, CheckboxGroup } from '@chakra-ui/react';
 import supabase from "../../../lib/supabaseClient";
 
 function FilterTono({ selectedTono, onChangeTono }) {
@@ -33,16 +33,20 @@ function FilterTono({ selectedTono, onChangeTono }) {
   };
 
   return (
-    <Box mb={4}>
-      <CheckboxGroup value={selectedTono} onChange={handleCheckboxChange}>
-        {TonoOptions.map((option) => (
-          <Checkbox key={option} value={option}>
-            {option}
-          </Checkbox>
-        ))}
-      </CheckboxGroup>
-    </Box>
+  
+        <Box mb={{ base: 4, md: 0 }} position="relative">
+      <SimpleGrid gap={{ base: 2, md: 1 }} p={{ base: 2, md: 2 }} columns={{ sm: 4, md: 4}}>
+          <CheckboxGroup value={selectedTono} onChange={handleCheckboxChange}>
+            {TonoOptions.map((option) => (
+              <Checkbox key={option} value={option}>
+                {option}
+              </Checkbox>
+            ))}
+          </CheckboxGroup>
+        </SimpleGrid>
+      </Box>
+  
   );
-}
+};
 
 export default FilterTono;
