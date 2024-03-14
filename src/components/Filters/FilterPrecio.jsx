@@ -34,7 +34,12 @@ function FilterPrecio({ selectedPrecios, onChangePrecios }) {
   return (
     <Box mb={{ base: 4, md: 0 }} display="flex" alignItems="center">
       <SimpleGrid gap={{ base: 1, md: 2 }} p={1}>
-        <Text mr={{ base: 0, md: 2 }}>Ordenar por:</Text>
+     
+  <div className="text-2xl md:text-3xl lg:text-5xl font-bold leading-normal bg-slate-500 text-gray-100 p-4 [filter:url('#goo')]">
+  Ordenar por Precio:
+</div>
+
+
         <Select onChange={handleOrdenPrecioChange}>
           <option value="Todos los productos">Todos los productos</option>
           <option value="menor-mayor">Menor precio</option>
