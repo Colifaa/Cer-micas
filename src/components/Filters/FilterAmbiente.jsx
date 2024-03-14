@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Select } from '@chakra-ui/react';
+import { Box,Container, Select,SimpleGrid,Text} from '@chakra-ui/react';
 import supabase from "../../../lib/supabaseClient";
 
 const FilterAmbiente = ({ selectedFilter, onChange }) => {
@@ -27,12 +27,15 @@ const FilterAmbiente = ({ selectedFilter, onChange }) => {
   }, []);
 
   return (
-    <Box mb={4}>
-      <Select value={selectedFilter} onChange={(e) => onChange(e.target.value)}>
-        {options.map((option) => (
-          <option key={option} value={option}>{option}</option>
-        ))}
-      </Select>
+    <Box mb={{ base: 4, md: 0 }} display="flex" alignItems="center">
+      <SimpleGrid gap={{ base: 1, md: 2 }} p={1}>
+      <Text mr={{ base: 0, md: 2 }}>Ordenar por Ambiente:</Text>
+        <Select value={selectedFilter} onChange={(e) => onChange(e.target.value)}>
+          {options.map((option) => (
+            <option key={option} value={option}>{option}</option>
+          ))}
+        </Select>
+      </SimpleGrid>
     </Box>
   );
 };

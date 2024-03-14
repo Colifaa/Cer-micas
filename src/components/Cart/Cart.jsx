@@ -11,6 +11,10 @@ import FilterMedidas from '../Filters/FilterMedidas';
 import FilterTono from '../Filters/FilterTono';
 import FilterMaterial from '../Filters/FilterMaterial';
 import FilterPrecio from '../Filters/FilterPrecio';
+import SearchBar from '../SearchBar/SearchBar';
+import { Box,Container,Flex, Select } from '@chakra-ui/react';
+import Navbar from '../NavBar/Navbar';
+
 
 const Cart = () => {
   const [products, setProducts] = useState([]);
@@ -25,6 +29,7 @@ const Cart = () => {
   const [user, setUser] = useState(false); // Estado para almacenar la información del usuario
 
   const [filteredProducts, setFilteredProducts] = useState([]); // Estado para almacenar los productos filtrados
+  console.log(filteredProducts,"filteredProducts");
 
 
   const [selectedFilter, setSelectedFilter] = useState('all');
@@ -100,37 +105,34 @@ const Cart = () => {
 
 
 
-  const filterProducts = async (ambientacionFilter, medidasFilter, tonoFilter, materialFilter, preciosFilter) => {
-    let filteredData = [...products];
-
+  const filterProducts = async (ambientacionFilter, medidasFilter, tonoFilter, materialFilter, preciosFilter, searchData) => {
+    let filteredData = searchData ? [...searchData] : [...products]; // Usar los datos filtrados si hay una búsqueda, de lo contrario, usar todos los productos
+  
     if (ambientacionFilter !== 'all') {
       filteredData = filteredData.filter(product => product.ambientacion === ambientacionFilter);
     }
-
+  
     if (medidasFilter.length > 0) {
       filteredData = filteredData.filter(product => medidasFilter.some(medida => product.medidas.includes(medida)));
     }
-
+  
     if (tonoFilter?.length > 0) {
       filteredData = filteredData.filter(product => tonoFilter.some(tono => product.tono === tono));
     }
-
-
+  
     if (materialFilter?.length > 0) {
       filteredData = filteredData.filter(product => materialFilter.some(material => product.material === material));
     }
-
-
+  
     if (preciosFilter === 'menor-mayor') {
       filteredData.sort((a, b) => a.precio - b.precio); // Ordenar de menor a mayor
     } else if (preciosFilter === 'mayor-menor') {
       filteredData.sort((a, b) => b.precio - a.precio); // Ordenar de mayor a menor
     }
-
-
+  
     setFilteredProducts(filteredData);
   };
-
+  
 
 
   // Función para cargar productos en el carrito
@@ -223,109 +225,107 @@ const Cart = () => {
     // Manejador para cerrar el alert
     setShowAlert3(false);
   };
+  const handleSearch = async (searchTerm) => {
+  if (searchTerm === '') {
+    setFilteredProducts(products);
+    return;
+  }
+  
+  const searchTermLower = searchTerm.toLowerCase();
+  
+  // Filtrar los productos que contienen la secuencia de letras ingresada en cualquier parte del nombre
+const filteredData = filteredProducts.filter(product => {
+    const productNameLower = product.name.toLowerCase();
+    return productNameLower.includes(searchTermLower);
+  });
+  
+  setFilteredProducts(filteredData);
+};
+  
+return (
+  <Flex direction="column" align="center" > 
+    
+    <div>
+      <Box mb={4} display="flex" alignItems="center" justifyContent="center">
+        <FilterPrecio selectedPrecios={selectedPrecios} onChangePrecios={handleFilterPrecios} />
+        <FilterAmbiente selectedFilter={selectedFilter} onChange={handleFilterChange} />
+      </Box>
+      <Box mb={4} display="flex" alignItems="center" justifyContent="center">
+      <FilterMedidas selectedMedidas={selectedMedidas} onChangeMedidas={handleFilterMedidas} />
+      <FilterTono selectedTono={selectedTono} onChangeTono={handleFilterTono} />
+      </Box>
+      <FilterMaterial selectedMaterial={selectedMaterial} onChangeMaterial={handleFilterMaterial} />
+      
+    </div>
 
-
-
-
-  return (
-    <div className="relative flex min-h-screen flex-col">
-      <h2 className="font-black text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-white uppercase">
-        Todos los Productos
-      </h2>
-
-      {/* Componente de filtro */}
-      <FilterAmbiente
-        // Opciones de filtrado según las ambientaciones disponibles
-        selectedFilter={selectedFilter}
-        onChange={handleFilterChange}
-      />
-
-      <FilterMedidas
-        selectedMedidas={selectedMedidas}
-        onChangeMedidas={handleFilterMedidas}
-      />
-
-      <FilterMaterial selectedMaterial={selectedMaterial}
-        onChangeMaterial={handleFilterMaterial} />
-
-      <FilterTono
-
-        selectedTono={selectedTono}
-        onChangeTono={handleFilterTono} />
-
-
-      <FilterPrecio selectedPrecios={selectedPrecios}
-        onChangePrecios={handleFilterPrecios} />
-
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {filteredProducts.map((product) => (
-          <div className="card bg-base-100 shadow-xl w-96" key={product.id}>
-            <figure>
-              <img src={product.img} alt={product.name} style={{ width: '100%', height: 'auto' }} />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">{product.name}</h2>
-              <p className="text-gray-600">Price: ${product.precio}</p>
-              <div className="card-actions justify-end">
-                <Button
-                  mt="8"
-                  variant="unstyled"
-                  border="none"
-                  width="15em"
-                  height="5em"
-                  borderRadius="3em"
-                  display="flex"
-                  justifyContent="center"
-                  alignItems="center"
-                  gap="12px"
-                  bg="#1C1A1C"
-                  color="#AAAAAA"
-                  fontWeight="600"
-                  fontSize="medium"
-                  cursor="pointer"
-                  w="full"
-                  transition="background 450ms ease-in-out"
-                  _hover={{
-                    bgGradient: "linear(to-r, #D9693B, #E0012F)",
-                    boxShadow: "inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4), inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 4px rgba(255, 255, 255, 0.2), 0px 0px 180px 0px red",
-                    transform: "translateY(-2px)",
-                    "& .text": {
-                      color: "white",
-                    },
-                    "& .sparkle": {
-                      fill: "white",
-                      transform: "scale(1.2)",
-                    },
-                  }}
-                  onClick={() => addToCart(product.id)}
-                >
-                  Agregar al carrito
-                </Button>
-              </div>
+    {/* Productos debajo de los filtros */}
+    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-8 gap-4 ">
+      {filteredProducts.map((product) => (
+        <div className="card bg-base-100 shadow-xl  w-50" key={product.id}>
+          <figure>
+            <img src={product.img} alt={product.name} style={{ width: '100%', height: 'auto' }} />
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title">{product.name}</h2>
+            <p className="text-gray-600">Price: ${product.precio}</p>
+            <div className="card-actions justify-end">
+              <Button
+                mt="4"
+                variant="unstyled"
+                border="none"
+                height="2em"
+                borderRadius="3em"
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                gap="12px"
+                bg="#1C1A1C"
+                color="#AAAAAA"
+                fontWeight="600"
+                fontSize="medium"
+                cursor="pointer"
+                w="full"
+                transition="background 450ms ease-in-out"
+                _hover={{
+                  bgGradient: "linear(to-r, #D9693B, #E0012F)",
+                  boxShadow: "inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4), inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 4px rgba(255, 255, 255, 0.2), 0px 0px 180px 0px red",
+                  transform: "translateY(-2px)",
+                  "& .text": {
+                    color: "white",
+                  },
+                  "& .sparkle": {
+                    fill: "white",
+                    transform: "scale(1.2)",
+                  },
+                }}
+                onClick={() => addToCart(product.id)}
+              >
+                Agregar al carrito
+              </Button>
             </div>
           </div>
-        ))}
-      </div>
+          <CartAlertCorrect
+        isOpen={showAlert3}
+        onClose={handleCloseAlert3}
+        title="Alerta"
+        message="Producto agregado al carrito."
+      />
 
-      {/* Tus alertas */}
-    
-
-      <CartAlertAdd
+<CartAlertAdd
         isOpen={showAlert2}
         onClose={handleCloseAlert2}
         title="Alerta"
         message="Debes iniciar sesión para agregar productos al carrito."
       />
 
-      <CartAlertCorrect
-        isOpen={showAlert3}
-        onClose={handleCloseAlert3}
-        title="Alerta"
-        message="Producto agregado al carrito."
-      />
+
+      </div>
+
+        
+      ))}
     </div>
-  );
-}
+  </Flex>
+);
+};
 
 export default Cart;

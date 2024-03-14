@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Checkbox, CheckboxGroup } from '@chakra-ui/react';
+import { Box,Container, Checkbox, CheckboxGroup,SimpleGrid } from '@chakra-ui/react';
 import supabase from "../../../lib/supabaseClient";
 
 function FilterMedidas({ selectedMedidas, onChangeMedidas }) {
@@ -31,17 +31,19 @@ function FilterMedidas({ selectedMedidas, onChangeMedidas }) {
     onChangeMedidas(option);
   };
 
+
   return (
-    <Box mb={4}>
-      <CheckboxGroup value={selectedMedidas} onChange={handleCheckboxChange}>
-        {medidaOptions.map((option) => (
-          <Checkbox key={option} value={option}>
-            {option}
-          </Checkbox>
-        ))}
-      </CheckboxGroup>
+    <Box mb={{ base: 4, md: 0 }} position="relative">
+      <SimpleGrid gap={{ base: 2, md: 1 }} p={{ base: 2, md: 2 }} columns={1}>
+        <CheckboxGroup value={selectedMedidas} onChange={handleCheckboxChange}>
+          {medidaOptions.map((option) => (
+            <Checkbox key={option} value={option}>
+              {option}
+            </Checkbox>
+          ))}
+        </CheckboxGroup>
+      </SimpleGrid>
     </Box>
   );
 }
-
 export default FilterMedidas;
