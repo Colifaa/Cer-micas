@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -26,11 +27,13 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-@font-face {
-  font-family: 'Black Han Sans';
-  src: url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+.league-spartan-font {
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 690; /* Reemplaza <weight> con el valor de peso deseado (100 a 900) */
+  font-style: normal;
 }
 
-.tu-fuente {
-  font-family: 'Black Han Sans', sans-serif;
+.bg-white {
+  background-color: #ffffff !important;
 }

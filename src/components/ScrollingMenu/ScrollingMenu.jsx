@@ -14,7 +14,7 @@ const ScrollingMenu = () => {
   };
 
   return (
-    <div className={styles.menuContainer} style={{backgroundImage: `url('/images/amb.png')`}}>
+    <div className={styles.menuContainer} style={{backgroundImage: `url('/images/amb.jpg')`}}>
       <div className={styles.optionsContainer}>
         <h1></h1>
         <div className={styles.row}>

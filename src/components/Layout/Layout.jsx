@@ -4,7 +4,7 @@ import { Heading } from "@chakra-ui/react";
 
 const SkeletonOne = () => {
   return (
-    <Heading fontFamily="Black Han Sans" size="xl">
+    <Heading className="league-spartan-font" size="xl">
     <div>
       <p className="font-bold text-4xl text-orange-1">MEDITERRANI DECO</p>
       <p className="font-normal text-base text-white-1"></p>
@@ -86,9 +86,11 @@ const cards = [
  
 function Layout() {
   return (
-    <div className="h-screen py-20 w-full bg-[url('/images/bgcarou.png')] ">
-  <h1 className="font-black text-sky-950 text-center text-4xl mb-4 text-[#23214b] ">TENDENCIAS</h1>
-      <LayoutGrid cards={cards} />
+    <div className="h-screen w-full" style={{ background: "linear-gradient(to bottom, #ffffff, #f5a067)" }}>
+
+        <h1 className="font-black text-sky-950 text-center text-4xl mb-4 text-blue-1 ">TENDENCIAS</h1>
+        <LayoutGrid cards={cards} />
+
     </div>
   );
 };

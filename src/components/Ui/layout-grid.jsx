@@ -35,6 +35,7 @@ const LayoutGrid = ({ cards }) => {
             layout
           >
             {selected?.id === card.id && <SelectedCard selected={selected} />}
+            
             <BlurImage card={card} />
           </motion.div>
         </div>
