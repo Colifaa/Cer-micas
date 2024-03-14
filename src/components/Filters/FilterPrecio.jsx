@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Text, Select } from '@chakra-ui/react';
+import { Box,SimpleGrid,Container, Text, Select } from '@chakra-ui/react';
 import supabase from "../../../lib/supabaseClient";
 
 function FilterPrecio({ selectedPrecios, onChangePrecios }) {
@@ -32,15 +32,17 @@ function FilterPrecio({ selectedPrecios, onChangePrecios }) {
   };
 
   return (
-    <Box mb={4} display="flex" alignItems="center">
-      <Text mr={2}>Ordenar por:</Text>
-      <Select  onChange={handleOrdenPrecioChange}>
-      <option value="Todos los productos">Todos los productos</option>
-        <option value="menor-mayor">Menor precio</option>
-        <option value="mayor-menor">Mayor precio</option>
-      </Select>
+    <Box mb={{ base: 4, md: 0 }} display="flex" alignItems="center">
+      <SimpleGrid gap={{ base: 1, md: 2 }} p={1}>
+        <Text mr={{ base: 0, md: 2 }}>Ordenar por:</Text>
+        <Select onChange={handleOrdenPrecioChange}>
+          <option value="Todos los productos">Todos los productos</option>
+          <option value="menor-mayor">Menor precio</option>
+          <option value="mayor-menor">Mayor precio</option>
+        </Select>
+      </SimpleGrid>
     </Box>
   );
-}
+};
 
 export default FilterPrecio;
