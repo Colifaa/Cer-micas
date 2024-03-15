@@ -10,7 +10,6 @@ export default function Nosotros() {
   return (
     <div> 
       <Navbar/>
-      <Nuevo/>
       <About/>
       <Footer/>
   </div>
