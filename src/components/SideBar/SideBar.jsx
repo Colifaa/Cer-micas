@@ -193,15 +193,10 @@ const SidebarContent = ({ ...props }) => (
     {...props}
   >
     <Flex px="4" py="5" align="center">
-      <Icon as={RiFlashlightFill} h={8} w={8} />
-      <Text
-        fontSize="2xl"
-        ml="2"
-        color={useColorModeValue('brand.500', 'white')}
-        fontWeight="semibold"
-      >
-     LOGO CERAMICAS
-      </Text>
+    <a href='/'>  
+<Image src='/images/logo.png'>
+</Image>
+</a>
     </Flex>
     <Flex direction="column" as="nav" fontSize="2xl" color="gray.600" aria-label="Main Navigation">
     <Flex mt="5"> 
