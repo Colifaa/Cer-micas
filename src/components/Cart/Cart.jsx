@@ -12,19 +12,23 @@ import FilterTono from '../Filters/FilterTono';
 import FilterMaterial from '../Filters/FilterMaterial';
 import FilterPrecio from '../Filters/FilterPrecio';
 import SearchBar from '../SearchBar/SearchBar';
-import { Box,Container,Flex, Select } from '@chakra-ui/react';
+import { Text,Box,Container,Flex, Select } from '@chakra-ui/react';
 import Navbar from '../NavBar/Navbar';
+import CardsDetail from '../CardsDetail/CardsDetail';
 
 
 const Cart = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
 
+  const [showDetail, setShowDetail] = useState(false); // Estado para controlar la visibilidad del detalle del producto
+
+  const toggleDetail = () => {
+    setShowDetail(!showDetail);
+  };
   const [showAlert, setShowAlert] = useState(null); // Estado para mostrar el alert
 
-  const [showAlert2, setShowAlert2] = useState(null); // Estado para mostrar el alert
-
-  const [showAlert3, setShowAlert3] = useState(null); // Estado para mostrar el alert
+  
 
   const [user, setUser] = useState(false); // Estado para almacenar la información del usuario
 
@@ -170,21 +174,6 @@ const Cart = () => {
     setUser(user);
   };
 
-  // Función para agregar producto al carrito
-  const addToCart = async (productId) => {
-    if (!user.data?.user?.id) {
-      console.log("user", user);
-      // Mostrar el alert si el usuario no ha iniciado sesión
-      setShowAlert2(true);
-    }
-    const { error } = await supabase.from('cart').insert({ product_id: productId, user_id: user?.data?.user?.id });
-    if (error) {
-      console.error('Error adding to cart:', error.message);
-      return;
-    }
-    setShowAlert3(true);
-    await loadCart();
-  };
 
 
   // Cargar productos disponibles y productos en el carrito cuando el componente se monta
@@ -215,16 +204,8 @@ const Cart = () => {
     setShowAlert(false);
   };
 
-  const handleCloseAlert2 = () => {
-    // Manejador para cerrar el alert
-    setShowAlert2(false);
-  };
 
 
-  const handleCloseAlert3 = () => {
-    // Manejador para cerrar el alert
-    setShowAlert3(false);
-  };
   const handleSearch = async (searchTerm) => {
   if (searchTerm === '') {
     setFilteredProducts(products);
@@ -243,25 +224,44 @@ const filteredData = filteredProducts.filter(product => {
 };
   
 return (
-  <Flex direction="column" align="center" > 
+  <Flex direction="column" align="center"    bgGradient="linear-gradient(45deg, rgb(47, 38, 96) 0%, rgb(47, 38, 96) 1%,rgb(80, 63, 103) 1%, rgb(80, 63, 103) 53%,rgb(113, 87, 110) 53%, rgb(113, 87, 110) 57%,rgb(146, 112, 116) 57%, rgb(146, 112, 116) 69%,rgb(179, 136, 123) 69%, rgb(179, 136, 123) 75%,rgb(212, 161, 130) 75%, rgb(212, 161, 130) 100%)"
+     > 
     
+
+    <SearchBar onSearch={handleSearch} />
     <div>
       <Box mb={4} display="flex" alignItems="center" justifyContent="center">
+     
         <FilterPrecio selectedPrecios={selectedPrecios} onChangePrecios={handleFilterPrecios} />
         <FilterAmbiente selectedFilter={selectedFilter} onChange={handleFilterChange} />
       </Box>
-      <Box mb={4} display="flex" alignItems="center" justifyContent="center">
+      <h1>
+      <div className="text-2xl md:text-3xl lg:text-5xl font-bold leading-normal bg-slate-500 text-gray-100 p-4 [filter:url('#goo')]">
+  Ordenar por Medidas, Color y Material:
+</div>
+
+</h1>
+      <Box   
+       mb={4} display="flex" alignItems="center" justifyContent="center">
+     
       <FilterMedidas selectedMedidas={selectedMedidas} onChangeMedidas={handleFilterMedidas} />
-      <FilterTono selectedTono={selectedTono} onChangeTono={handleFilterTono} />
+     
       </Box>
-      <FilterMaterial selectedMaterial={selectedMaterial} onChangeMaterial={handleFilterMaterial} />
+      <Box mb={4} display="flex" alignItems="center" justifyContent="center">
+      <FilterTono selectedTono={selectedTono} onChangeTono={handleFilterTono} />
       
+      </Box>
+
+      <Box mb={4} display="flex" alignItems="center" justifyContent="center">
+      <FilterMaterial selectedMaterial={selectedMaterial} onChangeMaterial={handleFilterMaterial} />
+      </Box>
     </div>
 
     {/* Productos debajo de los filtros */}
-    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-8 gap-4 ">
+    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-8 gap-4  ">
       {filteredProducts.map((product) => (
-        <div className="card bg-base-100 shadow-xl  w-50" key={product.id}>
+        <Box bgImage={`radial-gradient(circle at 29% 55%, hsla(329,0%,99%,0.05) 0%, hsla(329,0%,99%,0.05) 4%,transparent 4%, transparent 44%,transparent 44%, transparent 100%),radial-gradient(circle at 85% 89%, hsla(329,0%,99%,0.05) 0%, hsla(329,0%,99%,0.05) 51%,transparent 51%, transparent 52%,transparent 52%, transparent 100%),radial-gradient(circle at 6% 90%, hsla(329,0%,99%,0.05) 0%, hsla(329,0%,99%,0.05) 53%,transparent 53%, transparent 64%,transparent 64%, transparent 100%),radial-gradient(circle at 35% 75%, hsla(329,0%,99%,0.05) 0%, hsla(329,0%,99%,0.05) 6%,transparent 6%, transparent 98%,transparent 98%, transparent 100%),radial-gradient(circle at 56% 75%, hsla(329,0%,99%,0.05) 0%, hsla(329,0%,99%,0.05) 16%,transparent 16%, transparent 23%,transparent 23%, transparent 100%),radial-gradient(circle at 42% 0%, hsla(329,0%,99%,0.05) 0%, hsla(329,0%,99%,0.05) 3%,transparent 3%, transparent 26%,transparent 26%, transparent 100%),radial-gradient(circle at 29% 28%, hsla(329,0%,99%,0.05) 0%, hsla(329,0%,99%,0.05) 51%,transparent 51%, transparent 75%,transparent 75%, transparent 100%),radial-gradient(circle at 77% 21%, hsla(329,0%,99%,0.05) 0%, hsla(329,0%,99%,0.05) 35%,transparent 35%, transparent 55%,transparent 55%, transparent 100%),radial-gradient(circle at 65% 91%, hsla(329,0%,99%,0.05) 0%, hsla(329,0%,99%,0.05) 46%,transparent 46%, transparent 76%,transparent 76%, transparent 100%),linear-gradient(45deg, rgb(83, 91, 235),rgb(76, 11, 174))`}
+        bgSize="100% 100%"  className="  card  shadow-xl  w-50" key={product.id}>
           <figure>
             <img src={product.img} alt={product.name} style={{ width: '100%', height: 'auto' }} />
           </figure>
@@ -269,6 +269,7 @@ return (
             <h2 className="card-title">{product.name}</h2>
             <p className="text-gray-600">Price: ${product.precio}</p>
             <div className="card-actions justify-end">
+           
               <Button
                 mt="4"
                 variant="unstyled"
@@ -298,28 +299,19 @@ return (
                     transform: "scale(1.2)",
                   },
                 }}
-                onClick={() => addToCart(product.id)}
+                onClick={toggleDetail}
               >
-                Agregar al carrito
-              </Button>
+                 <CardsDetail product={product} />
+              
+          </Button>
             </div>
+        
           </div>
-          <CartAlertCorrect
-        isOpen={showAlert3}
-        onClose={handleCloseAlert3}
-        title="Alerta"
-        message="Producto agregado al carrito."
-      />
-
-<CartAlertAdd
-        isOpen={showAlert2}
-        onClose={handleCloseAlert2}
-        title="Alerta"
-        message="Debes iniciar sesión para agregar productos al carrito."
-      />
+     
 
 
-      </div>
+
+      </Box>
 
         
       ))}

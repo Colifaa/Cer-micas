@@ -38,7 +38,7 @@ function FilterMaterial( {selectedMaterial , onChangeMaterial }) {
  
   return (
     <Box position="relative">
-    <SimpleGrid gap={{ base: 2, md: 5 }} p={{ base: 2, md:5 }} columns={3}>
+    <SimpleGrid gap={{ base: 2, md: 5 }} p={{ base: 2, md:5 }} columns={2}>
       <CheckboxGroup value={selectedMaterial} onChange={handleCheckboxChange}>
         {medidaOptions.map((option) => (
           <Checkbox colorScheme="red" key={option} value={option}>
