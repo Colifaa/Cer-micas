@@ -1,37 +1,51 @@
 import { useDisclosure, Button } from '@chakra-ui/react';
-import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton,Box } from '@chakra-ui/react';
+import { Modal, ModalOverlay, Select, Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton,Box } from '@chakra-ui/react';
 import supabase from "../../../lib/supabaseClient";
 import React ,{ useEffect, useState } from 'react';
 import CartAlertCorrect from '../Cart/CartAlertCorrect';
 import CartAlertAdd from '../Cart/CartAlertAdd';
 import Navbar from '../NavBar/Navbar';
 import CartAlert from '../Cart/CartAlert';
-
+import SellCart from '../SellCart/SellCart';
+import { useRouter } from 'next/router';
 
 function CardsDetail({ product }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [user, setUser] = useState(false); // Estado para almacenar la información del usuario
 
+
   const [showAlert, setShowAlert] = useState(null); // Estado para mostrar el alert
+
+ 
   const [showAlert2, setShowAlert2] = useState(null); // Estado para mostrar el alert
 
-  const [showAlert3, setShowAlert3] = useState(null); // Estado para mostrar el alert
+
 
   const [cart, setCart] = useState([]);
 
   const [overlay, setOverlay] = React.useState();
+  const router = useRouter();
+ 
+  const btnRef = React.useRef()
 
   const OverlayOne = () => (
-    <ModalOverlay
+    <DrawerOverlay
       bg='blackAlpha.300'
-      backdropFilter='blur(10px) hue-rotate(90deg)'
+      backdropFilter='blur(10px) hue-rotate(50deg)'
     />
-  );
+  )
+  
 
   
   const handleClick = () => {
     // Verificar si el usuario no ha iniciado sesión
-    if (!user.user?.id) {
+    if (!user.data?.user?.id) {
       console.log("user", user);
       // Mostrar el alert si el usuario no ha iniciado sesión
       setShowAlert(true);
@@ -93,7 +107,7 @@ function CardsDetail({ product }) {
       console.error('Error adding to cart:', error.message);
       return;
     }
-    setShowAlert3(true);
+  
     await loadCart();
   };
 
@@ -115,10 +129,6 @@ function CardsDetail({ product }) {
   };
 
   
-  const handleCloseAlert3 = () => {
-    // Manejador para cerrar el alert
-    setShowAlert3(false);
-  };
 
   const handleCloseAlert2 = () => {
     // Manejador para cerrar el alert
@@ -131,8 +141,7 @@ function CardsDetail({ product }) {
   return (
     <>
     <Button
-        onClick={() => {
-          setOverlay(<OverlayOne />);
+        onClick={() => {    
           onOpen();
         }}
         variant="unstyled"
@@ -165,15 +174,22 @@ function CardsDetail({ product }) {
       >
         Detail
       </Button>
-       
-      <Modal size="full" isOpen={isOpen} onClose={onClose} isCentered motionPreset='slideInBottom'>
-   
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>{product && product.name}</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <section className="text-gray-700 body-font overflow-hidden bg-white">
+      <Drawer
+      size="md"
+        isOpen={isOpen}
+        placement='top'
+        onClose={onClose}
+        finalFocusRef={btnRef}
+      >
+         <DrawerOverlay>
+          <OverlayOne />
+        </DrawerOverlay>
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader>Create your account</DrawerHeader>
+
+          <DrawerBody>
+          <section className="text-gray-700 body-font overflow-hidden bg-white">
               <div className="container px-5 py-24 mx-auto">
                 <div className="lg:w-4/5 mx-auto flex flex-wrap">
                   <img
@@ -185,7 +201,7 @@ function CardsDetail({ product }) {
                   <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                     <h2 className="text-sm title-font text-gray-500 tracking-widest">
                       <span className="title-font font-medium text-xl text-gray-900">
-                        <p><strong className='mr-1'></strong> {product && product.uso}</p>
+                        <h1><strong className='mr-1'></strong> {product && product.uso}</h1>
                       </span>
                     </h2>
                     <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
@@ -204,7 +220,7 @@ function CardsDetail({ product }) {
 
                       </span>
                     </div>
-                    <p className="leading-relaxed">
+                    <h1 className="leading-relaxed">
                       {product && product.detail}
 
 
@@ -216,7 +232,7 @@ function CardsDetail({ product }) {
                         <strong >Ambientación:</strong>
                         <span className="text-gray-600 ml-1 mr-3"> {product && product.ambientacion}</span>
                       </div>
-                    </p>
+                    </h1>
                     <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
                       <div className="flex">
 
@@ -231,6 +247,7 @@ function CardsDetail({ product }) {
 
 
                       </div>
+                      
                       <div className="flex ml-6 items-center">
 
 
@@ -251,28 +268,29 @@ function CardsDetail({ product }) {
                     </div>
                     <div className="flex">
 
-                      <span className="title-font font-medium text-2xl text-gray-900">
+                      <span className="title-font font-medium text-3xl text-gray-900">
                       ${product && product.precio}
                       </span>
+                    
+                 
+                         
+                    
 
 
-                      <button
-    onClick={() => addToCart(product.id)}
-    className="flex ml-auto mr-2 text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded"
-  >
-    Agregar al carrito
-  </button>
+
+
+                    
                       <Button
   
     variant="unstyled"
     border="none"
     borderRadius="50%" // Para hacer el botón redondo
     display="flex"
-    justifyContent="center"
-    alignItems="center"
+ 
     width="1.5em" // Ajusta el tamaño del botón aquí
     height="1.5em" // Ajusta el tamaño del botón aquí
     bg="#f5a067"
+    marginLeft="28"
     color="#AAAAAA"
     fontWeight="600"
     fontSize="2em" // Ajustar el tamaño del icono aquí
@@ -294,28 +312,33 @@ function CardsDetail({ product }) {
   >
     🛒
   </Button>
-              
-                    </div>
+  
+  
+  </div>
+  
                   </div>
+                  <span className="title-font font-medium text-2xl text-gray-900">
+<SellCart product={product} user={user} loadCart={loadCart} addToCart={addToCart} />
+</span>
                 </div>
+                
               </div>
-            </section>
-          </ModalBody  >
-          <ModalFooter>
-            <Button colorScheme='blue' mr={3} onClick={onClose}>
-              Cerrar
-            </Button>
-          
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
 
-      <CartAlertCorrect
-        isOpen={showAlert3}
-        onClose={handleCloseAlert3}
-        title="Alerta"
-        message="Producto agregado al carrito."
-      />
+              
+            </section>
+       
+          </DrawerBody>
+
+          <DrawerFooter>
+            <Button variant='outline' mr={3} onClick={onClose}>
+              Cancel
+            </Button>
+            <Button colorScheme='blue'>Save</Button>
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
+       
+              
 
 <CartAlertAdd
         isOpen={showAlert2}

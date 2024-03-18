@@ -8,6 +8,8 @@ function AddCart() {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [cart, setCart] = useState([]);
+
+
   const [showAlert, setShowAlert] = useState(null); // Estado para mostrar el alert
 
 
@@ -54,15 +56,20 @@ function AddCart() {
   };
 
 
+
     return (
   
   
           <SimpleGrid columns={{ sm: 1, md: 3, lg: 3, xl: 3 }} spacing={10}>
+  
+     
       {cart.map((cartItem) => (
         <div className="card bg-base-100 shadow-xl w-full sm:w-10 xs:w-10  md:w-10 lg:w-10 xl:w-72">
        
        <h2 className="card-title">{cartItem.product.name}</h2>
-       <div className="card-body items-center text-center">Precio: ${cartItem.product.precio}</div>
+       <div className="card-body items-center text-center">Precio: ${cartItem.product.precio * cartItem.cantCajas}</div>
+       <div className="card-body items-center text-center">Cajas: {cartItem.cantCajas}</div>
+       <div className="card-body items-center text-center">Piezas: {cartItem.piezas}</div>
           <figure className="px-10 pt-10">
           <Image
             src={cartItem.product.img}
@@ -72,6 +79,7 @@ function AddCart() {
             maxH="200px" // Aquí ajusta el tamaño máximo de la altura según tu preferencia
           />
             </figure>
+  
           <div className="flex justify-between items-center mt-2">
           <Button
                         mt="8"
