@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Select } from '@chakra-ui/react';
 import supabase from "../../../lib/supabaseClient";
 import CartAlertCorrect from '../Cart/CartAlertCorrect';
+import CartAlertAdd from '../Cart/CartAlertAdd';
 
 function SellCart({ product, user, loadCart ,addToCart }) {
   const [selectedCajas, setSelectedCajas] = useState(0); // Estado para la cantidad de cajas seleccionadas
@@ -10,12 +11,20 @@ function SellCart({ product, user, loadCart ,addToCart }) {
 console.log(piezasPorCaja);
   const [cartItem, setCartItem] = useState(null); // Estado para el elemento del carrito que contiene el producto actual
   const [showAlert3, setShowAlert3] = useState(null); // Estado para mostrar el alert
+  const [showAlert2, setShowAlert2] = useState(false); // Estado para mostrar el alert si el usuario no ha iniciado sesión
 
   const handleCloseAlert3 = () => {
     // Manejador para cerrar el alert
     setShowAlert3(false);
   };
 
+  const handleCloseAlert2 = () => {
+    setShowAlert2(false);
+  };
+
+ 
+
+  
   // Función para manejar el cambio en la cantidad de cajas seleccionadas
   const handleCajasChange = (event) => {
     const cajas = parseInt(event.target.value);
@@ -66,7 +75,7 @@ console.log(piezasPorCaja);
   const confirmarCompra = async () => {
     if (!user.data?.user?.id) {
       // Mostrar el alert si el usuario no ha iniciado sesión
-      setShowAlert3(true);
+      setShowAlert2(true);
       return;
     }
   
@@ -123,6 +132,7 @@ console.log(piezasPorCaja);
       onClick={confirmarCompra}
       className="btn btn-outline btn-success text-white font-bold mt-2 lg:mt-0 ml-auto lg:ml-20 rounded"
       style={{ marginTop: '8px', marginBottom: '8px' }}
+      disabled={selectedCajas === 0}
     >
       Agregar al carrito
     </button>
@@ -132,6 +142,13 @@ console.log(piezasPorCaja);
         onClose={handleCloseAlert3}
         title="Alerta"
         message="Producto agregado al carrito."
+      />
+
+<CartAlertAdd
+        isOpen={showAlert2}
+        onClose={handleCloseAlert2}
+        title="Alerta"
+        message="Debes iniciar sesión para agregar productos al carrito."
       />
 
 
