@@ -119,12 +119,12 @@ console.log(piezasPorCaja);
     <div className="flex flex-col lg:flex-row lg:items-center ml-auto mr-2">
       
       <div className="flex items-center mb-2 lg:mb-0">
-        <h2 className="mr-2">Cajas:</h2>
-        <Select placeholder="cantidad de cajas" value={selectedCajas} onChange={handleCajasChange} className="mr-4">
-  {[...Array(20)].map((_, index) => (
-    <option key={index} value={index + 1}>{index + 1}</option>
-  ))}
-</Select>
+      <h2 className="mr-2">Cajas:</h2>
+  <Select value={selectedCajas} onChange={handleCajasChange} className="mr-4">
+    {[...Array(21)].map((_, index) => ( // Cambia el límite a 21 y usa el índice directamente
+      <option key={index} value={index}>{index}</option> // Usa el índice directamente como el valor y el contenido de la opción
+    ))}
+  </Select>
         <span className="ml-2 text-gray-600"> {selectedCajas * piezasPorCaja} Piezas</span>
       </div>
  
@@ -132,7 +132,7 @@ console.log(piezasPorCaja);
       onClick={confirmarCompra}
       className="btn btn-outline btn-success text-white font-bold mt-2 lg:mt-0 ml-auto lg:ml-20 rounded"
       style={{ marginTop: '8px', marginBottom: '8px' }}
-      disabled={selectedCajas === 0}
+      disabled={selectedCajas === 0 }
     >
       Agregar al carrito
     </button>
