@@ -15,6 +15,7 @@ import SearchBar from '../SearchBar/SearchBar';
 import { Text,Box,Container,Flex, Select } from '@chakra-ui/react';
 import Navbar from '../NavBar/Navbar';
 import CardsDetail from '../CardsDetail/CardsDetail';
+import SellCart from '../SellCart/SellCart';
 
 
 const Cart = () => {
@@ -268,6 +269,8 @@ return (
           <div className="card-body">
             <h2 className="card-title">{product.name}</h2>
             <p className="text-gray-600">Price: ${product.precio}</p>
+
+      
             <div className="card-actions justify-end">
            
               <Button
