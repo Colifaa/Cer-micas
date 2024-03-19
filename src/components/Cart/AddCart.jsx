@@ -55,10 +55,24 @@ function AddCart() {
     setShowAlert(false);
   };
 
+  const enviarPedidoWhatsapp = () => {
+    const total = cart.reduce((acc, item) => acc + (item.product.precio * item.cantCajas), 0);
+    let mensaje = `🛒¡Hola! Quisiera realizar la siguiente compra.\n\n El total es de $${total}. \n\n Detalles del carrito:\n\n`;
+  
+    cart.forEach(item => {
+      // Concatenamos el nombre del producto, sus medidas y el resto de la información del carrito sin separadores adicionales
+      mensaje += `Nombre: ${item.product.name}\nMedidas: ${item.product.medidas}\n Cajas: ${item.cantCajas}\n Piezas: ${item.piezas} \n\n`;
+    });
+  
+    const numeroDestino = '2604224940'; // Reemplaza con el número de WhatsApp del dueño de la empresa
+    const urlWhatsapp = `https://wa.me/${numeroDestino}?text=${encodeURIComponent(mensaje)}`;
+  
+    window.open(urlWhatsapp, '_blank');
+  };
+  
 
 
     return (
-  
   
           <SimpleGrid columns={{ sm: 1, md: 3, lg: 3, xl: 3 }} spacing={10}>
   
@@ -111,7 +125,12 @@ function AddCart() {
                              transform: "scale(1.2)",
                            },
                          }} onClick={() => removeFromCart(cartItem.id)}>Eliminar</Button>
-         <Button
+       
+          </div>
+          
+        </div>
+      ))}
+        <Button
                         mt="8"
                          variant="unstyled"
                          border="none"
@@ -128,6 +147,7 @@ function AddCart() {
                          fontSize="medium"
                          cursor="pointer"
                          w="full"
+                         onClick={enviarPedidoWhatsapp}
                          transition="background 450ms ease-in-out"
                          _hover={{
                            bgGradient: "linear(to-r, #D9693B, #E0012F)",
@@ -140,11 +160,9 @@ function AddCart() {
                              fill: "white",
                              transform: "scale(1.2)",
                            },
-                         }}>Comprar</Button>
-          </div>
-        </div>
-      ))}
-      
+                           
+                         }}
+                         >Comprar</Button>
   <CartAlertRemove
         isOpen={showAlert}
         onClose={handleCloseAlert}
