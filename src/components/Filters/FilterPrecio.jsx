@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box,SimpleGrid,Container, Text, Select } from '@chakra-ui/react';
+import { Box, SimpleGrid, Container, Text, Select } from '@chakra-ui/react';
 import supabase from "../../../lib/supabaseClient";
 
 function FilterPrecio({ selectedPrecios, onChangePrecios }) {
@@ -32,14 +32,11 @@ function FilterPrecio({ selectedPrecios, onChangePrecios }) {
   };
 
   return (
-    <Box mb={{ base: 4, md: 0 }} display="flex" alignItems="center">
+    <Box mb={{ base: 4, md: 0 }} display="flex" alignItems="center" justifyContent="center">
       <SimpleGrid gap={{ base: 1, md: 2 }} p={1}>
-     
-  <div className="text-2xl md:text-3xl lg:text-5xl font-bold leading-normal bg-slate-500 text-gray-100 p-4 [filter:url('#goo')]">
-  Ordenar por Precio:
-</div>
-
-
+        <div className=".league-spartan-font text-1xl md:text-3xl lg:text-2xl leading-normal bg-slate-500 text-black-100 p-4 border border-gray-400">
+          Ordenar por Precio:
+        </div>
         <Select onChange={handleOrdenPrecioChange}>
           <option value="Todos los productos">Todos los productos</option>
           <option value="menor-mayor">Menor precio</option>
