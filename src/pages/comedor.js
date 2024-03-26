@@ -1,16 +1,17 @@
-import AddCart from '@/components/Cart/AddCart'
+import Comedor from '@/components/Ambiente/Comedor'
+
 import Footer from '@/components/Footer/Footer'
 import Navbar from '@/components/NavBar/Navbar'
 import React from 'react'
 
-function carrito() {
+function comedor() {
   return (
     <div>
-      <Navbar/>
-      <AddCart/>
+        <Navbar/>
+      <Comedor/>
       <Footer/>
     </div>
   )
 }
 
-export default carrito
+export default comedor

@@ -1,16 +1,17 @@
-import AddCart from '@/components/Cart/AddCart'
+import Baño from '@/components/Ambiente/Baño'
+
 import Footer from '@/components/Footer/Footer'
 import Navbar from '@/components/NavBar/Navbar'
 import React from 'react'
 
-function carrito() {
+function baño() {
   return (
     <div>
-      <Navbar/>
-      <AddCart/>
+        <Navbar/>
+      <Baño/>
       <Footer/>
     </div>
   )
 }
 
-export default carrito
+export default baño

@@ -31,18 +31,14 @@ const FilterAmbiente = ({ selectedFilter, onChange }) => {
   };
 
   return (
-    <Box mb={{ base: 4, md: 0 }} display="flex" alignItems="center">
+    <Box mb={{ base: 4, md: 0 }} display="flex" alignItems="center" justifyContent="center">
       <SimpleGrid gap={{ base: 1, md: 2 }} p={1}>
-        <div className="text-2xl md:text-3xl lg:text-5xl font-bold leading-normal bg-slate-500 text-gray-100 p-4 [filter:url('#goo')]">
-          Ordenar por Ambiente:
-        </div>
-
-        <Select   
-  borderColor="orange"
-
-
-
-   value={selectedFilter} onChange={(e) => handleSelectChange(e.target.value)}>
+        <h1 id="ambiente" style={{backgroundColor: "rgba(128, 128, 128, 0.5)"}}>Ordenar por Ambiente:</h1>
+        <Select
+          borderColor="orange"
+          value={selectedFilter}
+          onChange={(e) => handleSelectChange(e.target.value)}
+        >
           {options.map((option) => (
             <option key={option} value={option}>
               {option === 'all' ? 'Todos los productos' : option}
