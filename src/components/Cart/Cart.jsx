@@ -10,6 +10,7 @@ import FilterPrecio from '../Filters/FilterPrecio';
 import SearchBar from '../SearchBar/SearchBar';
 
 import CardsDetail from '../CardsDetail/CardsDetail'
+import { Button } from '@chakra-ui/react';
 const Cart = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
@@ -20,7 +21,7 @@ const Cart = () => {
   const [selectedFilter, setSelectedFilter] = useState('all');
   const [selectedTono, setSelectedTono] = useState([]);
   const [selectedMedidas, setSelectedMedidas] = useState([]);
-  const [selectedMaterial, setSelectedMaterial] = useState();
+  const [selectedMaterial, setSelectedMaterial] = useState([]);
   const [selectedPrecios, setSelectedPrecios] = useState([]);
 
   const loadProducts = async () => {
@@ -32,6 +33,18 @@ const Cart = () => {
     setProducts(data);
     setFilteredProducts(data);
   };
+
+
+
+  const handleShowAllProducts = () => {
+    setFilteredProducts(products);
+    setSelectedFilter('all');
+    setSelectedMedidas([]);
+    setSelectedTono([]);
+    setSelectedMaterial([]);
+    setSelectedPrecios([]);
+  };
+
 
  const handleFilterChange = async (filter) => {
   if (filter === 'all') {
@@ -157,6 +170,7 @@ const Cart = () => {
     setFilteredProducts(filteredData);
   };
 
+
   return (
     <div className="flex justify-center">
       <div className="flex flex-col md:flex-row w-full">
@@ -174,6 +188,7 @@ const Cart = () => {
           </div>
           <div className="mb-4 min-h-200">
             <FilterMaterial selectedMaterial={selectedMaterial} onChangeMaterial={handleFilterMaterial} />
+            <Button onClick={handleShowAllProducts}>Todos los productos</Button>
           </div>
         </div>
         <div className="flex flex-col items-center w-full md:w-2/3 p-4 border-3 border-gray-300 bg-gradient-to-br from-orange-1 via-orange-1 to-orange-1 min-h-screen">
