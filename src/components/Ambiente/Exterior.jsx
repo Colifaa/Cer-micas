@@ -13,8 +13,8 @@ const ProductCard = ({ title, image1, description, image2, bgColor }) => {
     <div className={`mb-8 md:flex md:items-center bg-${bgColor} p-4 rounded-lg shadow-md`} style={{ marginLeft: '10px', ...cardStyle }}>
       <img src={image1} alt="Product" className="w-20 h-20 md:w-40 md:h-40 mr-4 md:mr-8" />
       <div className="md:flex md:flex-col md:justify-between md:items-center md:flex-grow">
-        <h2 className="text-white text-xl md:text-2xl font-bold mb-4">{title}</h2>
-        <p className="text-white text-lg md:text-xl font-bold mb-4">{description}</p>
+        <h2 className="text-orange-1 text-xl md:text-2xl font-bold mb-4">{title}</h2>
+        <p className="text-black border border-gray-900 text-lg md:text-xl font-bold mb-4">{description}</p>
       </div>
     </div>
   );

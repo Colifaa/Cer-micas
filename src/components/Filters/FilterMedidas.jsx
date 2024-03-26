@@ -34,7 +34,7 @@ function FilterMedidas({ selectedMedidas, onChangeMedidas }) {
   return (
     <Container maxW="container.xl" centerContent>
       <Box mb={{ base: 4, md: 0 }} position="relative" textAlign="center">
-        <h1>Medidas</h1>
+        <h1 id="medidas" style={{backgroundColor: "rgba(128, 128, 128, 0.5)"}}>Medidas</h1>
         <SimpleGrid gap={{ base: 2, md: 1 }} p={{ base: 2, md: 2 }} columns={4}>
           <CheckboxGroup value={selectedMedidas} onChange={handleCheckboxChange}>
             {medidaOptions.map((option) => (

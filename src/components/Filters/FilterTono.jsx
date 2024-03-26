@@ -4,7 +4,7 @@ import supabase from "../../../lib/supabaseClient";
 
 function FilterTono({ selectedTono, onChangeTono }) {
   const [TonoOptions, setTonoOptions] = useState([]); // Inicializar con un array vacío
-  const colores = ["#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#00FFFF", "#FF00FF", "#C0C0C0", "#808080", "#800000", "#808000", "#008000", "#800080", "#008080", "#000080"];
+  const colores = ["#ccac83", "#cfd8dc", "#b8b8b8", "#fffff2", "#d4ba7d", "#965c1d", "#ffffff", "#a55e15", "#932f2f", "#362f3d", "#f0ead8", "#484ba1",];
 
   useEffect(() => {
     const fetchTonoOptions = async () => {
@@ -36,7 +36,7 @@ function FilterTono({ selectedTono, onChangeTono }) {
   return (
     <Container maxW="container.xl" centerContent>
       <Box mb={{ base: 4, md: 0 }} position="relative" textAlign="center">
-        <h1>Color</h1>
+        <h1 id="color" style={{backgroundColor: "rgba(128, 128, 128, 0.5)"}}>Color</h1>
         <SimpleGrid gap={{ base: 2, md: 1 }} p={{ base: 2, md: 2 }} columns={4}>
           {TonoOptions.map((option, index) => (
             <Box key={option}>

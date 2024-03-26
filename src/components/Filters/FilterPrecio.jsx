@@ -34,9 +34,7 @@ function FilterPrecio({ selectedPrecios, onChangePrecios }) {
   return (
     <Box mb={{ base: 4, md: 0 }} display="flex" alignItems="center" justifyContent="center">
       <SimpleGrid gap={{ base: 1, md: 2 }} p={1}>
-        <div className=".league-spartan-font text-1xl md:text-3xl lg:text-2xl leading-normal bg-slate-500 text-black-100 p-4 border border-gray-400">
-          Ordenar por Precio:
-        </div>
+        <h1 id="ambiente" style={{backgroundColor: "rgba(128, 128, 128, 0.5)"}}>Ordenar por Ambiente:</h1>
         <Select onChange={handleOrdenPrecioChange}>
           <option value="Todos los productos">Todos los productos</option>
           <option value="menor-mayor">Menor precio</option>
