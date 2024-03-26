@@ -15,7 +15,8 @@ const FilterAmbiente = ({ selectedFilter, onChange }) => {
           return;
         }
 
-        const uniqueOptions = Array.from(new Set(data.map(product => product.ambientacion).filter(Boolean)));
+        // Incluye explícitamente el valor NULL en las opciones
+        const uniqueOptions = Array.from(new Set([...data.map(product => product.ambientacion), null]));
         setOptions(['all', ...uniqueOptions]);
       } catch (error) {
         console.error('Error fetching ambientaciones:', error.message);

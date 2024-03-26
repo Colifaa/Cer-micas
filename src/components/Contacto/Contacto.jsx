@@ -21,7 +21,7 @@ const ContactSection = () => {
 
                             <h2 className="mt-4 text-base font-medium text-gray-800 dark:text-white">Email</h2>
                             <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">Nuestro amigable equipo está aquí para ayudarlo.</p>
-                            <p className="mt-2 text-sm text-orange-500 dark:text-orange-400">hello@merakiui.com</p>
+                            <p className="mt-2 text-sm text-orange-500 dark:text-orange-400">contacto@ceramicassanrafael.com</p>
                         </div>
 
                         <div>
@@ -46,7 +46,7 @@ const ContactSection = () => {
                             
                             <h2 className="mt-4 text-base font-medium text-gray-800 dark:text-white">Celular</h2>
                             <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">De lunes a viernes de 8hs a 20hs. Sabados de 8hs a 13hs</p>
-                            <p className="mt-2 text-sm text-orange-500 dark:text-orange-400">+54 2604609798</p>
+                            <p className="mt-2 text-sm text-orange-500 dark:text-orange-400">+54 2604 531120</p>
                         </div>
                     </div>
 

@@ -33,31 +33,41 @@ const Cart = () => {
     setFilteredProducts(data);
   };
 
-  const handleFilterChange = async (filter) => {
-    setSelectedFilter(filter);
-    filterProducts(filter, selectedMedidas);
-  };
-
+ const handleFilterChange = async (filter) => {
+  if (filter === 'all') {
+    // Si se selecciona "todos los productos", restablecer los filtros
+    setSelectedFilter('all');
+    setSelectedMedidas([]);
+    setSelectedTono([]);
+    setSelectedMaterial(null);
+    setSelectedPrecios(null);
+    filterProducts(null, [], [], null, null, products); // Pasar todos los productos sin filtrar
+  } else {
+    setSelectedFilter(filter); // Actualizar el estado del filtro seleccionado
+    filterProducts(filter, selectedMedidas, selectedTono, selectedMaterial, selectedPrecios, products); // Aplicar los filtros seleccionados
+  }
+};
+  
   const handleFilterMedidas = async (filter) => {
     setSelectedMedidas(filter);
     filterProducts(selectedFilter, filter);
   };
-
+  
   const handleFilterTono = async (filter) => {
     setSelectedTono(filter);
     filterProducts(selectedFilter, selectedMedidas, filter);
   };
-
+  
   const handleFilterMaterial = async (filter) => {
     setSelectedMaterial(filter);
     filterProducts(selectedFilter, selectedMedidas, selectedTono, filter);
   };
-
+  
   const handleFilterPrecios = async (filter) => {
     setSelectedPrecios(filter);
     filterProducts(selectedFilter, selectedMedidas, selectedTono, selectedMaterial, filter);
   };
-
+  
   const filterProducts = async (ambientacionFilter, medidasFilter, tonoFilter, materialFilter, preciosFilter, searchData) => {
     let filteredData = searchData ? [...searchData] : [...products];
     if (ambientacionFilter !== 'all') {
