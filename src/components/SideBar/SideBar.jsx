@@ -84,9 +84,9 @@ useEffect(() => {
 
 
   return (
-    <Box as="section" bg={useColorModeValue('gray.50', 'gray.700')} minH="100vh">
+    <Box  as="section" bg={useColorModeValue('gray.50', 'gray.700')} minH="100vh">
       {/* Sidebar */}
-      <SidebarContent display={{ base: 'none', md: 'unset' }} />
+      <SidebarContent  bgImage="linear-gradient(306deg, rgba(54, 54, 54, 0.05) 0%, rgba(54, 54, 54, 0.05) 33.333%,rgba(85, 85, 85, 0.05) 33.333%, rgba(85, 85, 85, 0.05) 66.666%,rgba(255, 255, 255, 0.05) 66.666%, rgba(255, 255, 255, 0.05) 99.999%),linear-gradient(353deg, rgba(81, 81, 81, 0.05) 0%, rgba(81, 81, 81, 0.05) 33.333%,rgba(238, 238, 238, 0.05) 33.333%, rgba(238, 238, 238, 0.05) 66.666%,rgba(32, 32, 32, 0.05) 66.666%, rgba(32, 32, 32, 0.05) 99.999%),linear-gradient(140deg, rgba(192, 192, 192, 0.05) 0%, rgba(192, 192, 192, 0.05) 33.333%,rgba(109, 109, 109, 0.05) 33.333%, rgba(109, 109, 109, 0.05) 66.666%,rgba(30, 30, 30, 0.05) 66.666%, rgba(30, 30, 30, 0.05) 99.999%),linear-gradient(189deg, rgba(77, 77, 77, 0.05) 0%, rgba(77, 77, 77, 0.05) 33.333%,rgba(55, 55, 55, 0.05) 33.333%, rgba(55, 55, 55, 0.05) 66.666%,rgba(145, 145, 145, 0.05) 66.666%, rgba(145, 145, 145, 0.05) 99.999%),linear-gradient(90deg, rgb(9, 201, 186),rgb(18, 131, 221))" display={{ base: 'none', md: 'unset' }} />
       <Drawer isOpen={isOpen} onClose={onClose} placement="left">
         <DrawerOverlay />
         <DrawerContent>
@@ -95,7 +95,7 @@ useEffect(() => {
       </Drawer>
       
       {/* Main Content */}
-      <Box ml={{ base: 0, md: 60 }} transition=".3s ease">
+      <Box  ml={{ base: 0, md: 60 }} transition=".3s ease">
       <Flex
   as="header"
   align="center"
@@ -108,20 +108,21 @@ useEffect(() => {
   bg={useColorModeValue('white', 'gray.800')}
   boxShadow="sm"
   h="24"
+  bgImage="linear-gradient(306deg, rgba(54, 54, 54, 0.05) 0%, rgba(54, 54, 54, 0.05) 33.333%,rgba(85, 85, 85, 0.05) 33.333%, rgba(85, 85, 85, 0.05) 66.666%,rgba(255, 255, 255, 0.05) 66.666%, rgba(255, 255, 255, 0.05) 99.999%),linear-gradient(353deg, rgba(81, 81, 81, 0.05) 0%, rgba(81, 81, 81, 0.05) 33.333%,rgba(238, 238, 238, 0.05) 33.333%, rgba(238, 238, 238, 0.05) 66.666%,rgba(32, 32, 32, 0.05) 66.666%, rgba(32, 32, 32, 0.05) 99.999%),linear-gradient(140deg, rgba(192, 192, 192, 0.05) 0%, rgba(192, 192, 192, 0.05) 33.333%,rgba(109, 109, 109, 0.05) 33.333%, rgba(109, 109, 109, 0.05) 66.666%,rgba(30, 30, 30, 0.05) 66.666%, rgba(30, 30, 30, 0.05) 99.999%),linear-gradient(189deg, rgba(77, 77, 77, 0.05) 0%, rgba(77, 77, 77, 0.05) 33.333%,rgba(55, 55, 55, 0.05) 33.333%, rgba(55, 55, 55, 0.05) 66.666%,rgba(145, 145, 145, 0.05) 66.666%, rgba(145, 145, 145, 0.05) 99.999%),linear-gradient(90deg, rgb(9, 201, 186),rgb(18, 131, 221))"
 >
-  <IconButton
+  <IconButton 
     aria-label="Menu"
     display={{ base: 'inline-flex', xl: 'none' }}
     onClick={onOpen}
     icon={<FiMenu />}
     size="xl"
   />
-  <Flex align="center">
+  <Flex align="center"  >
     <HStack spacing={{ base: '0', md: '6' }}>
       <IconButton size="lg" variant="ghost" aria-label="open menu" icon={<FiBell />} />
       <Flex alignItems={'center'}>
         <Menu>
-          <MenuButton py={2} transition="all 0.3s" _focus={{ boxShadow: 'none' }}>
+          <MenuButton  py={2} transition="all 0.3s" _focus={{ boxShadow: 'none' }}>
             <HStack>
               <Avatar
                 size={'md'}
@@ -146,14 +147,16 @@ useEffect(() => {
             </HStack>
           </MenuButton>
           <MenuList
-            bg={useColorModeValue('white', 'gray.900')}
-            borderColor={useColorModeValue('gray.200', 'gray.700')}
+           bgColor="black"
+            borderColor="red"
           >
-            <MenuItem><AdminProfileModal/></MenuItem>
-            <MenuItem>Settings</MenuItem>
-            <MenuItem>Billing</MenuItem>
+            <MenuItem bgColor="black"> <AdminProfileModal/></MenuItem>
             <MenuDivider />
-            <MenuItem onClick={handleSignOut}>Sign out</MenuItem>
+            <MenuItem bgColor="black">
+             <Button colorScheme="blue" 
+            onClick={handleSignOut}>Sign out
+      </Button> 
+      </MenuItem>
           </MenuList>
         </Menu>
       </Flex>
@@ -189,7 +192,7 @@ const SidebarContent = ({ ...props }) => (
     w="60"
     borderLeftRadius="2"
     borderRightColor="red"
-
+    bgImage="linear-gradient(306deg, rgba(54, 54, 54, 0.05) 0%, rgba(54, 54, 54, 0.05) 33.333%,rgba(85, 85, 85, 0.05) 33.333%, rgba(85, 85, 85, 0.05) 66.666%,rgba(255, 255, 255, 0.05) 66.666%, rgba(255, 255, 255, 0.05) 99.999%),linear-gradient(353deg, rgba(81, 81, 81, 0.05) 0%, rgba(81, 81, 81, 0.05) 33.333%,rgba(238, 238, 238, 0.05) 33.333%, rgba(238, 238, 238, 0.05) 66.666%,rgba(32, 32, 32, 0.05) 66.666%, rgba(32, 32, 32, 0.05) 99.999%),linear-gradient(140deg, rgba(192, 192, 192, 0.05) 0%, rgba(192, 192, 192, 0.05) 33.333%,rgba(109, 109, 109, 0.05) 33.333%, rgba(109, 109, 109, 0.05) 66.666%,rgba(30, 30, 30, 0.05) 66.666%, rgba(30, 30, 30, 0.05) 99.999%),linear-gradient(189deg, rgba(77, 77, 77, 0.05) 0%, rgba(77, 77, 77, 0.05) 33.333%,rgba(55, 55, 55, 0.05) 33.333%, rgba(55, 55, 55, 0.05) 66.666%,rgba(145, 145, 145, 0.05) 66.666%, rgba(145, 145, 145, 0.05) 99.999%),linear-gradient(90deg, rgb(9, 201, 186),rgb(18, 131, 221))"
     {...props}
   >
     <Flex px="4" py="5" align="center">
@@ -209,15 +212,9 @@ const SidebarContent = ({ ...props }) => (
       <NavItem icon={AiOutlineTeam}>Productos</NavItem>
       </Link>
       </Flex>
-      <Flex mt="5"> 
-      <NavItem icon={BsFolder2}>Projects</NavItem>
-      </Flex>
-      <Flex mt="5"> 
-      <NavItem icon={BsCalendarCheck}>Calendar</NavItem>
-      </Flex>
-      <Flex mt="5"> 
-      <WidgetTotal/>
-    </Flex>
+      <Flex mt="5">
+            <NavItem ><WidgetTotal /></NavItem>
+            </Flex>
     </Flex>
    
   </Box>
