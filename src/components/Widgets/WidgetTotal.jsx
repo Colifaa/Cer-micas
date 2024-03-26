@@ -22,13 +22,13 @@ function WidgetTotal() {
   };
 
   return (
-    <Box bg='tomato' w='100%' p={4} color='white' display="flex" flexDirection="column" justifyContent="flex-end" alignItems="flex-end" >
+    <Box  w='100%' p={4} color='white' display="flex" flexDirection="column" justifyContent="flex-end" alignItems="flex-end" >
       <div className={styles.card}>
         <p className={styles.time}>
           <span>{currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
-          <span className={styles.sub}>{currentTime.getHours() >= 12 ? 'PM' : 'AM'}</span>
+          <span className={styles.sub}></span>
         </p>
-        <p className={styles.day}>{currentTime.toLocaleDateString(undefined, options)}</p>
+        <p className={styles.day}>{currentTime.toLocaleDateString("es", options)}</p> 
       </div>
     </Box>
   );

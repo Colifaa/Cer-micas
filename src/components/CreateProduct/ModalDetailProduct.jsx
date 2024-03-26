@@ -35,7 +35,7 @@ function ModalDetailProduct({ product }) {
                 transform: "scale(1.2)",
               },
             }}>Detail</Button>
-      <Modal size="full" isOpen={isOpen} onClose={onClose} isCentered motionPreset='slideInBottom'>
+      <Modal  size="full" isOpen={isOpen} onClose={onClose} isCentered motionPreset='slideInBottom'>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>{product && product.name}</ModalHeader>
@@ -135,10 +135,10 @@ function ModalDetailProduct({ product }) {
             </section>
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme='blue' mr={3} onClick={onClose}>
+            <Button  colorScheme='blue' mr={3} onClick={onClose}>
               Cerrar
             </Button>
-            <Button variant='ghost'>Acción secundaria</Button>
+          
           </ModalFooter>
         </ModalContent>
       </Modal>
