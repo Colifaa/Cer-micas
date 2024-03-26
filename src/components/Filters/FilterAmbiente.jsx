@@ -26,8 +26,12 @@ const FilterAmbiente = ({ selectedFilter, onChange }) => {
   }, []);
 
   const handleSelectChange = (value) => {
-    // Si se selecciona "all", emitir el valor "null" para mostrar todos los productos
-    onChange(value === 'all' ? null : value);
+    // Si se selecciona "all", no hacer nada
+    if (value === 'all') {
+      return;
+    }
+    // Emitir el valor seleccionado
+    onChange(value);
   };
 
   return (
@@ -40,7 +44,7 @@ const FilterAmbiente = ({ selectedFilter, onChange }) => {
           onChange={(e) => handleSelectChange(e.target.value)}
         >
           {options.map((option) => (
-            <option key={option} value={option}>
+            <option key={option} value={option} disabled={option === 'all'}>
               {option === 'all' ? 'Todos los productos' : option}
             </option>
           ))}
