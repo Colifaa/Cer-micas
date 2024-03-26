@@ -1,16 +1,17 @@
-import AddCart from '@/components/Cart/AddCart'
+
+import Exterior from '@/components/Ambiente/Exterior'
 import Footer from '@/components/Footer/Footer'
 import Navbar from '@/components/NavBar/Navbar'
 import React from 'react'
 
-function carrito() {
+function exterior() {
   return (
     <div>
-      <Navbar/>
-      <AddCart/>
+        <Navbar/>
+      <Exterior/>
       <Footer/>
     </div>
   )
 }
 
-export default carrito
+export default exterior

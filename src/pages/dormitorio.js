@@ -1,16 +1,16 @@
-import AddCart from '@/components/Cart/AddCart'
+import Dormitorio from '@/components/Ambiente/Dormitorio'
 import Footer from '@/components/Footer/Footer'
 import Navbar from '@/components/NavBar/Navbar'
 import React from 'react'
 
-function carrito() {
+function dormitorio() {
   return (
     <div>
-      <Navbar/>
-      <AddCart/>
+        <Navbar/>
+      <Dormitorio/>
       <Footer/>
     </div>
   )
 }
 
-export default carrito
+export default dormitorio
