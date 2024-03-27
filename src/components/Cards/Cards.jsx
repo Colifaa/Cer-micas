@@ -1,43 +1,68 @@
-import React from 'react';
-import { Heading } from "@chakra-ui/react";
+import React, { useState, useEffect } from 'react';
+import supabase from '../../../lib/supabaseClient';
+import CardsDetail from '../CardsDetail/CardsDetail';
+import { Box, Heading } from "@chakra-ui/react";
 
-function Cards() {
-  const cardData = [
-    { title: 'QUADRAT', description: 'Aplicado en espacios interiores, y combinado con superficies neutras, te posibilitará un sinfín de opciones para darle diseño y creatividad a tu entorno.', imageUrl: 'https://ceramicasanlorenzo.com.ar/wp-content/uploads/2020/11/45.3X45.3-QUADRAT.jpg' },
-    { title: 'ARDESIA GRIS', description: 'Incorporar el estilo rústico a tus ambientes es muy simple. Su acabado antideslizante y su color gris la hacen capaz de adaptarse a cualquier espacio interior o exterior.', imageUrl: 'https://ceramicasanlorenzo.com.ar/wp-content/uploads/2023/11/Ceramica-San-Lorenzo-Ardesia-Gris-453-453-Full.jpg' },
-    { title: 'CALEB ROBLE', description: 'Es ideal para darle un look cálido y confortable. A partir de su terminación, realismo y su color roble, Caleb Roble es solicitado para ser instalado en todo tipo de ambientes.', imageUrl: 'https://ceramicasanlorenzo.com.ar/wp-content/uploads/2023/11/Ceramica-San-Lorenzo-Caleb-Roble-453x453-Full.jpg' },
-    { title: 'FLOWER WHITE', description: 'Aplicado en espacios interiores, y combinado con superficies neutras, te posibilitará un sinfín de opciones para darle diseño y creatividad a tu entorno.', imageUrl: 'https://ceramicasanlorenzo.com.ar/wp-content/uploads/2020/11/CSL-FLOWERS-WHITE-FULL.jpg' },
-    // ... Agrega más datos de tarjetas según sea necesario
-  ];
+function Cards({ product }) {
+  const [productosDestacados, setProductosDestacados] = useState([]);
+  const [showDetail, setShowDetail] = useState(null);
+
+  useEffect(() => {
+    async function fetchProductosDestacados() {
+      try {
+        const { data, error } = await supabase
+          .from('products')
+          .select('*')
+          .eq('destacados', true);
+
+        if (error) {
+          throw error;
+        }
+
+        setProductosDestacados(data || []);
+      } catch (error) {
+        console.error('Error al obtener los productos destacados:', error.message);
+      }
+    }
+
+    fetchProductosDestacados();
+  }, []);
+
+  const handleToggleDetail = (productId) => {
+    setShowDetail(showDetail === productId ? null : productId);
+  };
 
   return (
-    <Heading className='.league-spartan-font' size="xl">
-    <section className="py-10 bg-w sm:py-16 lg:py-24 z-40 relative">
-      <div className="container mx-auto">
-        <h2 className="text-3xl font-light text-blue-1 sm:text-4xl lg:text-5xl ">
-          aqui! <span className="block w-full font-light text-transparent bg-clip-text bg-gradient-to-r from-orange-1 to-black lg:inline">PRODUCTOS DESTACADOS</span> 
-        </h2>
-        <p className="mb-20 text-lg text-gray-900"></p>
+    <Heading className='league-spartan-font' size="xl">
+      <section className="py-10 bg-w sm:py-16 lg:py-24 z-40 relative">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-light text-blue-1 sm:text-4xl lg:text-5xl ">
+            aquí! <span className="block w-full font-light text-transparent bg-clip-text bg-gradient-to-r from-orange-1 to-black lg:inline">PRODUCTOS DESTACADOS</span>
+          </h2>
+          <p className="mb-20 text-lg text-gray-900"></p>
 
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-4">
-          {cardData.map((card, index) => (
-            <a key={index} href="/allProducts" className="shadow-2xl relative">
-              <div className="h-full relative shadow-2xl shadow-orange-1 overflow-hidden group">
-                <div className="absolute -bottom-10 group-hover:top-0 left-0 w-full h-full group-hover:bg-orange-1 transition-all ease-in-out duration-500">
-                  <div className="w-full h-full p-5 relative">
-                    <div className="absolute bottom-0 group-hover:bottom-24 text-gray-1 text-left transition-all ease-in-out duration-500">
-                      <h2 className="text-2xl font-bold text-orange-2 mb-0 pb-1">{card.title}</h2>
-                      <p className="text-lg font-light text-black">{card.description}</p>
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-4">
+            {productosDestacados.map((producto, index) => (
+              <div key={index} className="shadow-2xl relative">
+                <div className="h-full relative shadow-2xl shadow-orange-1 overflow-hidden group" onClick={() => handleToggleDetail(producto.id)}>
+                  <div className="absolute -bottom-10 group-hover:top-0 left-0 w-full h-full group-hover:bg-orange-1 transition-all ease-in-out duration-500">
+                    <div className="w-full h-full p-5 relative">
+
+                      <div className="absolute bottom-0 group-hover:bottom-24 text-gray-1 text-left transition-all ease-in-out duration-500">
+                        <h2 className="text-2xl font-bold text-orange-2 mb-0 pb-1">{producto.name}</h2>
+                        <p className="text-lg font-light text-black">{producto.minidetail}</p>
+                        <CardsDetail product={producto} />
+                      </div>
                     </div>
                   </div>
+                  <img src={producto.img} className="w-full z-0 h-full object-fill example" alt={`Card ${index}`} />
                 </div>
-                <img src={card.imageUrl} className="w-full z-0 h-full object-fill example" alt={`Card ${index}`} />
+
               </div>
-            </a>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
     </Heading>
   );
 }

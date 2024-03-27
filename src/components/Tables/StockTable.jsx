@@ -51,33 +51,43 @@ export default function StockTable() {
                   fallbackSrc="https://via.placeholder.com/150" 
                 />
               </Td>
-              <Td>{product.name}</Td>
-              <Td>
-                <Text>{product.detail}</Text>
+              <Td  fontSize="0.9rem"
+    fontWeight="bold">{product.name}</Td>
+              <Td >
+                <Text fontSize="0.9rem"
+    fontWeight="bold">{product.detail}</Text>
               </Td>
               <Td>
-                <Text>{product.piezas}</Text>
+                <Text  fontSize="0.9rem"
+    fontWeight="bold">{product.piezas}</Text>
               </Td>
               <Td>
-                <Text>{product.cantCajas}</Text>
+                <Text  fontSize="0.9rem"
+    fontWeight="bold">{product.cantCajas}</Text>
               </Td>
               <Td>
-                <Text>{product.material}</Text>
+                <Text  fontSize="0.9rem"
+    fontWeight="bold">{product.material}</Text>
               </Td>
               <Td>
-                <Text>{product.uso}</Text>
+                <Text  fontSize="0.9rem"
+    fontWeight="bold">{product.uso}</Text>
               </Td>
               <Td>
-                <Text>{product.medidas}</Text>
+                <Text  fontSize="0.9rem"
+    fontWeight="bold">{product.medidas}</Text>
               </Td>
               <Td>
-                <Text>{product.tono}</Text>
+                <Text  fontSize="0.9rem"
+    fontWeight="bold">{product.tono}</Text>
               </Td>
               <Td>
-                <Text>{product.ambientacion}</Text>
+                <Text  fontSize="0.9rem"
+    fontWeight="bold">{product.ambientacion}</Text>
               </Td>
               <Td>
-                <Text>{product.calidad}</Text>
+                <Text  fontSize="0.9rem"
+    fontWeight="bold">{product.calidad}</Text>
               </Td>
             </Tr>
           ))}
