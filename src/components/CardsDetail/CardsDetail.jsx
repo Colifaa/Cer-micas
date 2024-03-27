@@ -147,7 +147,7 @@ function CardsDetail({ product }) {
     variant="unstyled"
     border="none"
     width="15em"
-    height="5em"
+    height="3em"
     rounded="lg" // Utilizamos "lg" para obtener bordes redondeados
     display="flex"
     justifyContent="center"

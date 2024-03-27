@@ -45,13 +45,14 @@ export default function SideBar() {
 
   
 const handleSignOut = async () => {
+  
   try {
     const { error } = await supabase.auth.signOut();
     if (error) {
       throw error;
     }
-    // Redirige al usuario a la página de inicio de sesión u otra página si lo deseas
-    window.location.reload()
+    // Redirige al usuario a la ruta '/dashboard' después de cerrar sesión
+    router.push('/');
   } catch (error) {
     console.error("Error signing out:", error.message);
   }

@@ -5,6 +5,8 @@ import styles from './ScrollingMenu.module.css'; // Importa tus estilos CSS aquÃ
 const ScrollingMenu = () => {
   const [hoveredOption, setHoveredOption] = useState(null);
 
+  console.log(hoveredOption,"hoveredOption");
+
   const handleMouseOver = (option) => {
     setHoveredOption(option);
   };

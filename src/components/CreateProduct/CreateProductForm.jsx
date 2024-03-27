@@ -28,6 +28,7 @@ function CreateProductForm() {
     const [productData, setProductData] = useState({
         name: '',
         img: '',
+        img2: '',
         detail: '',
         precio: '',
         medidas: '',
@@ -81,6 +82,19 @@ function CreateProductForm() {
         setProductData({ ...productData, img: '' });
     };
 
+
+    const handleImage2Change = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = () => {
+                setProductData({ ...productData, img2: reader.result }); // Guardar la URL de la segunda imagen
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
+
     return (
         <Flex
         
@@ -126,6 +140,7 @@ function CreateProductForm() {
                                         onClick={handleRemoveImage}
                                     />
                                 </Avatar>
+                                
                                 <input
                                     id="image-upload"
                                     type="file"
@@ -141,8 +156,8 @@ function CreateProductForm() {
                     <FormControl id="name" isRequired>
                     <FormLabel>Name</FormLabel>
                     <Input
-                     color="white"
                      fontSize="0.9rem"
+                     fontWeight="bold" 
                      backgroundColor="transparent"
                      width="100%"
                      boxSizing="border-box"
@@ -160,30 +175,20 @@ function CreateProductForm() {
                 </FormControl>
                 </FormControl>
                 <FormControl id="detail" isRequired>
-                    <FormLabel>Detail</FormLabel>
-                    <Input
-                     color="white"
-                     fontSize="0.9rem"
-                     backgroundColor="transparent"
-                     width="100%"
-                     boxSizing="border-box"
-                     paddingInline="0.5em"
-                     paddingBlock="0.7em"
-                     border="none"
-                     borderBottom="var(--border-height) solid var(--border-before-color)"
-                     boxShadow="0 2px 4px rgba(0, 0, 0, 0.1)"
-                        placeholder="Product Detail"
-                        type="text"
-                        name="detail"
-                        value={productData.detail}
-                        onChange={handleChange}
-                    />
-                </FormControl>
+  <FormLabel>Detalle:</FormLabel>
+  <textarea 
+    className="textarea textarea-bordered textarea-lg w-full max-w-md bg-cyan-500 font-semibold"
+    name="detail"
+    value={productData.detail}
+    onChange={handleChange}
+   
+  />
+</FormControl>
                 <FormControl id="precio" isRequired>
                     <FormLabel>Precio</FormLabel>
                     <Input
-                  color="white"
-                  fontSize="0.9rem"
+                    fontSize="0.9rem"
+                    fontWeight="bold" 
                   backgroundColor="transparent"
                   width="100%"
                   boxSizing="border-box"
@@ -202,8 +207,8 @@ function CreateProductForm() {
                 <FormControl id="medidas" isRequired>
                     <FormLabel>Medidas</FormLabel>
                     <Input
-                     color="white"
-                     fontSize="0.9rem"
+                      fontSize="0.9rem"
+                      fontWeight="bold" 
                      backgroundColor="transparent"
                      width="100%"
                      boxSizing="border-box"
@@ -222,8 +227,8 @@ function CreateProductForm() {
                 <FormControl id="piezas" isRequired>
                     <FormLabel>Piezas</FormLabel>
                     <Input
-                     color="white"
-                     fontSize="0.9rem"
+                   fontSize="0.9rem"
+                   fontWeight="bold" 
                      backgroundColor="transparent"
                      width="100%"
                      boxSizing="border-box"
@@ -242,8 +247,8 @@ function CreateProductForm() {
                 <FormControl id="cantCajas" isRequired>
                     <FormLabel>Cantidad de Cajas</FormLabel>
                     <Input
-                     color="white"
-                     fontSize="0.9rem"
+                    fontSize="0.9rem"
+                    fontWeight="bold" 
                      backgroundColor="transparent"
                      width="100%"
                      boxSizing="border-box"
@@ -262,8 +267,8 @@ function CreateProductForm() {
                 <FormControl id="tono" isRequired>
                     <FormLabel>Tono</FormLabel>
                     <Input
-                     color="white"
-                     fontSize="0.9rem"
+                      fontSize="0.9rem"
+                      fontWeight="bold" 
                      backgroundColor="transparent"
                      width="100%"
                      boxSizing="border-box"
@@ -282,8 +287,8 @@ function CreateProductForm() {
                 <FormControl id="material" isRequired>
                     <FormLabel>Material</FormLabel>
                     <Input
-                     color="white"
-                     fontSize="0.9rem"
+                  fontSize="0.9rem"
+                  fontWeight="bold" 
                      backgroundColor="transparent"
                      width="100%"
                      boxSizing="border-box"
@@ -303,8 +308,8 @@ function CreateProductForm() {
                 <FormControl id="ambientacion" isRequired>
                     <FormLabel>Ambientación</FormLabel>
                     <Input
-                     color="white"
-                     fontSize="0.9rem"
+                      fontSize="0.9rem"
+                      fontWeight="bold" 
                      backgroundColor="transparent"
                      width="100%"
                      boxSizing="border-box"
@@ -323,8 +328,8 @@ function CreateProductForm() {
                 <FormControl id="uso" isRequired>
                     <FormLabel>Uso</FormLabel>
                     <Input
-                     color="white"
-                     fontSize="0.9rem"
+                    fontSize="0.9rem"
+                    fontWeight="bold" 
                      backgroundColor="transparent"
                      width="100%"
                      boxSizing="border-box"
@@ -343,8 +348,8 @@ function CreateProductForm() {
                 <FormControl id="calidad" isRequired>
                     <FormLabel>Calidad</FormLabel>
                     <Input
-                     color="white"
                      fontSize="0.9rem"
+                     fontWeight="bold" 
                      backgroundColor="transparent"
                      width="100%"
                      boxSizing="border-box"
@@ -360,6 +365,14 @@ function CreateProductForm() {
                         onChange={handleChange}
                     />
                 </FormControl>
+                <FormControl id="img2" isRequired>
+            <FormLabel>Imagen de la ceramica en un ambiente</FormLabel>
+            <Input
+                type="file"
+                accept="image/*"
+                onChange={handleImage2Change}
+            />
+        </FormControl>
                 
                 <Stack spacing={6} direction={['column', 'row']}>
                     <Button

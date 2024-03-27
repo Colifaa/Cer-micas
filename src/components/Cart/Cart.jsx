@@ -101,7 +101,8 @@ const Cart = () => {
     <Heading className='league-spartan-font'>
       <div className="flex justify-center">
         <div className="flex flex-col md:flex-row w-full">
-          <div className="bg-white flex flex-col w-full md:w-1/3 p-4 md:mb-20 md:mt-4 min-h-screen">
+         <div className="bg-gradient-to-br from-orange-1 via-white to-white flex flex-col w-full md:w-1/3 p-4  md: min-h-screen">
+ 
             <SearchBar onSearch={handleSearch} />
             <div className='mb-4 min-h-200 flex justify-center mt-5'>
               <Button onClick={handleShowAllProducts}>Reiniciar Filtros</Button>
@@ -120,7 +121,7 @@ const Cart = () => {
               <FilterMaterial selectedMaterial={selectedMaterial} onChangeMaterial={setSelectedMaterial} />
             </div>
           </div>
-          <div className={`flex flex-col items-center w-full md:w-2/3 p-4 border-3 border-gray-300 bg-gradient-to-br from-white via-white to-orange-1 min-h-screen`}>
+          <div className=" bg-gradient-to-br from-white via-white to-orange-1 flex flex-col items-center w-full md:w-2/3 p-4 border-3" >
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
               {filteredProducts.map((product) => (
                 <div
