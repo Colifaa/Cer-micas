@@ -1,13 +1,15 @@
 import { useDisclosure, Button } from '@chakra-ui/react';
-import { Modal, ModalOverlay, Select, Drawer,
+import {
+  Modal, ModalOverlay, Select, Drawer,
   DrawerBody,
   DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
-  DrawerCloseButton, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton,Box } from '@chakra-ui/react';
+  DrawerCloseButton, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, Box
+} from '@chakra-ui/react';
 import supabase from "../../../lib/supabaseClient";
-import React ,{ useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CartAlertCorrect from '../Cart/CartAlertCorrect';
 import CartAlertAdd from '../Cart/CartAlertAdd';
 import Navbar from '../NavBar/Navbar';
@@ -22,7 +24,7 @@ function CardsDetail({ product }) {
 
   const [showAlert, setShowAlert] = useState(null); // Estado para mostrar el alert
 
- 
+
   const [showAlert2, setShowAlert2] = useState(null); // Estado para mostrar el alert
 
 
@@ -31,7 +33,7 @@ function CardsDetail({ product }) {
 
   const [overlay, setOverlay] = React.useState();
   const router = useRouter();
- 
+
   const btnRef = React.useRef()
 
   const OverlayOne = () => (
@@ -40,9 +42,9 @@ function CardsDetail({ product }) {
       backdropFilter='blur(10px) hue-rotate(50deg)'
     />
   )
-  
 
-  
+
+
   const handleClick = () => {
     // Verificar si el usuario no ha iniciado sesión
     if (!user.data?.user?.id) {
@@ -56,11 +58,11 @@ function CardsDetail({ product }) {
     }
   };
 
-  
 
 
- // Función para obtener información del usuario después de iniciar sesión
- const getUserInfo = async () => {
+
+  // Función para obtener información del usuario después de iniciar sesión
+  const getUserInfo = async () => {
     const user = await supabase.auth.getUser(); // Espera a que la promesa se resuelva
     setUser(user);
   };
@@ -107,15 +109,15 @@ function CardsDetail({ product }) {
       console.error('Error adding to cart:', error.message);
       return;
     }
-  
+
     await loadCart();
   };
 
 
 
 
- // Cargar productos disponibles y productos en el carrito cuando el componente se monta
- useEffect(() => {
+  // Cargar productos disponibles y productos en el carrito cuando el componente se monta
+  useEffect(() => {
     loadCart();
     getUserInfo(); // Obtener información del usuario al cargar el componente
 
@@ -128,7 +130,7 @@ function CardsDetail({ product }) {
     setShowAlert(false);
   };
 
-  
+
 
   const handleCloseAlert2 = () => {
     // Manejador para cerrar el alert
@@ -140,23 +142,22 @@ function CardsDetail({ product }) {
 
   return (
     <>
-    <Button
-        onClick={() => {    
+      <Button
+        onClick={() => {
           onOpen();
         }}
         variant="unstyled"
         border="none"
-        width="15em"
-        height="5em"
+        width="10em"
+        height="2em"
         borderRadius="3em"
         display="flex"
         justifyContent="center"
         alignItems="center"
-        gap="12px"
+
         bg="#1C1A1C"
         color="#AAAAAA"
         fontWeight="600"
-        fontSize="medium"
         cursor="pointer"
         transition="background 450ms ease-in-out"
         _hover={{
@@ -172,24 +173,24 @@ function CardsDetail({ product }) {
           },
         }}
       >
-        Detail
+     Comprar ahora
       </Button>
       <Drawer
-      size="md"
+        size="md"
         isOpen={isOpen}
         placement='top'
         onClose={onClose}
         finalFocusRef={btnRef}
       >
-         <DrawerOverlay>
+        <DrawerOverlay>
           <OverlayOne />
         </DrawerOverlay>
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>Create your account</DrawerHeader>
+          <DrawerHeader>{product && product.name}</DrawerHeader>
 
           <DrawerBody>
-          <section className="text-gray-700 body-font overflow-hidden bg-white">
+            <section className="text-gray-700 body-font overflow-hidden bg-white">
               <div className="container px-5 py-24 mx-auto">
                 <div className="lg:w-4/5 mx-auto flex flex-wrap">
                   <img
@@ -247,7 +248,7 @@ function CardsDetail({ product }) {
 
 
                       </div>
-                      
+
                       <div className="flex ml-6 items-center">
 
 
@@ -269,84 +270,83 @@ function CardsDetail({ product }) {
                     <div className="flex">
 
                       <span className="title-font font-medium text-3xl text-gray-900">
-                      ${product && product.precio}
+                        ${product && product.precio}
                       </span>
-                    
-                 
-                         
-                    
 
 
 
 
-                    
+
+
+
+
+
                       <Button
-  
-    variant="unstyled"
-    border="none"
-    borderRadius="50%" // Para hacer el botón redondo
-    display="flex"
- 
-    width="1.5em" // Ajusta el tamaño del botón aquí
-    height="1.5em" // Ajusta el tamaño del botón aquí
-    bg="#f5a067"
-    marginLeft="28"
-    color="#AAAAAA"
-    fontWeight="600"
-    fontSize="2em" // Ajustar el tamaño del icono aquí
-    cursor="pointer"
-    transition="background 450ms ease-in-out"
-    _hover={{
-      bgGradient: "linear(to-r, #D9693B, #E0012F)",
-      boxShadow: "inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4), inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 4px rgba(255, 255, 255, 0.2), 0px 0px 180px 0px red",
-      transform: "translateY(-2px)",
-      "& .text": {
-        color: "white",
-      },
-      "& .sparkle": {
-        fill: "white",
-        transform: "scale(1.2)",
-      },
-    }}
-    onClick={handleClick}
-  >
-    🛒
-  </Button>
-  
-  
-  </div>
-  
+
+                        variant="unstyled"
+                        border="none"
+                        borderRadius="50%" // Para hacer el botón redondo
+                        display="flex"
+
+                        width="1.5em" // Ajusta el tamaño del botón aquí
+                        height="1.5em" // Ajusta el tamaño del botón aquí
+                        bg="#f5a067"
+                        marginLeft="28"
+                        color="#AAAAAA"
+                        fontWeight="600"
+                        fontSize="2em" // Ajustar el tamaño del icono aquí
+                        cursor="pointer"
+                        transition="background 450ms ease-in-out"
+                        _hover={{
+                          bgGradient: "linear(to-r, #D9693B, #E0012F)",
+                          boxShadow: "inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4), inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 4px rgba(255, 255, 255, 0.2), 0px 0px 180px 0px red",
+                          transform: "translateY(-2px)",
+                          "& .text": {
+                            color: "white",
+                          },
+                          "& .sparkle": {
+                            fill: "white",
+                            transform: "scale(1.2)",
+                          },
+                        }}
+                        onClick={handleClick}
+                      >
+                        🛒
+                      </Button>
+
+
+                    </div>
+
                   </div>
                   <span className="title-font font-medium text-2xl text-gray-900">
-<SellCart product={product} user={user} loadCart={loadCart} addToCart={addToCart} />
-</span>
+                    <SellCart product={product} user={user} loadCart={loadCart} addToCart={addToCart} />
+                  </span>
                 </div>
-                
+
               </div>
 
-              
+
             </section>
-       
+
           </DrawerBody>
 
           <DrawerFooter>
             <Button variant='outline' mr={3} onClick={onClose}>
               Cancel
             </Button>
-            <Button colorScheme='blue'>Save</Button>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
-       
-              
 
-<CartAlertAdd
+
+
+      <CartAlertAdd
         isOpen={showAlert2}
         onClose={handleCloseAlert2}
         title="Alerta"
         message="Debes iniciar sesión para agregar productos al carrito."
       />
-      <CartAlert   isOpen={showAlert}   onClose={handleCloseAlert}  title="Alerta"  message="Debes iniciar sesión para ver tu carrito de compras."/>
+      <CartAlert isOpen={showAlert} onClose={handleCloseAlert} title="Alerta" message="Debes iniciar sesión para ver tu carrito de compras." />
 
     </>
   );
