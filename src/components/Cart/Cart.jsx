@@ -120,7 +120,7 @@ const Cart = () => {
               <FilterMaterial selectedMaterial={selectedMaterial} onChangeMaterial={setSelectedMaterial} />
             </div>
           </div>
-          <div className={`flex flex-col items-center w-full md:w-2/3 p-4 border-3 border-gray-300 bg-gradient-to-br from-orange-1 via-orange-1 to-orange-1 min-h-screen`}>
+          <div className={`flex flex-col items-center w-full md:w-2/3 p-4 border-3 border-gray-300 bg-gradient-to-br from-white via-white to-orange-1 min-h-screen`}>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
               {filteredProducts.map((product) => (
                 <div
