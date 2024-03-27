@@ -121,11 +121,11 @@ console.log(piezasPorCaja);
       <div className="flex items-center mb-2 lg:mb-0">
       <h2 className="mr-2">Cajas:</h2>
   <Select value={selectedCajas} onChange={handleCajasChange} className="mr-4">
-    {[...Array(21)].map((_, index) => ( // Cambia el límite a 21 y usa el índice directamente
+    {[...Array(131)].map((_, index) => ( // Cambia el límite a 21 y usa el índice directamente
       <option key={index} value={index}>{index}</option> // Usa el índice directamente como el valor y el contenido de la opción
     ))}
   </Select>
-        <span className="ml-2 text-gray-600"> {selectedCajas * piezasPorCaja} Piezas</span>
+        
       </div>
  
       <button

@@ -15,8 +15,7 @@ const FilterAmbiente = ({ selectedFilter, onChange }) => {
           return;
         }
 
-        // Incluye explícitamente el valor NULL en las opciones
-        const uniqueOptions = Array.from(new Set([...data.map(product => product.ambientacion), null]));
+        const uniqueOptions = Array.from(new Set(data.map(product => product.ambientacion).filter(Boolean)));
         setOptions(['all', ...uniqueOptions]);
       } catch (error) {
         console.error('Error fetching ambientaciones:', error.message);
@@ -38,7 +37,7 @@ const FilterAmbiente = ({ selectedFilter, onChange }) => {
   return (
     <Box mb={{ base: 4, md: 0 }} display="flex" alignItems="center" justifyContent="center">
       <SimpleGrid gap={{ base: 1, md: 2 }} p={1}>
-        <h1 id="ambiente" style={{backgroundColor: "rgba(128, 128, 128, 0.5)"}}>Ordenar por Ambiente:</h1>
+
         <Select
           borderColor="orange"
           value={selectedFilter}
@@ -46,7 +45,7 @@ const FilterAmbiente = ({ selectedFilter, onChange }) => {
         >
           {options.map((option) => (
             <option key={option} value={option} disabled={option === 'all'}>
-              {option === 'all' ? 'Todos los productos' : option}
+              {option === 'all' ? 'Ordenar por Ambiente:' : option}
             </option>
           ))}
         </Select>
