@@ -34,7 +34,7 @@ function FilterMaterial({ selectedMaterial, onChangeMaterial }) {
   return (
     <Container maxW="container.xl" centerContent>
       <Box position="relative" textAlign="center">
-        <h1 id="material" style={{backgroundColor: "rgba(128, 128, 128, 0.5)"}}>Material</h1>
+      <h1 id="material" className="text-lg text-center bg-gray-500 bg-opacity-50">Material</h1>
         <SimpleGrid gap={{ base: 2, md: 5 }} p={{ base: 2, md: 5 }} columns={2}>
           <CheckboxGroup value={selectedMaterial} onChange={handleCheckboxChange}>
             {materialOptions.map((option) => (

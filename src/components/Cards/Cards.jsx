@@ -3,10 +3,10 @@ import { Heading } from "@chakra-ui/react";
 
 function Cards() {
   const cardData = [
-    { title: 'UNIQUE DECO', description: 'Aplicado en espacios interiores, y combinado con superficies neutras, te posibilitará un sinfín de opciones para darle diseño y creatividad a tu entorno.', imageUrl: 'https://ceramicasanlorenzo.com.ar/wp-content/uploads/2020/11/CSL-UNIQUE-DECO-IMAGEN.jpg.webp' },
-    { title: 'VOLTA MIX', description: 'Combinado con superficies neutras, te posibilitará un sinfín de opciones para darle diseño y creatividad a tu entorno.', imageUrl: 'https://ceramicasanlorenzo.com.ar/wp-content/uploads/2023/11/Ceramica-San-Lorenzo-Volta-Mix-453x453-1.jpg.webp' },
-    { title: 'CALEB ROBLE', description: 'A partir de su terminación, realismo y su color roble, Caleb Roble es solicitado para ser instalado en todo tipo de ambientes.', imageUrl: 'https://ceramicasanlorenzo.com.ar/wp-content/uploads/2023/11/Ceramica-San-Lorenzo-Caleb-Roble-453x453-1.jpg' },
-    { title: 'FLOWER BLACK', description: 'Flower Black ofrece muchas opciones creativas para tu hogar. Aplicado en espacios interiores, y combinado con superficies neutras.', imageUrl: 'https://ceramicasanlorenzo.com.ar/wp-content/uploads/2020/11/CSL-FLOWERS-BLACK-IMAGEN.jpg.webp' },
+    { title: 'QUADRAT', description: 'Aplicado en espacios interiores, y combinado con superficies neutras, te posibilitará un sinfín de opciones para darle diseño y creatividad a tu entorno.', imageUrl: 'https://ceramicasanlorenzo.com.ar/wp-content/uploads/2020/11/45.3X45.3-QUADRAT.jpg' },
+    { title: 'ARDESIA GRIS', description: 'Incorporar el estilo rústico a tus ambientes es muy simple. Su acabado antideslizante y su color gris la hacen capaz de adaptarse a cualquier espacio interior o exterior.', imageUrl: 'https://ceramicasanlorenzo.com.ar/wp-content/uploads/2023/11/Ceramica-San-Lorenzo-Ardesia-Gris-453-453-Full.jpg' },
+    { title: 'CALEB ROBLE', description: 'Es ideal para darle un look cálido y confortable. A partir de su terminación, realismo y su color roble, Caleb Roble es solicitado para ser instalado en todo tipo de ambientes.', imageUrl: 'https://ceramicasanlorenzo.com.ar/wp-content/uploads/2023/11/Ceramica-San-Lorenzo-Caleb-Roble-453x453-Full.jpg' },
+    { title: 'FLOWER WHITE', description: 'Aplicado en espacios interiores, y combinado con superficies neutras, te posibilitará un sinfín de opciones para darle diseño y creatividad a tu entorno.', imageUrl: 'https://ceramicasanlorenzo.com.ar/wp-content/uploads/2020/11/CSL-FLOWERS-WHITE-FULL.jpg' },
     // ... Agrega más datos de tarjetas según sea necesario
   ];
 
@@ -21,7 +21,7 @@ function Cards() {
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-4">
           {cardData.map((card, index) => (
-            <a key={index} href="#" className="shadow-2xl relative">
+            <a key={index} href="/allProducts" className="shadow-2xl relative">
               <div className="h-full relative shadow-2xl shadow-orange-1 overflow-hidden group">
                 <div className="absolute -bottom-10 group-hover:top-0 left-0 w-full h-full group-hover:bg-orange-1 transition-all ease-in-out duration-500">
                   <div className="w-full h-full p-5 relative">
