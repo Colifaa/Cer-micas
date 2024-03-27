@@ -308,4 +308,4 @@ function CardsDetail({ product }) {
 }
 
 
-export default CardsDetail;
+export default CardsDetail
