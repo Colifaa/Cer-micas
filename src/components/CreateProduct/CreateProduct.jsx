@@ -38,7 +38,7 @@ import CardsProducts from './CardsProducts';
 import CardDetailProduct from './ModalDetailProduct';
 import ModalCreateProduct from './ModalCreateProduct';
 import AdminProfileModal from '../AdminProfile/AdminProfileModal';
-
+import Router from 'next/router';
 
 function CreateProduct() {
     const router = useRouter();
@@ -46,17 +46,18 @@ function CreateProduct() {
  
 
     const handleSignOut = async () => {
+  
         try {
-            const { error } = await supabase.auth.signOut();
-            if (error) {
-                throw error;
-            }
-            // Redirige al usuario al dashboard después de cerrar sesión
-            history.push('/dashboard');
+          const { error } = await supabase.auth.signOut();
+          if (error) {
+            throw error;
+          }
+          // Redirige al usuario a la ruta '/dashboard' después de cerrar sesión
+          router.push('/');
         } catch (error) {
-            console.error("Error signing out:", error.message);
+          console.error("Error signing out:", error.message);
         }
-    };
+      };
 
     
   const [userData, setUserData] = useState(null); // Inicializa el estado userData a null

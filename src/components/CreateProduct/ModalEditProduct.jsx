@@ -22,7 +22,7 @@ import supabase from '../../../lib/supabaseClient';
 import AlertEdit from '../AlertsAdmin/AlertEdit';
 
 function ModalEditProduct({ product }) {
-  const [editingProduct, setEditingProduct] = useState({ ...product });
+  const [editingProduct, setEditingProduct] = useState({ ...product, img2: product.img2 });
   const [isOpen, setIsOpen] = useState(false);
   const [showAlert, setShowAlert] = useState(false); // Nuevo estado para controlar la visibilidad del AlertEdit
 
@@ -41,6 +41,19 @@ function ModalEditProduct({ product }) {
       reader.readAsDataURL(file);
     }
   };
+
+
+  const handleImage2Change = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setEditingProduct({ ...editingProduct, img2: reader.result });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -259,6 +272,15 @@ function ModalEditProduct({ product }) {
                   onChange={handleInputChange}
                 />
               </FormControl>
+              <FormControl>
+  <FormLabel>Imagen del ambiente:</FormLabel>
+  <input
+    type="file"
+    accept="image/*"
+    onChange={handleImage2Change}
+    className="input input-bordered input-accent w-full max-w-xs"
+  />
+</FormControl>
             
          
             </ModalBody>
