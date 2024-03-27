@@ -98,7 +98,7 @@ const About = () => {
           transition={{ duration: 0.5 }}
         >
             <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 mt-6">Fundada en 2012</p>
-            <p className="font-normal text-base leading-6 text-gray-600 mt-6">Desde hace más de dos décadas, hemos estado proporcionando soluciones de revestimiento de alta calidad para hogares y proyectos comerciales en todo el país.</p>
+            <p className="font-normal text-base leading-6 text-gray-600 mt-6">Desde hace más de una decada, hemos estado proporcionando soluciones de revestimiento de alta calidad para hogares y proyectos comerciales en todo Mendoza.</p>
           </motion.div>
         </div>
         <div>
@@ -108,8 +108,8 @@ const About = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1 }}
         >
-            <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 mt-6">Más de 50 Millones de Productos Vendidos Mensualmente</p>
-            <p className="font-normal text-base leading-6 text-gray-600 mt-6">Nuestra amplia gama de productos ha sido elegida por más de 50 millones de clientes satisfechos cada mes, respaldando nuestra reputación como líderes en el mercado.</p>
+            <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 mt-6">Más de 2 Millones de Productos Vendidos </p>
+            <p className="font-normal text-base leading-6 text-gray-600 mt-6">Nuestra amplia gama de productos ha sido elegida por más de 100,000 de clientes satisfechos, respaldando nuestra reputación como líderes en el mercado.</p>
           </motion.div>
         </div>
         <div className="sm:block hidden">
@@ -119,7 +119,7 @@ const About = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1.5 }}
         >
-            <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 mt-6">Más de 400,000 Clientes Satisfechos</p>
+            <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 mt-6">Más de 100,000 Clientes Satisfechos</p>
             <p className="font-normal text-base leading-6 text-gray-600 mt-6">La satisfacción del cliente es nuestra máxima prioridad. Nos enorgullece haber servido a más de 400,000 clientes, quienes confían en nosotros para sus necesidades de revestimiento.</p>
           </motion.div>
         </div>
