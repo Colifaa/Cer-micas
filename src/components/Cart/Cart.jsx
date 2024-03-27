@@ -101,8 +101,7 @@ const Cart = () => {
     <Heading className='league-spartan-font'>
       <div className="flex justify-center">
         <div className="flex flex-col md:flex-row w-full">
-         <div className="bg-gradient-to-br from-orange-1 via-white to-white flex flex-col w-full md:w-1/3 p-4  md: min-h-screen">
- 
+          <div className="bg-white flex flex-col w-full md:w-1/3 p-4 md:mb-20 md:mt-4 min-h-screen">
             <SearchBar onSearch={handleSearch} />
             <div className='mb-4 min-h-200 flex justify-center mt-5'>
               <Button onClick={handleShowAllProducts}>Reiniciar Filtros</Button>
@@ -125,7 +124,7 @@ const Cart = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
               {filteredProducts.map((product) => (
                 <div
-                  className={`bg-white bg-cover shadow-xl rounded-lg overflow-hidden`}
+                  className={`bg-white bg-cover shadow-xl rounded-lg overflow-hidden border border-gray-300 w-full`}
                   key={product.id}
                   onClick={() => setShowDetail(product.id)}
                   onMouseEnter={(e) => {
@@ -134,7 +133,6 @@ const Cart = () => {
                   onMouseLeave={(e) => {
                     e.currentTarget.classList.remove('transform', 'scale-105');
                   }}
-                  style={{ maxWidth: "200px" }}
                 >
                   <figure>
                     <img src={product.img} alt={product.name} className="w-full h-auto" />
@@ -147,13 +145,13 @@ const Cart = () => {
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
+          ))}
           </div>
         </div>
       </div>
-    </Heading>
-  );
+    </div>
+  </Heading>
+);
 };
 
 export default Cart;
