@@ -18,9 +18,17 @@ import {
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import supabase from '../../../lib/supabaseClient';
 import { useRouter } from 'next/router';
+import Footer from '../Footer/Footer';
+import Navbar from '../NavBar/Navbar';
+import AlertSignUp from './AlertSignUp';
+
 
 function SignUp() {
-  
+
+  const [isOpen, setIsOpen] = useState(false);
+  const onClose = () => setIsOpen(false);
+  const onOpen = () => setIsOpen(true);
+
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -36,7 +44,6 @@ function SignUp() {
       [e.target.id]: e.target.value,
     });
   };
-
   const handleSignUp = async () => {
     try {
       if (!supabase) {
@@ -54,13 +61,24 @@ function SignUp() {
         return;
       }
 
-      // Resto del código después de un registro exitoso
+      // Si no hay error, mostrar la alerta
+      onOpen();
     } catch (error) {
       console.error('Error during signup:', error);
     }
   };
 
+
   return (
+    <>
+    <Navbar/>
+
+    <AlertSignUp
+        isOpen={isOpen}
+        onClose={onClose}
+        title="Confirmación de Registro"
+        message="Se ha enviado un correo electrónico a tu dirección. Por favor, verifica tu cuenta haciendo clic en el enlace de confirmación."
+      />
     <Flex
       minH={"100vh"}
       align={"center"}
@@ -73,7 +91,7 @@ function SignUp() {
             Sign up
           </Heading>
           <Text fontSize={"lg"} color={"gray.600"}>
-            to enjoy all of our cool features ✌️
+            Registrate aqui para poder realizar tus compras ✌️
           </Text>
         </Stack>
         <Box
@@ -86,23 +104,23 @@ function SignUp() {
             <HStack>
               <Box>
                 <FormControl id="firstName" isRequired>
-                  <FormLabel>First Name</FormLabel>
+                  <FormLabel>Nombre</FormLabel>
                   <Input type="text" id="firstName" onChange={handleInputChange} />
                 </FormControl>
               </Box>
               <Box>
                 <FormControl id="lastName">
-                  <FormLabel>Last Name</FormLabel>
+                  <FormLabel>Apellido</FormLabel>
                   <Input type="text" id="lastName" onChange={handleInputChange} />
                 </FormControl>
               </Box>
             </HStack>
             <FormControl id="email" isRequired>
-              <FormLabel>Email address</FormLabel>
+              <FormLabel>Email</FormLabel>
               <Input type="email" id="email" onChange={handleInputChange} />
             </FormControl>
             <FormControl id="password" isRequired>
-              <FormLabel>Password</FormLabel>
+              <FormLabel>Contraseña</FormLabel>
               <InputGroup>
                 <Input type={showPassword ? "text" : "password"} id="password" onChange={handleInputChange} />
                 <InputRightElement h={"full"}>
@@ -128,16 +146,16 @@ function SignUp() {
                   bg: "blue.500",
                 }}
               >
-                Sign up
+               Registrarse
               </Button>
             </Stack>
             <Stack pt={6}>
             <Text align={"center"}>
-  Already a user? 
+            ¿Ya eres usuario? 
   <Button 
     colorScheme="blue" 
     variant="link" 
-    onClick={() => router.push("/dashboard")}
+    onClick={() => router.push("https://ceramicas.vercel.app/")}
   >
     Login
   </Button>
@@ -146,7 +164,11 @@ function SignUp() {
           </Stack>
         </Box>
       </Stack>
+    
     </Flex>
+  
+       <Footer />
+    </>
   );
 }
 
