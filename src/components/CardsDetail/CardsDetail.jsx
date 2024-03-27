@@ -135,45 +135,45 @@ function CardsDetail({ product }) {
     setShowAlert2(false);
   };
 
-
+  const colorsForProduct50 = [50, ]; // IDs de productos que mostrarán los colores
 
 
   return (
     <>
-    <Button
-        onClick={() => {    
-          onOpen();
-        }}
-        variant="unstyled"
-        border="none"
-        width="15em"
-        height="5em"
-        borderRadius="3em"
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        gap="12px"
-        bg="#1C1A1C"
-        color="#AAAAAA"
-        fontWeight="600"
-        fontSize="medium"
-        cursor="pointer"
-        transition="background 450ms ease-in-out"
-        _hover={{
-          bgGradient: "linear(to-r, #A47CF3, #683FEA)",
-          boxShadow: "inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4), inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 4px rgba(255, 255, 255, 0.2), 0px 0px 180px 0px #9917FF",
-          transform: "translateY(-2px)",
-          "& .text": {
-            color: "white",
-          },
-          "& .sparkle": {
-            fill: "white",
-            transform: "scale(1.2)",
-          },
-        }}
-      >
-        Detail
-      </Button>
+<Button
+    onClick={() => {    
+      onOpen();
+    }}
+    variant="unstyled"
+    border="none"
+    width="15em"
+    height="5em"
+    rounded="lg" // Utilizamos "lg" para obtener bordes redondeados
+    display="flex"
+    justifyContent="center"
+    alignItems="center"
+    gap="12px"
+    bg="#3a758c"
+    color="white"
+    fontWeight="600"
+    fontSize="medium"
+    cursor="pointer"
+    transition="background 450ms ease-in-out"
+    _hover={{
+      bgGradient: "linear(to-r, #f5a067, #f5a067)",
+      boxShadow: "inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4), inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 4px rgba(255, 255, 255, 0.2), 0px 0px 180px 0px #9917FF",
+      transform: "translateY(-2px)",
+      "& .text": {
+        color: "white",
+      },
+      "& .sparkle": {
+        fill: "white",
+        transform: "scale(1.2)",
+      },
+    }}
+  >
+    Agregar 🛒
+  </Button>
       <Drawer
       size="md"
         isOpen={isOpen}
@@ -186,8 +186,9 @@ function CardsDetail({ product }) {
         </DrawerOverlay>
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>Create your account</DrawerHeader>
-
+          <DrawerHeader textAlign="center">
+      ELIGE LA CANTIDAD Y AGREGALAS AL CARRITO!
+    </DrawerHeader>
           <DrawerBody>
           <section className="text-gray-700 body-font overflow-hidden bg-white">
               <div className="container px-5 py-24 mx-auto">
@@ -200,156 +201,111 @@ function CardsDetail({ product }) {
 
                   <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                     <h2 className="text-sm title-font text-gray-500 tracking-widest">
-                      <span className="title-font font-medium text-xl text-gray-900">
-                        <h1><strong className='mr-1'></strong> {product && product.uso}</h1>
-                      </span>
+
                     </h2>
                     <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
                       {product && product.name}
                     </h1>
                     <div className="flex mb-4">
                       <span className="flex items-center">
-
-
-
                         <strong>Total de Cajas:</strong>
                         <span className="text-gray-600 ml-1">{product && product.cantCajas} |</span>
                         <strong>Piezas:</strong>
                         <span className="text-gray-600 ml-1"> {product && product.piezas} |</span>
-
-
                       </span>
                     </div>
                     <h1 className="leading-relaxed">
                       {product && product.detail}
-
-
                       <div className='mt-3'>
                         <strong>Tipo de material:</strong>
                         <span className="text-gray-600 ml-1"> {product && product.material}</span>
                       </div>
                       <div >
-                        <strong >Ambientación:</strong>
-                        <span className="text-gray-600 ml-1 mr-3"> {product && product.ambientacion}</span>
+                        <strong >Uso:</strong>
+                        <span className="text-gray-600 ml-1 mr-3"> {product && product.uso}</span>
+                      </div>
+                      <div >
+                        <strong >Medidas:</strong>
+                        <span className="text-gray-600 ml-1 mr-3"> {product && product.medidas}</span>
                       </div>
                     </h1>
-                    <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
-                      <div className="flex">
-
-                        <strong className='mr-3 '>Tono:</strong>
-                        <img
-                          src={product && product.img}
-                          alt={product && product.name}
-                          strokeWidth="2"
-                          className="w-6 h-"
-
-                        />
-
-
-                      </div>
-                      
-                      <div className="flex ml-6 items-center">
-
-
-
-                        <strong className='mr-3'>Medida:</strong>
-                        <div className="relative">
-
-                          <span className="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10">
-                            {product && product.medidas}
-                          </span>
-
-
-
-                          <span className="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex">
-
-                      <span className="title-font font-medium text-3xl text-gray-900">
-                      ${product && product.precio}
+                    <div className="flex mt-6 items-center">
+                      <span className="title-font font-medium text-3xl text-gray-900 mr-2">
+                        ${product && product.precio}
                       </span>
-                    
-                 
-                         
-                    
-
-
-
-
-                    
+                      {/* Renderizar el botón del carrito después del precio */}
                       <Button
-  
-    variant="unstyled"
-    border="none"
-    borderRadius="50%" // Para hacer el botón redondo
-    display="flex"
- 
-    width="1.5em" // Ajusta el tamaño del botón aquí
-    height="1.5em" // Ajusta el tamaño del botón aquí
-    bg="#f5a067"
-    marginLeft="28"
-    color="#AAAAAA"
-    fontWeight="600"
-    fontSize="2em" // Ajustar el tamaño del icono aquí
-    cursor="pointer"
-    transition="background 450ms ease-in-out"
-    _hover={{
-      bgGradient: "linear(to-r, #D9693B, #E0012F)",
-      boxShadow: "inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4), inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 4px rgba(255, 255, 255, 0.2), 0px 0px 180px 0px red",
-      transform: "translateY(-2px)",
-      "& .text": {
-        color: "white",
-      },
-      "& .sparkle": {
-        fill: "white",
-        transform: "scale(1.2)",
-      },
-    }}
-    onClick={handleClick}
-  >
-    🛒
-  </Button>
-  
-  
-  </div>
-  
+                        variant="unstyled"
+                        border="none"
+                        borderRadius="50%"
+                        display="flex"
+                        width="1.5em"
+                        height="1.5em"
+                        bg="#f5a067"
+                        color="#AAAAAA"
+                        fontWeight="600"
+                        fontSize="2em"
+                        cursor="pointer"
+                        transition="background 450ms ease-in-out"
+                        _hover={{
+                          bgGradient: "linear(to-r, #D9693B, #E0012F)",
+                          boxShadow: "inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4), inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 4px rgba(255, 255, 255, 0.2), 0px 0px 180px 0px red",
+                          transform: "translateY(-2px)",
+                          "& .text": {
+                            color: "white",
+                          },
+                          "& .sparkle": {
+                            fill: "white",
+                            transform: "scale(1.2)",
+                          },
+                        }}
+                        onClick={handleClick}
+                      >
+                        🛒
+                      </Button>
+                    </div>
+                    {/* Mostrar los colores solo para el producto con ID 50 */}
+                    {colorsForProduct50.includes(product && product.id) && (
+                      <>
+                        <div className="ml-6 mt-2 flex flex-col">
+                          <strong>Color:</strong>
+                          <div className="flex mt-2">
+                            <div className="w-6 h-6 bg-gray-500 rounded-full mr-2 border-black border"></div>
+                            <div className="w-6 h-6 bg-white rounded-full mr-2 border-black border"></div>
+                            <div className="w-6 h-6 bg-black rounded-full mr-2 border-black border"></div>
+                            <div className="w-6 h-6 bg-[#89370b] rounded-full mr-2 border-black border"></div>
+                            <div className="w-6 h-6 bg-[#d6b994] rounded-full mr-2 border-black border"></div>
+                          </div>
+                        </div>
+                      </>
+                    )}
                   </div>
                   <span className="title-font font-medium text-2xl text-gray-900">
-<SellCart product={product} user={user} loadCart={loadCart} addToCart={addToCart} />
-</span>
+                    <SellCart product={product} user={user} loadCart={loadCart} addToCart={addToCart} />
+                  </span>
                 </div>
-                
               </div>
-
-              
             </section>
-       
           </DrawerBody>
-
           <DrawerFooter>
-            <Button variant='outline' mr={3} onClick={onClose}>
-              Cancel
-            </Button>
-            <Button colorScheme='blue'>Save</Button>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
-       
-              
-
-<CartAlertAdd
+      <CartAlertAdd
         isOpen={showAlert2}
         onClose={handleCloseAlert2}
         title="Alerta"
         message="Debes iniciar sesión para agregar productos al carrito."
       />
-      <CartAlert   isOpen={showAlert}   onClose={handleCloseAlert}  title="Alerta"  message="Debes iniciar sesión para ver tu carrito de compras."/>
-
+      <CartAlert
+        isOpen={showAlert}
+        onClose={handleCloseAlert}
+        title="Alerta"
+        message="Debes iniciar sesión para ver tu carrito de compras."
+      />
     </>
   );
 }
+
 
 export default CardsDetail;

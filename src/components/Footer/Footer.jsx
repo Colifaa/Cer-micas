@@ -46,11 +46,12 @@ function Footer() {
             </div>
             
             <div className="flex gap-4 hover:cursor-pointer">
+            <a href='https://www.facebook.com/ceramicas.san.rafael/' target="_blank" rel="noopener noreferrer">
                 <img src="https://www.svgrepo.com/show/303114/facebook-3-logo.svg" width="30" height="30" alt="fb" />
+                </a>
                 <a href='https://www.instagram.com/ceramicas_sanrafael/' target="_blank" rel="noopener noreferrer">
                     <img src="https://www.svgrepo.com/show/303145/instagram-2-1-logo.svg" width="30" height="30" alt="inst" />
                 </a>
-                <img src="https://www.svgrepo.com/show/28145/linkedin.svg" width="30" height="30" alt="in" />
                 <img src="https://www.svgrepo.com/show/475692/whatsapp-color.svg" className="" width="30" height="30" alt="db" />
             </div>
         </div>
