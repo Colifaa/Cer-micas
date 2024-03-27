@@ -4,7 +4,7 @@ import supabase from "../../../lib/supabaseClient";
 
 function FilterTono({ selectedTono, onChangeTono }) {
   const [TonoOptions, setTonoOptions] = useState([]); // Inicializar con un array vacío
-  const colores = ["#ccac83", "#cfd8dc", "#b8b8b8", "#ffffff", "#965c1d", "#d4ba7d", "#fffff2", "#932f2f", "#a55e15", "#484ba1", "#f0ead8", "#362f3d",];
+  const colores = ["#ccac83", "#484ba1", "#f0ead8", "#ffffff", "#b8b8b8", "#932f2f", "#fffff2", "#965c1d", "#cfd8dc", "#362f3d", "#d4ba7d", "#a55e15",];
 
   useEffect(() => {
     const fetchTonoOptions = async () => {
