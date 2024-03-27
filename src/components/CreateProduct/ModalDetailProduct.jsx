@@ -34,7 +34,7 @@ function ModalDetailProduct({ product }) {
                 fill: "white",
                 transform: "scale(1.2)",
               },
-            }}>Detail</Button>
+            }} colorScheme="red" bgColor="green"  >Editar</Button>
       <Modal  size="full" isOpen={isOpen} onClose={onClose} isCentered motionPreset='slideInBottom'>
         <ModalOverlay />
         <ModalContent>
