@@ -49,7 +49,7 @@ function Cards({ product }) {
                     <div className="w-full h-full p-5 relative">
 
                       <div className="absolute bottom-0 group-hover:bottom-24 text-gray-1 text-left transition-all ease-in-out duration-500">
-                        <h2 className="text-2xl font-bold text-orange-2 mb-0 pb-1">{producto.name}</h2>
+                        <h2 className="text-2xl  text-orange-2 mb-0 pb-1">{producto.name}</h2>
                         <p className="text-lg font-light text-black">{producto.minidetail}</p>
                         <CardsDetail product={producto} />
                       </div>

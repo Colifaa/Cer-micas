@@ -39,12 +39,12 @@ const FilterAmbiente = ({ selectedFilter, onChange }) => {
       <SimpleGrid gap={{ base: 1, md: 2 }} p={1}>
 
         <Select
-          borderColor="orange"
+          borderColor=""
           value={selectedFilter}
           onChange={(e) => handleSelectChange(e.target.value)}
         >
           {options.map((option) => (
-            <option key={option} value={option} disabled={option === 'all'}>
+            <option key={option} value={option} disabled={option === 'options'}>
               {option === 'all' ? 'Ordenar por Ambiente:' : option}
             </option>
           ))}

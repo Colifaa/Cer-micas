@@ -42,7 +42,7 @@ const FilterPrecio = ({ selectedPrecios, onChangePrecios, setSortedProducts }) =
   return (
     <Box mb={{ base: 4, md: 0 }} display="flex" alignItems="center" justifyContent="center">
       <SimpleGrid gap={{ base: 1, md: 2 }} p={1}>
-      <h1 id="precio" className="text-lg text-center bg-gray-500 bg-opacity-50"></h1>
+      <h1 id="precio" className="text-lg text-center  bg-blue-1 bg-opacity-50"></h1>
         <Select value={selectedOption} onChange={handleOrdenPrecioChange}>
           <option value="Todos los productos" disabled>Ordenar por Precio:</option>
           <option value="menor-mayor">Menor precio</option>
