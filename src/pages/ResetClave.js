@@ -7,13 +7,14 @@ import FilterPrecio from "@/components/Filters/FilterPrecio"
 import SearchBar from "@/components/SearchBar/SearchBar"
 import CardsDetail from "@/components/CardsDetail/CardsDetail"
 import SellCart from "@/components/SellCart/SellCart"
+import ResetPassword from "@/components/SignInUser/ResetPassword"
 
-function pruebas() {
+function ResetClave() {
   return (
     <div>
-      <SellCart/>
+      <ResetPassword/>
     </div>
   )
 }
 
-export default pruebas
+export default ResetClave
