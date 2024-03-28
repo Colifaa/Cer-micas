@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import supabase from "../../../lib/supabaseClient";
 import {
@@ -25,16 +26,16 @@ import {
     DrawerCloseButton,
     useDisclosure,
 } from "@chakra-ui/react";
-import React, { useState } from 'react';
+import SignInAlert from "./SignInAlert";
 
 function SignInUser() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const router = useRouter();
     const [error, setError] = useState(null);
+    const [isAlertOpen, setAlertOpen] = useState(false); // Nuevo estado para controlar la visibilidad del alerta
+    const router = useRouter();
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = React.useRef()
-
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -45,6 +46,8 @@ function SignInUser() {
             });
 
             if (error) {
+                setError(error.message);
+                setAlertOpen(true); // Mostrar el alerta si hay un error
                 throw error;
             }
 
@@ -56,8 +59,8 @@ function SignInUser() {
 
     return (
         <div>
-            <button className="bg-white border-black rounded-lg p-2 mx-2" ref={btnRef}  onClick={onOpen}>
-            Iniciar sesión
+            <button className="bg-white border-black rounded-lg p-2 mx-2" ref={btnRef} onClick={onOpen}>
+                Iniciar sesión
             </button>
             <Drawer
                 size="xl"
@@ -83,7 +86,7 @@ function SignInUser() {
                                     <Stack align={"center"}>
                                         <Heading fontSize={"4xl"}>Ingrese a su cuenta</Heading>
                                         <Text fontSize={"lg"} color={"gray.600"}>
-                                        Crear una nueva cuenta{" "}
+                                            Crear una nueva cuenta{" "}
                                             <Link href="/signup" color={"blue.400"}>
                                                 Registrar aquí
                                             </Link>
@@ -115,7 +118,6 @@ function SignInUser() {
                                                         required
                                                     />
                                                 </FormControl>
-                                                {error && <Text color="red.500">{error}</Text>}
                                                 <Stack spacing={10}>
                                                     <Stack
                                                         direction={{ base: "column", sm: "row" }}
@@ -123,7 +125,7 @@ function SignInUser() {
                                                         justify={"space-between"}
                                                     >
                                                         <Checkbox>Acuérdate de mí</Checkbox>
-                                                        <Link color={"blue.400"}>¿Has olvidado tu contraseña?</Link>
+                                                        <Link href="/ResetClave" color={"blue.400"}>¿Has olvidado tu contraseña?</Link>
                                                     </Stack>
                                                     <Button
                                                         type="submit"
@@ -135,7 +137,6 @@ function SignInUser() {
                                                         bgImage={"linear-gradient(to right, #f09e06 , #fc490b )"}
                                                     >
                                                         Iniciar sesión
-
                                                     </Button>
                                                 </Stack>
                                             </Stack>
@@ -153,7 +154,6 @@ function SignInUser() {
                         <Input placeholder='Type here...' />
                     </DrawerBody>
 
-
                     <DrawerFooter>
                         <Button variant='outline' mr={3} onClick={onClose}>
                             Cancel
@@ -163,8 +163,14 @@ function SignInUser() {
                 </DrawerContent>
             </Drawer>
 
+            {/* Mostrar el alerta de inicio de sesión incorrecto */}
+            <SignInAlert
+                isOpen={isAlertOpen}
+                onClose={() => setAlertOpen(false)}
+                title="Contraseña o Mail incorrectos"
+                message={error}
+            />
         </div>
-
     );
 }
 
