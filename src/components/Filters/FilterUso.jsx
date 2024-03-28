@@ -33,7 +33,7 @@ function FilterUso({ selectedUso, onChangeUso }) {
     <Container maxW="container.xl" centerContent>
       <Box mb={{ base: 4, md: 0 }} position="relative" textAlign="center">
         <h1 id="uso" className="text-lg text-center bg-blue-1 bg-opacity-50">Uso</h1>
-        <SimpleGrid gap={{ base: 2, md: 1 }} p={{ base: 2, md: 2 }} columns={4} justifyItems="center">
+        <SimpleGrid gap={{ base: 2, md: 1 }} p={{ base: 2, md: 2 }} columns={3} justifyItems="center">
           <CheckboxGroup value={selectedUso} onChange={handleCheckboxChange}>
             {usoOptions.map((option) => (
               <Checkbox key={option} value={option}>
