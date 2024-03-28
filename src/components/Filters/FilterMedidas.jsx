@@ -47,4 +47,4 @@ function FilterMedidas({ selectedMedidas, onChangeMedidas }) {
   );
 }
 
-export default FilterMedidas;
+export default FilterMedidas
