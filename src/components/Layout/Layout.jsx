@@ -42,7 +42,7 @@ const SkeletonThree = () => {
 const SkeletonFour = () => {
   return (
     <div>
-      <p className="font-bold text-4xl text-white">FLOWER WHITE</p>
+      <p className="font-bold text-4xl text-orange-1">FLOWER WHITE</p>
       <p className="font-normal text-base text-white"></p>
       <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
       Añádele a tus ambientes un toque único y particular con nuestros calcareos Flower White, perteneciente a la Serie Croma. Su diseño original y acabado satinado lo hacen ideal para brindar autenticidad a tus ambientes.

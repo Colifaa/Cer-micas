@@ -1,7 +1,8 @@
 import React from 'react'
-
+import { Heading } from "@chakra-ui/react";
 function Footer() {
   return (
+    <Heading className="league-spartan-font" size="sm">
     <footer className="bg-white-100/80 font-sans dark:bg-gray-900">
     <div className="container px-6 py-12 mx-auto">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-4">
@@ -55,9 +56,10 @@ function Footer() {
                 <img src="https://www.svgrepo.com/show/475692/whatsapp-color.svg" className="" width="30" height="30" alt="db" />
             </div>
         </div>
-        <p className="font-sans p-8 text-start md:text-center md:text-lg md:p-4">© 2024 CERAMICAS SAN RAFAEL.  Desarrollado por <a href="https://www.instagram.com/web_desweby">DESWEBY</a>. Todos los derechos reservados.</p>
+        <p className=" p-8 text-start md:text-center md:text-lg md:p-4">© 2024 CERAMICAS SAN RAFAEL.  Desarrollado por <a href="https://www.instagram.com/web_desweby">DESWEBY</a>. Todos los derechos reservados.</p>
     </div>
 </footer>
+</Heading>
   )
 }
 

@@ -3,7 +3,7 @@ import { Text, Box, Container, Checkbox, CheckboxGroup, SimpleGrid } from '@chak
 import supabase from "../../../lib/supabaseClient";
 
 function FilterMedidas({ selectedMedidas, onChangeMedidas }) {
-  const [medidaOptions, setMedidaOptions] = useState([]); // Inicializar con un array vacío
+  const [medidaOptions, setMedidaOptions] = useState([]);
 
   useEffect(() => {
     const fetchMedidaOptions = async () => {
@@ -15,9 +15,8 @@ function FilterMedidas({ selectedMedidas, onChangeMedidas }) {
           return;
         }
 
-        // Obtener todas las medidas disponibles y eliminar duplicados
         const uniqueMedidas = Array.from(new Set(medidaData.map(product => product.medidas).filter(Boolean)));
-        setMedidaOptions(uniqueMedidas); // Actualizar el estado con las opciones de medidas
+        setMedidaOptions(uniqueMedidas);
       } catch (error) {
         console.error('Error fetching medidas:', error.message);
       }
@@ -27,15 +26,14 @@ function FilterMedidas({ selectedMedidas, onChangeMedidas }) {
   }, []);
 
   const handleCheckboxChange = (option) => {
-    // Llamar a la función onChangeMedidas pasando la opción seleccionada
     onChangeMedidas(option);
   };
 
   return (
     <Container maxW="container.xl" centerContent>
       <Box mb={{ base: 4, md: 0 }} position="relative" textAlign="center">
-      <h1 id="medidas" className="text-lg text-center bg-gray-500 bg-opacity-50">Medidas</h1>
-        <SimpleGrid gap={{ base: 2, md: 1 }} p={{ base: 2, md: 2 }} columns={4}>
+        <h1 id="medidas" className="text-lg text-center bg-blue-1 bg-opacity-50">Medidas</h1>
+        <SimpleGrid gap={{ base: 2, md: 1 }} p={{ base: 2, md: 2 }} columns={4} justifyItems="center">
           <CheckboxGroup value={selectedMedidas} onChange={handleCheckboxChange}>
             {medidaOptions.map((option) => (
               <Checkbox key={option} value={option}>
@@ -49,4 +47,4 @@ function FilterMedidas({ selectedMedidas, onChangeMedidas }) {
   );
 }
 
-export default FilterMedidas;
+export default FilterMedidas

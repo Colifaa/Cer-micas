@@ -37,7 +37,7 @@ function FilterTono({ selectedTono, onChangeTono }) {
   return (
     <Container maxW="container.xl" centerContent>
       <Box mb={{ base: 4, md: 0 }} position="relative" textAlign="center">
-      <h1 id="color" className="text-lg text-center bg-gray-500 bg-opacity-50">Color</h1>
+      <h1 id="color" className="text-lg text-center  bg-blue-1 bg-opacity-50">Color</h1>
         <SimpleGrid gap={{ base: 2, md: 1 }} p={{ base: 2, md: 2 }} columns={4}>
           {TonoOptions.map((option, index) => (
             <Box key={option}>

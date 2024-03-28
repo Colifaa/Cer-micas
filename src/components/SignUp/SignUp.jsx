@@ -88,7 +88,7 @@ function SignUp() {
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
         <Stack align={"center"}>
           <Heading fontSize={"4xl"} textAlign={"center"}>
-            Sign up
+            Registrarse
           </Heading>
           <Text fontSize={"lg"} color={"gray.600"}>
             Registrate aqui para poder realizar tus compras ✌️
