@@ -45,7 +45,7 @@ const About = () => {
           <h2 className="w-full font-bold lg:text-4xl text-3xl lg:leading-10 leading-9">
             {displayText}
           </h2>
-          <p className="font-normal text-base leading-6 text-gray-600 mt-6">Cerámicas San Rafael es una empresa líder en la industria de revestimientos, especializada en la venta de cerámicas, porcelanatos y complementos como pegamentos. Con una trayectoria de más de X años en el mercado, nos destacamos por ofrecer productos de alta calidad, innovadores diseños y un servicio al cliente excepcional.</p>
+          <p className="font-normal text-base leading-6 text-gray-600 mt-6">Cerámicas San Rafael es una empresa líder en la industria de revestimientos, especializada en la venta de cerámicas, porcelanatos y complementos como pegamentos. Con una trayectoria de más de 12 años en el mercado, nos destacamos por ofrecer productos de alta calidad, innovadores diseños y un servicio al cliente excepcional.</p>
         </motion.div>
         <motion.div
           className="w-full lg:w-6/12"

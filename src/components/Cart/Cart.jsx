@@ -21,10 +21,13 @@ const Cart = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedAmbiente, setSelectedAmbiente] = useState('all');
   const [selectedMedidas, setSelectedMedidas] = useState([]);
+  const [selectedUso, setSelectedUso] = useState([]);
   const [selectedTono, setSelectedTono] = useState([]);
   const [selectedMaterial, setSelectedMaterial] = useState([]);
   const [selectedPrecios, setSelectedPrecios] = useState([]);
   const [sortedProducts, setSortedProducts] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 21;
 
   const loadProducts = async () => {
     const { data, error } = await supabase.from('products').select('*').order('id');
@@ -46,6 +49,7 @@ const Cart = () => {
     setSelectedMedidas([]);
     setSelectedTono([]);
     setSelectedMaterial([]);
+    setSelectedUso([]);
     setSelectedPrecios([]);
     setSortedProducts(true);
   };
@@ -65,6 +69,9 @@ const Cart = () => {
     if (selectedMaterial.length > 0) {
       filteredData = filteredData.filter(product => selectedMaterial.includes(product.material));
     }
+    if (selectedUso.length > 0) {
+      filteredData = filteredData.filter(product => selectedUso.includes(product.uso));
+    }
     if (selectedPrecios === 'menor-mayor') {
       filteredData.sort((a, b) => a.precio - b.precio);
       setSortedProducts(false);
@@ -81,7 +88,7 @@ const Cart = () => {
 
   useEffect(() => {
     filterProducts();
-  }, [selectedAmbiente, selectedMedidas, selectedTono, selectedMaterial, selectedPrecios]);
+  }, [selectedAmbiente, selectedMedidas, selectedTono, selectedMaterial, selectedPrecios, selectedUso]);
 
   const handleSearch = async (searchTerm) => {
     if (searchTerm === '') {
@@ -97,11 +104,19 @@ const Cart = () => {
     setFilteredProducts(filteredData);
   };
 
+  // Función para obtener el rango de productos a mostrar en la página actual
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+
+  // Función para cambiar de página
+  const paginate = pageNumber => setCurrentPage(pageNumber);
+
   return (
     <Heading className='league-spartan-font'>
       <div className="flex justify-center">
         <div className="flex flex-col md:flex-row w-full">
-         <div className="bg-gradient-to-br from-orange-1 via-white to-white flex flex-col w-full md:w-1/3 p-4  md: min-h-screen">
+          <div className="bg-gradient-to-br from-orange-1 via-white to-white flex flex-col w-full md:w-1/3 p-4 md: min-h-screen">
  
             <SearchBar onSearch={handleSearch} />
             <div className='mb-4 min-h-200 flex justify-center mt-5'>
@@ -120,12 +135,15 @@ const Cart = () => {
             <div className="mb-4 min-h-200">
               <FilterMaterial selectedMaterial={selectedMaterial} onChangeMaterial={setSelectedMaterial} />
             </div>
+            <div className="mb-4 min-h-200">
+              <FilterUso selectedMaterial={selectedUso} onChangeUso={setSelectedUso} />
+            </div>
           </div>
-          <div className=" bg-gradient-to-br from-white via-white to-orange-1 flex flex-col items-center w-full md:w-2/3 p-4 border-3" >
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
-              {filteredProducts.map((product) => (
+          <div className="bg-gradient-to-br from-white via-white to-orange-1 flex flex-col items-center w-full md:w-2/3 p-4 border-3" style={{ overflow: 'hidden' }}> {/* Se añade overflow: hidden */}
+            <div className="flex flex-wrap justify-center"> {/* Se cambia grid por flex y se añade flex-wrap */}
+              {currentProducts.map((product) => (
                 <div
-                  className="bg-white bg-cover shadow-xl rounded-lg overflow-hidden"
+                  className="bg-white bg-cover shadow-xl rounded-lg overflow-hidden m-2" // Ajuste de márgenes
                   key={product.id}
                   onClick={() => setShowDetail(product.id)}
                   onMouseEnter={(e) => {
@@ -134,7 +152,7 @@ const Cart = () => {
                   onMouseLeave={(e) => {
                     e.currentTarget.classList.remove('transform', 'scale-105');
                   }}
-                  style={{ maxWidth: "200px" }}
+                  style={{ width: "300px", flex: '0 0 auto' }} // Ajuste de ancho y flexibilidad
                 >
                   <figure>
                     <img src={product.img} alt={product.name} className="w-full h-auto" />
@@ -148,6 +166,21 @@ const Cart = () => {
                   </div>
                 </div>
               ))}
+            </div>
+            <div className="mt-4">
+              {/* Paginación */}
+              <ul className="flex justify-center">
+                {Array.from({ length: Math.ceil(filteredProducts.length / productsPerPage) }, (_, i) => (
+                  <li key={i} className="mx-1">
+                    <button
+                      onClick={() => paginate(i + 1)}
+                      className={`bg-${currentPage === i + 1 ? 'white' : 'blue-1'} hover:bg-blue-1 text-${currentPage === i + 1 ? 'blue-1' : 'white'} league-spartan-font py-2 px-4 rounded`}
+                    >
+                      {i + 1}
+                    </button>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
