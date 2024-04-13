@@ -155,8 +155,8 @@ function Navbar() {
   alignItems="center"
   width="1.5em" // Ajusta el tamaño del botón aquí
   height="1.5em" // Ajusta el tamaño del botón aquí
-  bg="#f5a067"
-  color="#AAAAAA"
+  bg="#e62d31"
+  color="#e62d31"
   fontWeight="600"
   fontSize="2em" // Ajustar el tamaño del icono aquí
   cursor="pointer"

@@ -4,15 +4,15 @@ import { Heading } from "@chakra-ui/react";
 function Landing() {
   return (
     <Heading className='league-spartan-font'>
-      <div className="bg-orange-1 py-20">
+      <div className="bg-white py-20">
         <div className="max-w-screen-lg mx-auto flex justify-between items-center flex-col lg:flex-row">
           <div className="max-w-xl text-center lg:text-left mb-8 lg:mb-0">
-            <h2 className="text-blue-1 text-sky-950 text-2xl lg:text-3xl mb-4">CON MAS DE 12 AÑOS AL SERVICIO DEL CLIENTE</h2>
+            <h2 className="text-orange-1 text-sky-950 text-2xl lg:text-3xl mb-4">CON MAS DE 12 AÑOS AL SERVICIO DEL CLIENTE</h2>
             <p className="text-2xl lg:text-4xl text-sky-950 font-light text-transparent bg-clip-text bg-gradient-to-r from-black to-blue-1 lg:inline">Siempre nos destacamos por nuestra excelente atención y productos</p>
           </div>
           
-          <button onClick={() => {window.location.href = '/nosotros'}} className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400">
-            <span className="league-spartan-font relative px-5 py-2.5 transition-all ease-in duration-75bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+          <button onClick={() => {window.location.href = '/nosotros'}} className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-500 to-gray-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400">
+            <span className="league-spartan-font relative px-5 py-2.5 transition-all ease-in duration-75bg-gradient-to-br from-red-200 via-red-300 to-gray-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-gray-200 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
               + Mas sobre nosotros
             </span>
           </button>

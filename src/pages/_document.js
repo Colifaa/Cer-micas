@@ -1,15 +1,27 @@
-import { Html, Head, Main, NextScript } from 'next/document'
+import { Html, Head, Main, NextScript } from 'next/document';
 
-export default function Document() {
+export default function MyDocument() {
   return (
     <Html lang="es">
       <Head>
-      <title>Ceramicas San Rafael | Ceramicas, Porcelanatos, Pegamentos, Pastina y mas</title>
+        <title>Ceramicas San Rafael | Ceramicas, Porcelanatos, Pegamentos, Pastina y mas</title>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-QFRVTHQQDB"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-QFRVTHQQDB');
+            `,
+          }}
+        />
       </Head>
       <body>
         <Main />
         <NextScript />
       </body>
     </Html>
-  )
+  );
 }
