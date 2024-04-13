@@ -4,7 +4,7 @@ export default function MyDocument() {
   return (
     <Html lang="es">
       <Head>
-        <title>Ceramicas San Rafael | Ceramicas, Porcelanatos, Pegamentos, Pastina y mas</title>
+     
         {/* Google tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-QFRVTHQQDB"></script>
         <script

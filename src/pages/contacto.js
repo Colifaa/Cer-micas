@@ -10,6 +10,9 @@ import React from 'react'
 export default function Contacto() {
   return (
     <>
+    <Head>
+      <title>Contacto | Servicio al cliente - Ceramicas San Rafael Mendoza Argentina - Porcelanato, pisos y revestimientos</title>
+    </Head>
       <Navbar/>
       <ContactSection />
       <Footer/>
