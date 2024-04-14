@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import  supabase  from '../../lib/supabaseClient'; // Suponiendo que tienes una instancia de Supabase configurada en 'supabaseClient.js'
 import CreateProduct from '@/components/CreateProduct/CreateProduct';
-
+import Head from 'next/head'
 function create() {
     const [user, setUser] = useState(null);
 
@@ -31,6 +31,9 @@ function create() {
   
     return (
         <div>
+                <Head>
+        <title>Creador - Ceramicas San Rafael Mendoza Argentina - Porcelanato, pisos y revestimientos</title>
+      </Head>
         {user ? (
       <CreateProduct/>
         ) : (

@@ -7,6 +7,7 @@ import Carousel from '@/components/Carousel/Carousel';
 import Navbar from '@/components/NavBar/Navbar';
 import CarouselPri from '@/components/CarouselPri/CarouselPri';
 import Marcas from '@/components/Marcas/Marcas';
+import Head from 'next/head';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -29,9 +30,11 @@ export default function Home() {
     "/images/3.png",
     "/images/4.png",  
   ];
-
+  
   return (
-    <>
+    <>      <Head>
+    <title>Ceramicas San Rafael | Ceramicas, Porcelanatos, Pegamentos, Pastina y mas</title>
+  </Head>
       <Navbar />
       <CarouselPri images={images} autoSlide={true} autoSlideInterval={5000} />
       <Landing />

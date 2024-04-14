@@ -12,9 +12,9 @@ module.exports = withMT( {
   theme: {
     extend: {
       colors: {
-        'orange-1': '#f5a067',
+        'orange-1': '#e62d31',
         'orange-2': '#ff8301',
-        'blue-1': '#3a758c',
+        'blue-1': '#95979a',
     
       },
       animation: {

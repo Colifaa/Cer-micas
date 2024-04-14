@@ -42,7 +42,7 @@ const About = () => {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="w-full font-bold lg:text-4xl text-3xl lg:leading-10 leading-9">
+          <h2 className="w-full font-bold lg:text-4xl text-3xl lg:leading-10 leading-9 text-orange-1">
             {displayText}
           </h2>
           <p className="font-normal text-base leading-6 text-gray-600 mt-6">Cerámicas San Rafael es una empresa líder en la industria de revestimientos, especializada en la venta de cerámicas, porcelanatos y complementos como pegamentos. Con una trayectoria de más de 12 años en el mercado, nos destacamos por ofrecer productos de alta calidad, innovadores diseños y un servicio al cliente excepcional.</p>
@@ -69,7 +69,7 @@ const About = () => {
               <path d="M5 14.0001C5.93464 13.084 7.19124 12.5708 8.5 12.5708C9.80876 12.5708 11.0654 13.084 12 14.0001C12.9346 14.9162 14.1912 15.4294 15.5 15.4294C16.8088 15.4294 18.0654 14.9162 19 14.0001" stroke="white" strokeWidth="2.75" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
-
+          <div className="z-20 w-12 h-12 bg-gray-800 rounded-full flex justify-center items-center">
           <svg className="z-20" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="24" cy="24" r="24" fill="#1F2937" />
             <path d="M26 15V19C26 19.2652 26.1054 19.5196 26.2929 19.7071C26.4804 19.8946 26.7348 20 27 20H31" stroke="white" strokeWidth="2.75" strokeLinecap="round" strokeLinejoin="round" />
@@ -77,6 +77,7 @@ const About = () => {
             <path d="M30 26H33M15 26H18H15ZM22.5 26H25.5H22.5Z" stroke="white" strokeWidth="2.75" strokeLinecap="round" strokeLinejoin="round" />
             <path d="M17 22V17C17 16.4696 17.2107 15.9609 17.5858 15.5858C17.9609 15.2107 18.4696 15 19 15H26L31 20V22" stroke="white" strokeWidth="2.75" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
+          </div>
 
           <svg className="z-20 sm:block hidden" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="24" cy="24" r="24" fill="#1F2937" />
