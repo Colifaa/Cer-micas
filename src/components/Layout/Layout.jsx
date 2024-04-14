@@ -86,9 +86,9 @@ const cards = [
  
 function Layout() {
   return (
-    <div className="h-screen w-full" style={{ background: "linear-gradient(to bottom, #ffffff, #f5a067)" }}>
+    <div className="h-screen w-full" style={{ background: "linear-gradient(to bottom, #ffffff, #e62d31)" }}>
 
-        <h1 className="font-black text-sky-950 text-center text-4xl mb-4 text-blue-1 ">TENDENCIAS</h1>
+        <h1 className="font-black text-sky-950 text-center text-4xl mb-4 text-orange-1 ">TENDENCIAS</h1>
         <LayoutGrid cards={cards} />
 
     </div>

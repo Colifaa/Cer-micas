@@ -148,14 +148,19 @@ function Navbar() {
                         <Button
     
 
+  variant="unstyled"
+  border="none"
+  borderRadius="50%" // Para hacer el botón redondo
+  display="flex"
+  justifyContent="center"
+  alignItems="center"
+  width="1.5em" // Ajusta el tamaño del botón aquí
+  height="1.5em" // Ajusta el tamaño del botón aquí
+  bg="#e62d31"
+  color="#e62d31"
+  fontWeight="600"
+  fontSize="2em" // Ajustar el tamaño del icono aquí
 
-
-
-  
-  
-
-  
-  fontSize="1.5em" // Ajustar el tamaño del icono aquí
   cursor="pointer"
   transition="background 450ms ease-in-out"
   _hover={{

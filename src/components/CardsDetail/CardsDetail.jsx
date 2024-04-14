@@ -153,7 +153,7 @@ function CardsDetail({ product }) {
     justifyContent="center"
     alignItems="center"
     gap="12px"
-    bg="#3a758c"
+    bg="#95979a"
     color="white"
     fontWeight="600"
     fontSize="medium"
