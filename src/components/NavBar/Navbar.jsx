@@ -147,6 +147,7 @@ function Navbar() {
                         <li>
                         <Button
     
+
   variant="unstyled"
   border="none"
   borderRadius="50%" // Para hacer el botón redondo
@@ -159,6 +160,7 @@ function Navbar() {
   color="#e62d31"
   fontWeight="600"
   fontSize="2em" // Ajustar el tamaño del icono aquí
+
   cursor="pointer"
   transition="background 450ms ease-in-out"
   _hover={{
@@ -169,7 +171,7 @@ function Navbar() {
       color: "white",
     },
     "& .sparkle": {
-      fill: "white",
+      fill: "blue",
       transform: "scale(1.2)",
     },
   }}
@@ -181,7 +183,7 @@ function Navbar() {
         isOpen={showAlert}
         onClose={handleCloseAlert}
         title="Alerta"
-        message="Debes iniciar sesión para ver tu carrito de compras."
+        message="Debes iniciar sesión o crear una cuenta para ver tu carrito de compras."
       />
                 </li>
 
