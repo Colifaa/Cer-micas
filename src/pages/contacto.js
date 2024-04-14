@@ -3,7 +3,7 @@ import ContactSection from '@/components/Contacto/Contacto'
 import Footer from '@/components/Footer/Footer'
 import Navbar from '@/components/NavBar/Navbar'
 import React from 'react'
-
+import Head from 'next/head'
 
 
 
